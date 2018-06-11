@@ -21,8 +21,9 @@
 #include <string.h>
 #include "charset.h"
 #include "lcd.h"
+//#include "menu.h"
 
-#define BORDERX 150
+#define BORDERX 144
 #define BORDERY 80
 
 
@@ -33,39 +34,76 @@ int main(void)
     gotoxy(1,1);
     printf("%c[?25l",ESC);
     counter(1,1,BORDERX,BORDERY);
+    init_joystick();
 
-    struct ball_t b;
-    initVector(&b.posi, 25,10);
-    initVector(&b.vel, 1,1);
-  while(1)
-  {
-        if((b.posi.x <= (2 << 14)) || (b.posi.x >= ((BORDERX) << 14 )))
-    {
-    b.vel.x = -b.vel.x;
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf("%c",179);
-    }
-    else if ((b.posi.y >= ((BORDERY)<< 14)) || (b.posi.y <= (2<<14)))
-        {
-        b.vel.y = -b.vel.y;
-        gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-        printf("%c",196);
+
+
+    // Herfra starter menu
+    gotoxy(BORDERX/2-10,BORDERY/5);
+    printf("New Game");
+    gotoxy(BORDERX/2-10,BORDERY/5+2);
+    printf("High Scores");
+    gotoxy(BORDERX/2-10,BORDERY/5+4);
+    printf("Help");
+    uint8_t menu_counter = 1;
+    uint8_t move_cursor = 0;
+    uint8_t old_read = 0;
+    //init_menu(&menu_counter, &move_counter, &old_read);
+
+  while(1){
+
+    uint8_t read = readJoystick();
+
+
+    // Her ændres menu_counter så der holdes styr på cursoren
+    if (read != old_read){
+        if (read == 1){
+            (menu_counter)--;
         }
-
-
-    updatepos(&b);
-if ((b.posi.x <= (BORDERX/2+6 << 14)) && (b.posi.x >= ((BORDERX/2-6) << 14 ))
-    && (b.posi.y <= (BORDERY/2+2 << 14)) && (b.posi.y >= ((BORDERY/2-2) << 14 ))) {}
- //  counter(borderX/2-5,borderY/2-1,borderX/2+5,borderY/2+1);
-
-    else {
-
-
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf("o");
-
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf(" ");
+        else if (read == 2){
+            (menu_counter)++;
+        }
     }
+
+    if (menu_counter == 0){
+            (menu_counter)++;
+    }
+    else if (menu_counter == 4) {
+            (menu_counter)--;
+    }
+
+
+    // Her flyttes cursoren
+    if (menu_counter == 1){
+        gotoxy(BORDERX/2-15,BORDERY/5);
+        printf("%c",175);
+        gotoxy(BORDERX/2-15,BORDERY/5+2);
+        printf("  ");
+        gotoxy(BORDERX/2-15,BORDERY/5+4);
+        printf("  ");
+    }
+    else if (menu_counter == 2){
+        gotoxy(BORDERX/2-15,BORDERY/5);
+        printf("  ");
+        gotoxy(BORDERX/2-15,BORDERY/5+2);
+        printf("%c",175);
+        gotoxy(BORDERX/2-15,BORDERY/5+4);
+        printf("  ");
+    }
+    else if (menu_counter == 3){
+        gotoxy(BORDERX/2-15,BORDERY/5);
+        printf("  ");
+        gotoxy(BORDERX/2-15,BORDERY/5+2);
+        printf("  ");
+        gotoxy(BORDERX/2-15,BORDERY/5+4);
+        printf("%c",175);
+    }
+
+
+    old_read = read;
+
+
+
   }
-}
+
+    }
