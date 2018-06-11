@@ -91,10 +91,14 @@
 		<Unit filename="cmsis\core_cmInstr.h" />
 		<Unit filename="inc\30010_io.h" />
 		<Unit filename="inc\ansi.h" />
+		<Unit filename="inc\charset.h" />
+		<Unit filename="inc\controller.h" />
+		<Unit filename="inc\lcd.h" />
 		<Unit filename="inc\LUT.h" />
 		<Unit filename="inc\stm32f30x.h" />
 		<Unit filename="inc\stm32f30x_conf.h" />
 		<Unit filename="inc\system_stm32f30x.h" />
+		<Unit filename="inc\timer.h" />
 		<Unit filename="inc\trig.h" />
 		<Unit filename="readme.txt" />
 		<Unit filename="SPL\inc\stm32f30x_adc.h" />
@@ -191,6 +195,15 @@
 		<Unit filename="src\ansi.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\charset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\controller.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\lcd.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src\LUT.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -201,6 +214,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\system_stm32f30x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\timer.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\trig.c">
