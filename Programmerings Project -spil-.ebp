@@ -89,9 +89,13 @@
 		<Unit filename="cmsis\core_cm4_simd.h" />
 		<Unit filename="cmsis\core_cmFunc.h" />
 		<Unit filename="cmsis\core_cmInstr.h" />
+		<Unit filename="inc\30010_io.h" />
+		<Unit filename="inc\ansi.h" />
+		<Unit filename="inc\LUT.h" />
 		<Unit filename="inc\stm32f30x.h" />
 		<Unit filename="inc\stm32f30x_conf.h" />
 		<Unit filename="inc\system_stm32f30x.h" />
+		<Unit filename="inc\trig.h" />
 		<Unit filename="readme.txt" />
 		<Unit filename="SPL\inc\stm32f30x_adc.h" />
 		<Unit filename="SPL\inc\stm32f30x_can.h" />
@@ -181,6 +185,15 @@
 		<Unit filename="SPL\src\stm32f30x_wwdg.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\30010_io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\ansi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\LUT.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -188,6 +201,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\system_stm32f30x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\trig.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="stm32f302r8_flash.ld" />
@@ -199,8 +215,8 @@
 					<debug_interface interface_id="OpenOCD" ip_address="localhost" ip_port="3333" path="C:\openocd-0.10.0\bin-x64" executable="openocd.exe" description="" dont_start_server="false" backoff_time="100" options="0" reg_filter="0" active_family="All" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="All">
 							<option opt_id="ID_BOARD_CH" opt_value="" />
-							<option opt_id="ID_INTERFACE_CH" opt_value="" />
-							<option opt_id="ID_TARGET_CH" opt_value="" />
+							<option opt_id="ID_INTERFACE_CH" opt_value="stlink-v2-1" />
+							<option opt_id="ID_TARGET_CH" opt_value="stm32f3x_stlink" />
 							<option opt_id="ID_TEXTCTRL1" opt_value="4" />
 							<option opt_id="ID_HW_BKP_LIMIT" opt_value="1" />
 							<option opt_id="ID_RESET_CH" opt_value="halt" />
