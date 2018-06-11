@@ -511,7 +511,7 @@
 	"30010_io.h"
 	"LUT.h"
 
-1528732742 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1528749183 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -524,11 +524,11 @@
 	"lcd.h"
 	"menu.h"
 
-1528729899 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
+1528751025 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528732537 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1528751011 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 	"stm32f30x_conf.h"
 	"30010_io.h"

@@ -36,15 +36,18 @@ int main(void)
     counter(1,1,BORDERX,BORDERY);
     init_joystick();
 
-    // Herfra starter menu
 
+
+    // Herfra starter menu
+    uint8_t in_game = 0;
     uint8_t menu_counter = 1;
     uint8_t old_read = 0;
     init_menu();
 
   while(1){
+    // Her kører menuen
     uint8_t read = readJoystick();
-    control_menu(read, &menu_counter, &old_read);
+    control_menu(read, &menu_counter, &old_read, &in_game);
 
 
 
