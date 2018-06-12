@@ -10,9 +10,25 @@
 void clear_line(uint8_t y){
     gotoxy(3,y);
     printf("                                                                                                                                 ");
-    // her indsættes en masse mellemrum så linje "y" overskrives
+    // her indsættes en masse mellemrum så linje "y" overskrives.
 }
 
+
+void init_menu(){
+    uint8_t text_line_1=BORDERY/5;
+    uint8_t text_col_1=BORDERX/2-10;
+    clear_line(text_line_1);
+    clear_line(text_line_1+2);
+    clear_line(text_line_1+4);
+    clear_line(text_line_1+6);
+    clear_line(text_line_1+8);
+    gotoxy(text_col_1,text_line_1);
+    printf("New Game");
+    gotoxy(text_col_1,text_line_1+2);
+    printf("High scores");
+    gotoxy(text_col_1,text_line_1+4);
+    printf("Help");
+}
 
 void init_high_score(){
     uint8_t text_line_1=BORDERY/5;
@@ -33,22 +49,6 @@ void init_high_score(){
     }
 
 
-void init_menu(){
-    uint8_t text_line_1=BORDERY/5;
-    uint8_t text_col_1=BORDERX/2-10;
-    clear_line(text_line_1);
-    clear_line(text_line_1+2);
-    clear_line(text_line_1+4);
-    clear_line(text_line_1+6);
-    clear_line(text_line_1+8);
-    gotoxy(text_col_1,text_line_1);
-    printf("New Game");
-    gotoxy(text_col_1,text_line_1+2);
-    printf("High scores");
-    gotoxy(text_col_1,text_line_1+4);
-    printf("Help");
-}
-
 void init_help(){
     uint8_t text_cursor_1=BORDERX/2-15;
     uint8_t text_line_1=BORDERY/5;
@@ -67,12 +67,11 @@ void init_help(){
     gotoxy(text_col_1,text_line_1+4);
     printf("The diode on the micro controller shows your remaining lives.");
     gotoxy(text_col_1,text_line_1+6);
-    printf("    Green = 3, yellow = 2 and red = 1.");
+    printf("    Green = 3, yellow = 2 and red = 1. If you see a white light, you're dead.");
     gotoxy(text_col_1,text_line_1+8);
     printf("Your score can be seen on the LCD.");
 
 }
-
 
 
 
@@ -149,7 +148,7 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
         (*in_game) = 1;
         // Noget der starter spillet her
         gotoxy(3,3);
-        printf("spil under udvikling");
+        printf("Game under development. Press >restart< to control the menu again.");
         (*menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 

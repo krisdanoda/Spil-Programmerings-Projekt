@@ -474,10 +474,10 @@
 
 1528722402 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\charset.h
 
-1528722402 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\controller.c
+1528798707 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\controller.c
 	"controller.h"
 
-1528722402 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\controller.h
+1528797966 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\controller.h
 	"30010_io.h"
 
 1528722402 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lcd.c
@@ -511,7 +511,7 @@
 	"30010_io.h"
 	"LUT.h"
 
-1528749183 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1528798717 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -528,7 +528,7 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528791877 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1528798260 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 	"stm32f30x_conf.h"
 	"30010_io.h"

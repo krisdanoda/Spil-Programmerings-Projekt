@@ -35,18 +35,22 @@ int main(void)
     printf("%c[?25l",ESC);
     counter(1,1,BORDERX,BORDERY);
     init_joystick();
-
+    init_RGB();
 
 
     // Herfra starter menu
     uint8_t in_game = 0;
     uint8_t menu_counter = 1;
     uint8_t old_read = 0;
+    uint8_t life_count = 3;
     init_menu();
 
   while(1){
     // Her kører menuen
     uint8_t read = readJoystick();
+
+    set_RGB(life_count);
+
     control_menu(read, &menu_counter, &old_read, &in_game);
 
 

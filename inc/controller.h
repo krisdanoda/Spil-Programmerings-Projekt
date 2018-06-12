@@ -12,4 +12,6 @@ uint8_t readJoystick();
 
 void set_Led(uint8_t val);
 
+void set_RGB(uint8_t val);
+
 #endif /* CPONTROLLER_H_INCLUDED */
