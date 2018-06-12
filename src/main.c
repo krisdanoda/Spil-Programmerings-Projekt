@@ -21,7 +21,7 @@
 #include <string.h>
 #include "charset.h"
 #include "lcd.h"
-#include "ini_blocks.h"
+#include "block_control.h"
 
 #define BORDERX 150
 #define BORDERY 80
@@ -71,48 +71,10 @@ int main(void)
 	initVector(&b.vel, 1, 1);
 	while (1)
 	{
-		if ((b.posi.x <= (2 << 14)) || (b.posi.x >= ((BORDERX) << 14 )))
-		{
-			b.vel.x = -b.vel.x;
-			gotoxy(b.posi.x >> 14, b.posi.y >> 14);
-			printf("%c", 179);
-		}
-		else if ((b.posi.y >= ((BORDERY) << 14)) || (b.posi.y <= (2 << 14)))
-		{
-			b.vel.y = -b.vel.y;
-			gotoxy(b.posi.x >> 14, b.posi.y >> 14);
-			printf("%c", 196);
-		}
 
+		border_control(&b);
+		block_control(&b, &block);
 
-		for (uint8_t j = 0; j < 27; j++) {
-			if ( (((b.posi.x >> 14) >= block[j].x1) && ((b.posi.x >> 14) <= block[j].x2)) &&
-                ( ((b.posi.y >> 14) == block[j].y1) || ((b.posi.y >> 14) == block[j].y2) ) ) {
-				b.vel.y = -b.vel.y;
-				block[j].hit--;
-				print_Block(block[j]);
-				if(block[j].hit == 0){
-				    del_block(block[j].x1,block[j].y1, block[j].x2, block[j].y2);
-                    block[j].x1 = 100;
-                    block[j].y1 = 100;
-                    block[j].x2 = 100;
-                    block[j].y2 = 100;
-				}
-			}
-			else if ( (((b.posi.x >>14) == block[j].x1) || ((b.posi.x >> 14) == block[j].x2)) &&
-			         ( ((b.posi.y >>14) >= block[j].y1) && ((b.posi.y >> 14) <= block[j].y2) ) ) {
-				b.vel.x = -b.vel.x;
-				block[j].hit--;
-				print_Block(block[j]);
-				if(block[j].hit == 0){
-				    del_block(block[j].x1,block[j].y1, block[j].x2, block[j].y2);
-				    block[j].x1 = 100;
-                    block[j].y1 = 100;
-                    block[j].x2 = 100;
-                    block[j].y2 = 100;
-				}
-			}
-		}
 
 
 		updatepos(&b);

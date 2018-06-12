@@ -6,7 +6,6 @@
 		<Option title="Programmerings Project" />
 		<Option pch_mode="2" />
 		<Option compiler="armgcc_eb" />
-		<Option virtualFolders="src\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin\Debug\Programmerings Project.elf" />
@@ -92,9 +91,9 @@
 		<Unit filename="cmsis\core_cmInstr.h" />
 		<Unit filename="inc\30010_io.h" />
 		<Unit filename="inc\ansi.h" />
+		<Unit filename="inc\block_control.h" />
 		<Unit filename="inc\charset.h" />
 		<Unit filename="inc\controller.h" />
-		<Unit filename="inc\ini_blocks.h" />
 		<Unit filename="inc\lcd.h" />
 		<Unit filename="inc\LUT.h" />
 		<Unit filename="inc\stm32f30x.h" />
@@ -197,13 +196,13 @@
 		<Unit filename="src\ansi.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\block_control.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src\charset.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\controller.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src\ini_blocks.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\lcd.c">

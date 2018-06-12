@@ -186,9 +186,9 @@ void block(int x1, int y1, int x2, int y2, int hit) {
   int i;
 
   if (hit == 3)
-    printf("%c[31m",ESC);
+    printf("%c[31m", ESC);
   else if (hit == 2)
-    printf("%c[33m",ESC);
+    printf("%c[33m", ESC);
   else
     printf("%c[32m", ESC);
 
