@@ -13,6 +13,6 @@ struct blockpos {
 
 void print_Block(struct blockpos b_1);
 void border_control(struct ball_t *b);
-void block_control(struct ball_t *b, struct blockpos *block);
+uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter);
 #endif /* BLOCK_CONTROL_INCLUDED */
 

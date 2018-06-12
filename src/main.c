@@ -37,7 +37,7 @@ int main(void)
 	printf("%c[?25l", ESC);
 	counter(1, 1, BORDERX, BORDERY);
 
-
+    uint32_t score_counter = 0;
 	struct ball_t b;
 
 	struct blockpos block[27];
@@ -73,7 +73,7 @@ int main(void)
 	{
 
 		border_control(&b);
-		block_control(&b, &block);
+		score_counter = block_control(&b, &block, score_counter);
 
 
 
@@ -82,9 +82,11 @@ int main(void)
 		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf("%c", 254);
 
-
+        gotoxy(20,90);
+        printf("Score %d", score_counter);
 		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf(" ");
+
 
 	}
 }
