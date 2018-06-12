@@ -231,12 +231,12 @@
 		<Extensions>
 			<code_completion />
 			<debugger>
-				<target_debugging_settings target="Release" active_interface="OpenOCD">
-					<debug_interface interface_id="OpenOCD" ip_address="localhost" ip_port="3333" path="C:\openocd-0.10.0\bin-x64" executable="openocd.exe" description="" dont_start_server="false" backoff_time="100" options="0" reg_filter="0" active_family="All" gdb_before_conn="" gdb_after_conn="">
+				<target_debugging_settings target="Debug" active_interface="OpenOCD">
+					<debug_interface interface_id="OpenOCD" ip_address="localhost" ip_port="3333" path="C:\OpenOCD 0.10.0\bin-x64" executable="openocd.exe" description="" dont_start_server="false" backoff_time="100" options="0" reg_filter="0" active_family="All" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="All">
 							<option opt_id="ID_BOARD_CH" opt_value="" />
-							<option opt_id="ID_INTERFACE_CH" opt_value="" />
-							<option opt_id="ID_TARGET_CH" opt_value="" />
+							<option opt_id="ID_INTERFACE_CH" opt_value="stlink-v2-1" />
+							<option opt_id="ID_TARGET_CH" opt_value="stm32f3x_stlink" />
 							<option opt_id="ID_TEXTCTRL1" opt_value="4" />
 							<option opt_id="ID_HW_BKP_LIMIT" opt_value="1" />
 							<option opt_id="ID_RESET_CH" opt_value="halt" />
@@ -262,12 +262,12 @@
 						</family_options>
 					</debug_interface>
 				</target_debugging_settings>
-				<target_debugging_settings target="Debug" active_interface="OpenOCD">
-					<debug_interface interface_id="OpenOCD" ip_address="localhost" ip_port="3333" path="C:\OpenOCD 0.10.0\bin-x64" executable="openocd.exe" description="" dont_start_server="false" backoff_time="100" options="0" reg_filter="0" active_family="All" gdb_before_conn="" gdb_after_conn="">
+				<target_debugging_settings target="Release" active_interface="OpenOCD">
+					<debug_interface interface_id="OpenOCD" ip_address="localhost" ip_port="3333" path="C:\openocd-0.10.0\bin-x64" executable="openocd.exe" description="" dont_start_server="false" backoff_time="100" options="0" reg_filter="0" active_family="All" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="All">
 							<option opt_id="ID_BOARD_CH" opt_value="" />
-							<option opt_id="ID_INTERFACE_CH" opt_value="stlink-v2-1" />
-							<option opt_id="ID_TARGET_CH" opt_value="stm32f3x_stlink" />
+							<option opt_id="ID_INTERFACE_CH" opt_value="" />
+							<option opt_id="ID_TARGET_CH" opt_value="" />
 							<option opt_id="ID_TEXTCTRL1" opt_value="4" />
 							<option opt_id="ID_HW_BKP_LIMIT" opt_value="1" />
 							<option opt_id="ID_RESET_CH" opt_value="halt" />
@@ -275,7 +275,6 @@
 							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
 							<option opt_id="ID_ADD_COMMANDS" opt_value="" />
 							<option opt_id="ID_ADD_CMNDS" opt_value="" />
-							<option opt_id="ID_FLASH_DOWNLOAD" opt_value="1" />
 						</family_options>
 					</debug_interface>
 					<debug_interface interface_id="ST-link" ip_address="" ip_port="" path="" executable="" description="" dont_start_server="false" backoff_time="" options="0" reg_filter="0" active_family="" gdb_before_conn="" gdb_after_conn="">
