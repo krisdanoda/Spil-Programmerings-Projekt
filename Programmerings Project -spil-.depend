@@ -474,7 +474,7 @@
 
 1528720000 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\charset.h
 
-1528720000 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\controller.c
+1528793476 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\controller.c
 	"controller.h"
 
 1528720000 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\controller.h
@@ -496,7 +496,7 @@
 1528720000 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1528707100 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\startup_stm32f30x.s
+1528814471 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\startup_stm32f30x.s
 
 1528707100 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\system_stm32f30x.c
 	"stm32f30x.h"
@@ -504,14 +504,14 @@
 1528466151 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\timer.c
 	"timer.h"
 
-1528720000 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\trig.c
+1528807840 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528720000 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\trig.h
+1528807472 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\trig.h
 	"30010_io.h"
 	"LUT.h"
 
-1528727645 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\main.c
+1528816085 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
