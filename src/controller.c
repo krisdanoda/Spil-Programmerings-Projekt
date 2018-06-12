@@ -10,6 +10,10 @@ if (val == 1) {
     GPIOC->ODR |= (0x0001 << 7); //Set pin PC7 to high
     }
     else if (val == 2) {
+    // Port C (GREEN)
+    GPIOC->ODR &= ~(0x0001 << 7); //Set pin PC7 to high
+    // Port B (RED)
+    GPIOB->ODR &= ~(0x0001 << 4); //Set pin PB4 to high
     // Port A (BLUE)
     GPIOA->ODR |= (0x0001 << 9); //Set pin PA9 to high
     }

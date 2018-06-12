@@ -36,22 +36,30 @@ int main(void)
     counter(1,1,BORDERX,BORDERY);
     init_joystick();
     init_RGB();
-
+    init_spi_lcd();
+    init_menu();
+    init_disp_score();
 
     // Herfra starter menu
     uint8_t in_game = 0;
-    uint8_t menu_counter = 1;
-    uint8_t old_read = 0;
-    uint8_t life_count = 3;
-    init_menu();
+    uint8_t menu_counter = 1;   // bruges i menu
+    uint8_t old_read = 0;       // bruges i menu
+    uint8_t life_count = 2;     // bruges til RGB
+    uint32_t score_counter = 5000;   // bruges til LCD
+
 
   while(1){
-    // Her kører menuen
-    uint8_t read = readJoystick();
 
+    // Display life_count on RGB
     set_RGB(life_count);
+    // Display score_counter on LCD
+    write_score(score_counter);
 
+    // Navigate menu with joystick
+    uint8_t read = readJoystick();
     control_menu(read, &menu_counter, &old_read, &in_game);
+
+
 
 
 

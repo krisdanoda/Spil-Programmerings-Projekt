@@ -17,12 +17,12 @@ void clear_line(uint8_t y){
 void init_menu(){
     uint8_t text_line_1=BORDERY/5;
     uint8_t text_col_1=BORDERX/2-10;
-    clear_line(text_line_1);
+    clear_line(text_line_1);   // Delete old text
     clear_line(text_line_1+2);
     clear_line(text_line_1+4);
     clear_line(text_line_1+6);
     clear_line(text_line_1+8);
-    gotoxy(text_col_1,text_line_1);
+    gotoxy(text_col_1,text_line_1);  // Print main menu
     printf("New Game");
     gotoxy(text_col_1,text_line_1+2);
     printf("High scores");
@@ -33,12 +33,12 @@ void init_menu(){
 void init_high_score(){
     uint8_t text_line_1=BORDERY/5;
     uint8_t text_col_1=BORDERX/2-10;
-    clear_line(text_line_1);
+    clear_line(text_line_1);        // Delete old text
     clear_line(text_line_1+2);
     clear_line(text_line_1+4);
     clear_line(text_line_1+6);
     clear_line(text_line_1+8);
-    gotoxy(text_col_1,text_line_1);
+    gotoxy(text_col_1,text_line_1);     // Print high scores
     printf("This is a list of the highest scores. Press >left< to go back.");
     gotoxy(text_col_1,text_line_1+2);
     printf("    #1: ");
@@ -60,7 +60,7 @@ void init_help(){
     gotoxy(text_cursor_1,text_line_1+4);  // remove cursor
     printf("  ");
 
-    gotoxy(text_col_1,text_line_1);
+    gotoxy(text_col_1,text_line_1);     // Print help page
     printf("This is the help section. To get back to the menu press >left<.");
     gotoxy(text_col_1,text_line_1+2);
     printf("In the game press >left< or >right< to move the striker.");
@@ -78,6 +78,14 @@ void init_help(){
 
 
 void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_t *in_game){
+    // a function to control the menu
+    // Inputs:
+    // read is the joystick value (1=up, 2=down, 4=left, 8=right, 16=center).
+    // menu_counter keeps track of which menu option is marked.
+    // old_read is to ensure the cursor moves once pr joystick interaction
+    // in_game is a flag set high if the game is being played and the menu should not be controlled
+
+
     uint8_t text_cursor_1=BORDERX/2-15;
     uint8_t text_line_1=BORDERY/5;
 
@@ -109,7 +117,7 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
 
 
     // Her flyttes cursoren
-    if (*menu_counter == 1){
+    if (*menu_counter == 1){        // Flyt cursor til "new game"
         gotoxy(text_cursor_1,text_line_1);
         printf("%c",175);
         gotoxy(text_cursor_1,text_line_1+2);
@@ -117,7 +125,7 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
         gotoxy(text_cursor_1,text_line_1+4);
         printf("  ");
     }
-    else if (*menu_counter == 2){
+    else if (*menu_counter == 2){        // Flyt cursor til "high scorres"
         gotoxy(text_cursor_1,text_line_1);
         printf("  ");
         gotoxy(text_cursor_1,text_line_1+2);
@@ -125,7 +133,7 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
         gotoxy(text_cursor_1,text_line_1+4);
         printf("  ");
     }
-    else if (*menu_counter == 3){
+    else if (*menu_counter == 3){        // Flyt cursor til "help"
         gotoxy(text_cursor_1,text_line_1);
         printf("  ");
         gotoxy(text_cursor_1,text_line_1+2);
