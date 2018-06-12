@@ -4,7 +4,7 @@
 #include "30010_io.h"
 
 struct blockpos {
-    uint16_t x1, y1, x2, y2, hit;
+    int x1, y1, x2, y2, hit;
 };
 
 void ini_Blocks(struct blockpos *b_1_1);

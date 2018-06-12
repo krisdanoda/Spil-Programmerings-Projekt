@@ -9,6 +9,6 @@ void ini_Blocks(struct blockpos *b_1_1){
 }
 
 void print_Block(struct blockpos b_1_1){
-    block(b_1_1.x1, b_1_1.y1, b_1_1.x2, b_1_1.y2);
+    block(b_1_1.x1, b_1_1.y1, b_1_1.x2, b_1_1.y2, b_1_1.hit);
 }
 
