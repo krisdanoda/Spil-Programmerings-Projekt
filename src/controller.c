@@ -180,5 +180,5 @@ if(valright){
     // printf("%d\n",output);
 
     return(output);
-//    printf("%d\n",output);
+
 }
