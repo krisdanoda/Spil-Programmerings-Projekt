@@ -24,6 +24,7 @@ void blink(uint8_t on);
 void inverse(uint8_t on);
 void window(int x1, int y1, int x2, int y2,char s[]);
 void counter(int x1, int y1, int x2, int y2);
-//void showCursor(bool show) const;
+void block(int x1, int y1, int x2, int y2);
+
 #endif /* _ANSI_H_*/
 

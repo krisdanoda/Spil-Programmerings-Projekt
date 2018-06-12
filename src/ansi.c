@@ -179,20 +179,38 @@ printf("%c",192); // Laver hjørne nederst til venstre
 
 gotoxy(x2,y2);
 printf("%c",217); // Laver hjørne nederst til højre
-
-
 }
 
-/*
-void showCursor(bool show) const {
-#define CSI "\e["
-  if (show) {
-    fputs(CSI "?25h", stdout);
-  }
-  else {
-    fputs(CSI "?25l", stdout);
-  }
-#undef CSI
+void block(int x1, int y1, int x2, int y2) {
+
+int i;
+
+
+gotoxy(x1,y1);              // Højre lodrette linje
+for (i=y1+1; i<=y2; ++i){
+    gotoxy(x1,i);
+    printf("%c",178);
 }
-*/
+
+
+gotoxy(x2,y1);              // Højre lodrette linje
+for (i=y1+1; i<=y2; ++i){
+    gotoxy(x2,i);
+    printf("%c",178);
+    }
+
+        gotoxy(x1,y1);   // Øverste vandrette linje
+for (i=x1; i<=x2; ++i){
+    gotoxy(i,y1);
+    printf("%c",220);
+}
+
+
+gotoxy(x1,y2);              // nederste vandrette linje
+for (i=x1; i<=x2; ++i){
+    gotoxy(i,y2);
+    printf("%c",223);
+}
+}
+
 
