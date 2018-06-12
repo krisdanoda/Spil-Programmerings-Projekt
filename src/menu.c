@@ -15,52 +15,60 @@ void clear_line(uint8_t y){
 
 
 void init_high_score(){
-    clear_line(BORDERY/5);
-    clear_line(BORDERY/5+2);
-    clear_line(BORDERY/5+4);
-    clear_line(BORDERY/5+6);
-    clear_line(BORDERY/5+8);
-    gotoxy(BORDERX/2-10,BORDERY/5);
+    uint8_t text_line_1=BORDERY/5;
+    uint8_t text_col_1=BORDERX/2-10;
+    clear_line(text_line_1);
+    clear_line(text_line_1+2);
+    clear_line(text_line_1+4);
+    clear_line(text_line_1+6);
+    clear_line(text_line_1+8);
+    gotoxy(text_col_1,text_line_1);
     printf("This is a list of the highest scores. Press >left< to go back.");
-    gotoxy(BORDERX/2-10,BORDERY/5+2);
+    gotoxy(text_col_1,text_line_1+2);
     printf("    #1: ");
-    gotoxy(BORDERX/2-10,BORDERY/5+4);
+    gotoxy(text_col_1,text_line_1+4);
     printf("    #2: ");
-    gotoxy(BORDERX/2-10,BORDERY/5+6);
+    gotoxy(text_col_1,text_line_1+6);
     printf("    #3: ");
     }
 
 
 void init_menu(){
-    clear_line(BORDERY/5);
-    clear_line(BORDERY/5+2);
-    clear_line(BORDERY/5+4);
-    clear_line(BORDERY/5+6);
-    clear_line(BORDERY/5+8);
-    gotoxy(BORDERX/2-10,BORDERY/5);
+    uint8_t text_line_1=BORDERY/5;
+    uint8_t text_col_1=BORDERX/2-10;
+    clear_line(text_line_1);
+    clear_line(text_line_1+2);
+    clear_line(text_line_1+4);
+    clear_line(text_line_1+6);
+    clear_line(text_line_1+8);
+    gotoxy(text_col_1,text_line_1);
     printf("New Game");
-    gotoxy(BORDERX/2-10,BORDERY/5+2);
+    gotoxy(text_col_1,text_line_1+2);
     printf("High scores");
-    gotoxy(BORDERX/2-10,BORDERY/5+4);
+    gotoxy(text_col_1,text_line_1+4);
     printf("Help");
 }
 
 void init_help(){
-    gotoxy(BORDERX/2-15,BORDERY/5+4);  // remove cursor
+    uint8_t text_cursor_1=BORDERX/2-15;
+    uint8_t text_line_1=BORDERY/5;
+    uint8_t text_col_1=BORDERX/2-10;
+    gotoxy(text_cursor_1,text_line_1);
     printf("  ");
-    gotoxy(BORDERX/2-15,BORDERY/5);
+    gotoxy(text_cursor_1,text_line_1+2);
     printf("  ");
-    gotoxy(BORDERX/2-15,BORDERY/5+2);
+    gotoxy(text_cursor_1,text_line_1+4);  // remove cursor
     printf("  ");
-    gotoxy(BORDERX/2-10,BORDERY/5);
+
+    gotoxy(text_col_1,text_line_1);
     printf("This is the help section. To get back to the menu press >left<.");
-    gotoxy(BORDERX/2-10,BORDERY/5+2);
+    gotoxy(text_col_1,text_line_1+2);
     printf("In the game press >left< or >right< to move the striker.");
-    gotoxy(BORDERX/2-10,BORDERY/5+4);
+    gotoxy(text_col_1,text_line_1+4);
     printf("The diode on the micro controller shows your remaining lives.");
-    gotoxy(BORDERX/2-10,BORDERY/5+6);
+    gotoxy(text_col_1,text_line_1+6);
     printf("    Green = 3, yellow = 2 and red = 1.");
-    gotoxy(BORDERX/2-10,BORDERY/5+8);
+    gotoxy(text_col_1,text_line_1+8);
     printf("Your score can be seen on the LCD.");
 
 }
@@ -71,10 +79,13 @@ void init_help(){
 
 
 void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_t *in_game){
+    uint8_t text_cursor_1=BORDERX/2-15;
+    uint8_t text_line_1=BORDERY/5;
+
+
 
     // Gå tilbage til menuen hvis der trykkes mod venstre
     if ((read == 4) && ((*in_game) == 0)){
-        clear_line(BORDERY/5);
         init_menu();
         (*menu_counter) = 1;
     }
@@ -100,27 +111,27 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
 
     // Her flyttes cursoren
     if (*menu_counter == 1){
-        gotoxy(BORDERX/2-15,BORDERY/5);
+        gotoxy(text_cursor_1,text_line_1);
         printf("%c",175);
-        gotoxy(BORDERX/2-15,BORDERY/5+2);
+        gotoxy(text_cursor_1,text_line_1+2);
         printf("  ");
-        gotoxy(BORDERX/2-15,BORDERY/5+4);
+        gotoxy(text_cursor_1,text_line_1+4);
         printf("  ");
     }
     else if (*menu_counter == 2){
-        gotoxy(BORDERX/2-15,BORDERY/5);
+        gotoxy(text_cursor_1,text_line_1);
         printf("  ");
-        gotoxy(BORDERX/2-15,BORDERY/5+2);
+        gotoxy(text_cursor_1,text_line_1+2);
         printf("%c",175);
-        gotoxy(BORDERX/2-15,BORDERY/5+4);
+        gotoxy(text_cursor_1,text_line_1+4);
         printf("  ");
     }
     else if (*menu_counter == 3){
-        gotoxy(BORDERX/2-15,BORDERY/5);
+        gotoxy(text_cursor_1,text_line_1);
         printf("  ");
-        gotoxy(BORDERX/2-15,BORDERY/5+2);
+        gotoxy(text_cursor_1,text_line_1+2);
         printf("  ");
-        gotoxy(BORDERX/2-15,BORDERY/5+4);
+        gotoxy(text_cursor_1,text_line_1+4);
         printf("%c",175);
     }
 
