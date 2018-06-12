@@ -25,8 +25,8 @@
 #include "block_control.h"
 
 
-#define BORDERX 144
-#define BORDERY 80
+#define BORDERX 150
+#define BORDERY 60
 
 
 
@@ -56,7 +56,23 @@ int main(void)
 
     // Blocks starts here
 	struct blockpos block[27];
-	for (int i = 0 ; i < 9 ; i++) {
+
+        // Here blocks end
+
+  while(1){
+
+    // Display life_count on RGB
+    set_RGB(life_count);
+    // Display score_counter on LCD
+    write_score(score_counter);
+
+    // Navigate menu with joystick
+    uint8_t read = readJoystick();
+    control_menu(read, &menu_counter, &old_read, &in_game);
+
+    if ((in_game) == 1){
+
+        	for (int i = 0 ; i < 9 ; i++) {
 		block[i].x1 = 8 + i * 15;
 		block[i].y1 = 5;
 		block[i].x2 = 21 + i * 15;
@@ -78,28 +94,24 @@ int main(void)
 		print_Block(block[i]);
 		print_Block(block[i + 9]);
 		print_Block(block[i + 18]);
+
+
 	}
+			in_game++;
 
-        initVector(&b.posi, 20, 40);
+        initVector(&b.posi, 20, 45);
         initVector(&b.vel, 1, 1);
+    }
 
-        // Here blocks end
-
-  while(1){
-
-    // Display life_count on RGB
-    set_RGB(life_count);
-    // Display score_counter on LCD
-    write_score(score_counter);
-
-    // Navigate menu with joystick
-    uint8_t read = readJoystick();
-    control_menu(read, &menu_counter, &old_read, &in_game);
+	if (in_game == 2){
 
 
         // More blocks
         border_control(&b);
 		block_control(&b, &block);
+
+        gotoxy(b.posi.x >> 14, b.posi.y >> 14);
+		printf(" ");
 
 		updatepos(&b);
 
@@ -107,7 +119,8 @@ int main(void)
 		printf("%c", 254);
 
 
-		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
-		printf(" ");
+
+	}
     }
-}
+    }
+

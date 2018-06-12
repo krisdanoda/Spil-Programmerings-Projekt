@@ -3,13 +3,13 @@
 #include "30010_io.h"
 
 #define BORDERX 150
-#define BORDERY 80
+#define BORDERY 60
 
 
 
 void clear_line(uint8_t y){
     gotoxy(3,y);
-    printf("                                                                                                                                 ");
+    printf("                                                                                                                                            ");
     // her indsættes en masse mellemrum så linje "y" overskrives.
 }
 
@@ -147,9 +147,13 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
     // Her tilgås nyt spil
     if ((*menu_counter == 1) && (read == 16) && ((*in_game) == 0)){
         (*in_game) = 1;
+        clear_line(text_line_1);        // Delete old text
+        clear_line(text_line_1+2);
+        clear_line(text_line_1+4);
+        clear_line(text_line_1+6);
+        clear_line(text_line_1+8);
         // Noget der starter spillet her
-        gotoxy(3,3);
-        printf("spil under udvikling");
+
         (*menu_counter) = 100;
         }
     else if ((*menu_counter == 1) && (read == 8) && ((*in_game) == 0)){

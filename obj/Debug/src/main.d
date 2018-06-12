@@ -13,8 +13,5 @@ obj\debug\src\main.o: src\main.c inc/stm32f30x_conf.h \
  SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/30010_io.h \
  inc/ansi.h inc/30010_io.h inc/LUT.h inc/trig.h inc/LUT.h \
  inc/controller.h inc/timer.h inc/ansi.h inc/controller.h inc/charset.h \
-<<<<<<< HEAD
- inc/lcd.h inc/timer.h inc/charset.h inc/menu.h
-=======
- inc/lcd.h inc/timer.h inc/charset.h inc/block_control.h inc/trig.h
->>>>>>> Danjal
+ inc/lcd.h inc/timer.h inc/charset.h inc/menu.h inc/block_control.h \
+ inc/trig.h

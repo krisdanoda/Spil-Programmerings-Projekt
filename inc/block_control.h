@@ -4,7 +4,7 @@
 #include "30010_io.h"
 #include "trig.h"
 #define BORDERX 150
-#define BORDERY 80
+#define BORDERY 60
 
 
 struct blockpos {
