@@ -507,14 +507,14 @@
 1528708837 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\timer.c
 	"timer.h"
 
-1528722402 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\trig.c
+1528882411 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528876650 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\trig.h
+1528882287 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\trig.h
 	"30010_io.h"
 	"LUT.h"
 
-1528880290 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1528881702 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -532,7 +532,7 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528878659 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1528881439 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 	"stm32f30x_conf.h"
 	"30010_io.h"

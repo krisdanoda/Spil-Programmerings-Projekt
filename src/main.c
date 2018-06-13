@@ -33,7 +33,6 @@
 
 int main(void)
 {
-
     init_usb_uart( 115200 );
     clrscr();
     gotoxy(1,1);
@@ -45,19 +44,20 @@ int main(void)
     init_menu();
     init_disp_score();
 
-    // Herfra starter menu
+    // Variables in main
     uint8_t in_game = 0;
-    uint8_t menu_counter = 1;   // bruges i menu
-    uint8_t old_read = 0;       // bruges i menu
-    uint8_t life_count = 2;     // bruges til RGB
-    uint32_t score_counter = 0;   // bruges til LCD
+    uint8_t menu_counter = 1;       // used in menu
+    uint8_t old_read = 0;           // used in menu
+    uint8_t life_count = 3;         // to show with RGB
+    uint32_t score_counter = 0;     // to print on LCD
+    uint16_t speed_multi = 0;       // Used to adjust speed
 
+    // Init balls
     struct ball_t b;
 
-    // Blocks starts here
+    // Init blocks
 	struct blockpos block[27];
 
-        // Here blocks end
 
   while(1){
 
@@ -76,7 +76,7 @@ int main(void)
             clear_line(text_line_1+2);
             clear_line(text_line_1+4);
 
-        	for (int i = 0 ; i < 9 ; i++) {
+        	for (int i = 0 ; i < 9 ; i++) { // Initialize and print blocks
                 block[i].x1 = 8 + i * 15;
                 block[i].y1 = 5;
                 block[i].x2 = 21 + i * 15;
@@ -110,18 +110,17 @@ int main(void)
 	if (in_game == 2){
 
 
-        // More blocks
+        // Check for bounches and hits
         border_control(&b);
 		score_counter = block_control(&b, &block, score_counter);
 
+		updatepos(&b, speed_multi);
 
-
-		updatepos(&b);
-
+        // Print new ball
 		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf("%c", 254);
 
-
+        // Overwrite old ball
         gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf(" ");
 	}
