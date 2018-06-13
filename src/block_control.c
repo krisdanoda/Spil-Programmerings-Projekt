@@ -13,7 +13,7 @@ void border_control(struct ball_t *b) {
 		gotoxy((b->posi.x) >> 14, (b->posi.y) >> 14);
 		printf("%c", 179);
 	}
-	else if (((b->posi.y >> 14) >= BORDERY) || ((b->posi.y >> 14) <= 2))
+	else if (((b->posi.y >> 14) >= BORDERY) || ((b->posi.y >> 14) <= 1))
 	{
 		b->vel.y = -b->vel.y;
 		gotoxy((b->posi.x) >> 14, (b->posi.y) >> 14);
@@ -21,10 +21,13 @@ void border_control(struct ball_t *b) {
 	}
 }
 
+
+
 uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter) {
 	for (uint8_t j = 0; j < 27; j++) {
 		if ( (((b->posi.x >> 14) >= block[j].x1) && ((b->posi.x >> 14) <= block[j].x2)) &&
-		        ( ((b->posi.y >> 14) == block[j].y1) || ((b->posi.y >> 14) == block[j].y2) ) ) {
+		        ( ((b->posi.y >> 14) == block[j].y1) || ((b->posi.y >> 14) == block[j].y2) ) )
+            {
 			b->vel.y = -b->vel.y;
 			block[j].hit--;
 			print_Block(block[j]);
@@ -39,15 +42,13 @@ uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_
 			}
 		}
 		else if ( (((b->posi.x >> 14) == block[j].x1) || ((b->posi.x >> 14) == block[j].x2)) &&
-		          ( ((b->posi.y >> 14) >= block[j].y1) && ((b->posi.y >> 14) <= block[j].y2) ) ) {
+		          ( ((b->posi.y >> 14) >= block[j].y1) && ((b->posi.y >> 14) <= block[j].y2) ) )
+            {
 			b->vel.x = -b->vel.x;
 			block[j].hit--;
 			print_Block(block[j]);
 			score_counter++;
-<<<<<<< HEAD
 
-=======
->>>>>>> The-new-Tadea
 			if (block[j].hit == 0) {
 				del_block(block[j].x1, block[j].y1, block[j].x2, block[j].y2);
 				block[j].x1 = 100;
@@ -58,4 +59,58 @@ uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_
 		}
 	}
 	return(score_counter);
+}
+
+
+void init_blocks(struct blockpos *block, uint8_t level_count){
+    if(level_count == 1){
+                for (int i = 0 ; i < 9 ; i++) {
+                block[i].x1 = 8 + i * 15;
+                block[i].y1 = 5;
+                block[i].x2 = 21 + i * 15;
+                block[i].y2 = 10;
+                block[i].hit = 3;
+
+                block[i + 9].x1 = 8 + i * 15;
+                block[i + 9].y1 = 12;
+                block[i + 9].x2 = 21 + i * 15;
+                block[i + 9].y2 = 18;
+                block[i + 9].hit = 2;
+
+                block[i + 18].x1 = 8 + i * 15;
+                block[i + 18].y1 = 20;
+                block[i + 18].x2 = 21 + i * 15;
+                block[i + 18].y2 = 25;
+                block[i + 18].hit = 1;
+
+                print_Block(block[i]);
+                print_Block(block[i + 9]);
+                print_Block(block[i + 18]);
+                }
+        }
+        else if(level_count == 2){
+            for (int i = 0 ; i < 9 ; i++) {
+                block[i].x1 = 30 + i * 10;
+                block[i].y1 = 5;
+                block[i].x2 = 38 + i * 10;
+                block[i].y2 = 8;
+                block[i].hit = 3;
+
+                block[i + 9].x1 = 8 + i * 10;
+                block[i + 9].y1 = 10;
+                block[i + 9].x2 = 16 + i * 10;
+                block[i + 9].y2 = 13;
+                block[i + 9].hit = 2;
+
+                block[i + 18].x1 = 30 + i * 10;
+                block[i + 18].y1 = 15;
+                block[i + 18].x2 = 38 + i * 10;
+                block[i + 18].y2 = 18;
+                block[i + 18].hit = 1;
+
+                print_Block(block[i]);
+                print_Block(block[i + 9]);
+                print_Block(block[i + 18]);
+                }
+        }
 }

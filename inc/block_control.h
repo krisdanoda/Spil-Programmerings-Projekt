@@ -13,10 +13,7 @@ struct blockpos {
 
 void print_Block(struct blockpos b_1);
 void border_control(struct ball_t *b);
-<<<<<<< HEAD
 uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter);
-=======
-uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counnter);
->>>>>>> The-new-Tadea
+void init_blocks(struct blockpos *block, uint8_t level_count);
 #endif /* BLOCK_CONTROL_INCLUDED */
 
