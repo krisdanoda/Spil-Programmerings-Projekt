@@ -5,6 +5,10 @@
 #include "timer.h"
 #include "charset.h"
 
+void init_disp_score();
+
+void write_score(uint32_t score);
+
 void type_tex(char *c, uint8_t *buffer, uint8_t  *x, uint8_t  y);
 
 void type_tex_scroll(char *c, uint8_t *buffer, uint8_t *x, uint8_t  y);

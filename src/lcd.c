@@ -1,5 +1,34 @@
 #include "lcd.h"
 
+void write_score(uint32_t score){
+
+    char str[8];
+    sprintf(str, "%u",score);
+
+    uint8_t buffer[512];
+
+    memset(buffer, 0x00, 512);
+    type_tex("The score is:",  buffer, 0, 0);
+    lcd_push_buffer(buffer);
+    type_tex(str, buffer, 0, 2);
+    lcd_push_buffer(buffer);
+
+
+}
+
+
+void init_disp_score(){
+
+    uint8_t buffer[512];
+
+    memset(buffer, 0x00, 512);
+    type_tex("The score is:",  buffer, 0, 0);
+    lcd_push_buffer(buffer);
+    }
+
+
+
+
 
 void type_tex(char *c, uint8_t *buffer, uint8_t  *x, uint8_t  y)
 {

@@ -7,16 +7,16 @@ void print_Block(struct blockpos b_1) {
 
 
 void border_control(struct ball_t *b) {
-	if ((b->posi.x >> 14 <= 1) || (b->posi.x >> 14 >= ((BORDERX))))
+	if (((b->posi.x >> 14) <= 1) || ((b->posi.x >> 14) >= BORDERX))
 	{
 		b->vel.x = -b->vel.x;
-		gotoxy(b->posi.x >> 14, b->posi.y >> 14);
+		gotoxy((b->posi.x) >> 14, (b->posi.y) >> 14);
 		printf("%c", 179);
 	}
-	else if ((b->posi.y >= ((BORDERY) << 14)) || (b->posi.y <= (2 << 14)))
+	else if (((b->posi.y >> 14) >= BORDERY) || ((b->posi.y >> 14) <= 2))
 	{
 		b->vel.y = -b->vel.y;
-		gotoxy(b->posi.x >> 14, b->posi.y >> 14);
+		gotoxy((b->posi.x) >> 14, (b->posi.y) >> 14);
 		printf("%c", 196);
 	}
 }
@@ -44,7 +44,10 @@ uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_
 			block[j].hit--;
 			print_Block(block[j]);
 			score_counter++;
+<<<<<<< HEAD
 
+=======
+>>>>>>> The-new-Tadea
 			if (block[j].hit == 0) {
 				del_block(block[j].x1, block[j].y1, block[j].x2, block[j].y2);
 				block[j].x1 = 100;
