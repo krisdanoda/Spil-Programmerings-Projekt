@@ -477,16 +477,16 @@
 
 1528722402 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\charset.h
 
-1528876650 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\controller.c
+1528878659 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\controller.c
 	"controller.h"
 
-1528815062 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\controller.h
+1528878659 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\controller.h
 	"30010_io.h"
 
-1528876650 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lcd.c
+1528878659 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lcd.c
 	"lcd.h"
 
-1528876650 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\lcd.h
+1528878659 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\lcd.h
 	"30010_io.h"
 	"timer.h"
 	"charset.h"
@@ -514,7 +514,7 @@
 	"30010_io.h"
 	"LUT.h"
 
-1528877508 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1528878840 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -528,11 +528,11 @@
 	"menu.h"
 	"block_control.h"
 
-1528815062 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
+1528878659 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528877303 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1528878659 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 	"stm32f30x_conf.h"
 	"30010_io.h"
@@ -561,11 +561,11 @@
 
 1528809312 jal
 
-1528876650 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
+1528879633 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 	"ansi.h"
 
-1528876650 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\block_control.h
+1528879290 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\block_control.h
 	"30010_io.h"
 	"trig.h"
 

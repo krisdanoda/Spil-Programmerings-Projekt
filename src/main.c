@@ -50,7 +50,7 @@ int main(void)
     uint8_t menu_counter = 1;   // bruges i menu
     uint8_t old_read = 0;       // bruges i menu
     uint8_t life_count = 2;     // bruges til RGB
-    uint32_t score_counter = 5000;   // bruges til LCD
+    uint32_t score_counter = 0;   // bruges til LCD
 
     struct ball_t b;
 
@@ -114,10 +114,9 @@ int main(void)
 
         // More blocks
         border_control(&b);
-		block_control(&b, &block);
+		score_counter = block_control(&b, &block, score_counter);
 
-        gotoxy(b.posi.x >> 14, b.posi.y >> 14);
-		printf(" ");
+
 
 		updatepos(&b);
 
@@ -125,7 +124,12 @@ int main(void)
 		printf("%c", 254);
 
 
+		gotoxy(160,40);
+		printf("score %d",score_counter);
 
+
+        gotoxy(b.posi.x >> 14, b.posi.y >> 14);
+		printf(" ");
 	}
     }
     }
