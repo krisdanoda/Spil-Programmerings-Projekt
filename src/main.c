@@ -50,6 +50,7 @@ int main(void)
     uint8_t old_read = 0;       // bruges i menu
     uint8_t life_count = 2;     // bruges til RGB
     uint32_t score_counter = 0;   // bruges til LCD
+    uint8_t level_counter = 1;
 
     struct ball_t b;
 
@@ -64,6 +65,8 @@ int main(void)
         set_RGB(life_count);
         // Display score_counter on LCD
         write_score(score_counter);
+        // Display score_counter on LCD
+        write_level(level_counter);
 
         // Navigate menu with joystick
         uint8_t read = readJoystick();
