@@ -1,7 +1,9 @@
-#include "stm32f30x_conf.h"
-#include "30010_io.h"
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
+
+#include "stm32f30x_conf.h"
+#include "30010_io.h"
+
 
 void init_menu();
 void init_help();

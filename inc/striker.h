@@ -8,7 +8,7 @@
 #include "LUT.h"
 #include "controller.h"
 #include "ansi.h"
-
+#include <stdlib.h>
 
 struct striker_t{
     struct vector_t posi;
@@ -21,6 +21,6 @@ void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t
 
 void print_striker(uint8_t SS, struct striker_t *ks );
 
-striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b);
+void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b);
 
 #endif

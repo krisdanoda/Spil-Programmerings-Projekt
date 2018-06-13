@@ -6,7 +6,7 @@ void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t
 
  initVector(&ks->posi, ( ( ( BORDERX/2 )- ( SS/2 ) )), (BORDERY-3));
  initVector(&ks->vel, 0 << 14 , 0 << 14);
- int8_t state = 0;
+ int8_t *state = 0;
 
  print_striker(SS, ks );
 
@@ -95,7 +95,7 @@ gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
 //    (ks ->a)= (ks ->a)+1;
 }
 
-striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b){
+void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b){
 if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) {
 
 //b->vel.y = -(b->vel.y);
@@ -134,16 +134,16 @@ int32_t it = 10000 * (uint32_t)(expand(SIN[i]) & 0xFFFF) >> 16;
 
 
 //
-//if ( (b-> posi.x - ks -> posi.x) <= 0){
-//
-//
-//}
-//else if( (b-> posi.x - ks -> posi.x) >= 0){
-//
-//g_angle = - g_angle;
-//}
-//g_angle = g_angle / 2 ;
-//
+if ( (b-> posi.x - ks -> posi.x) <= 0){
+
+
+}
+else if( (b-> posi.x - ks -> posi.x) >= 0){
+
+g_angle = - g_angle;
+}
+g_angle = g_angle / 2 ;
+
 
 
 //int32_t x1 = b->vel.x;
@@ -169,7 +169,7 @@ x1 = b->vel.x;
     b->vel.x = FIX14_MULT(b->vel.x,Cos(-g_angle))-FIX14_MULT(b->vel.y,Sin(-g_angle));
     b->vel.y = FIX14_MULT(x1,Sin(-g_angle))+FIX14_MULT(b->vel.y,Cos(-g_angle));
 
-     b->posi.y =  b->posi.y - (2 << 14);
+     b->posi.y =  b->posi.y - ( 2 << 14 );
 
 
 

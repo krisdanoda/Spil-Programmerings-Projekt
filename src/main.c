@@ -21,7 +21,6 @@
 #include <string.h>
 #include "charset.h"
 #include "lcd.h"
-
 #include "striker.h"
 #include "menu.h"
 #include "block_control.h"
@@ -58,7 +57,7 @@ int main(void)
     uint8_t life_count = 3;         // to show with RGB
     uint32_t score_counter = 0;     // to print on LCD
     uint8_t level_counter = 1;
-    uint16_t speed_multi = 0;       // Used to adjust speed
+    uint16_t speed_multi = 8;       // Used to adjust speed
 
 
     // Init balls
@@ -68,8 +67,8 @@ int main(void)
     // Init blocks
 	struct blockpos block[27];
 
-    while (1) {
-
+    while (1)
+    {
         // Display life_count on RGB
         set_RGB(life_count);
         // Display score_counter on LCD
@@ -91,28 +90,19 @@ int main(void)
 
         init_blocks(&block, 1); // create blocks and input level
         init_striker(BORDERX, BORDERY, ss, &strike);
-        init_joystick();
+
         initVector(&b.posi, 20, 45);
         initVector(&b.vel, 1, 1);
     }
 
 
-//init_striker(BORDERX, BORDERY, ss, *(striker_x), (striker_y));
-
-
-
-
-
-            border_control(&b);
-            score_counter = block_control(&b, &block, score_counter);
-
-
+        border_control(&b);
+        score_counter = block_control(&b, &block, score_counter);
         update_striker(&strike, ss);
-
-
         striker_bounce(&strike, ss, &b);
 
-
+        gotoxy(b.posi.x >> 14, b.posi.y >> 14);
+        printf(" ");
         // Check for bounches and hits
 
 		updatepos(&b, speed_multi);
@@ -121,10 +111,7 @@ int main(void)
 		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf("%c", 254);
 
-            for(uint16_t k = 0; k<10000; k++){}
 
-            gotoxy(b.posi.x >> 14, b.posi.y >> 14);
-            printf(" ");
         }
 
 }
