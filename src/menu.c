@@ -159,8 +159,6 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
     else if ((*menu_counter == 1) && (read == 8) && ((*in_game) == 0)){
         (*in_game) = 1;
         // Noget der starter spillet her
-        gotoxy(3,3);
-        printf("Game under development. Press >restart< to control the menu again.");
         (*menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 

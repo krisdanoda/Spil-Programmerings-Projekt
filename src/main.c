@@ -71,6 +71,12 @@ int main(void)
     control_menu(read, &menu_counter, &old_read, &in_game);
 
     if ((in_game) == 1){
+            uint8_t text_line_1=BORDERY/5;
+            clear_line(text_line_1);   // Delete old text
+            clear_line(text_line_1+2);
+            clear_line(text_line_1+4);
+            clear_line(text_line_1+6);
+            clear_line(text_line_1+8);
 
         	for (int i = 0 ; i < 9 ; i++) {
 		block[i].x1 = 8 + i * 15;

@@ -7,16 +7,16 @@ void print_Block(struct blockpos b_1) {
 
 
 void border_control(struct ball_t *b) {
-	if ((b->posi.x >> 14 <= 1) || (b->posi.x >> 14 >= ((BORDERX))))
+	if (((b->posi.x >> 14) <= 1) || ((b->posi.x >> 14) >= BORDERX))
 	{
 		b->vel.x = -b->vel.x;
-		gotoxy(b->posi.x >> 14, b->posi.y >> 14);
+		gotoxy((b->posi.x) >> 14, (b->posi.y) >> 14);
 		printf("%c", 179);
 	}
-	else if ((b->posi.y >= ((BORDERY) << 14)) || (b->posi.y <= (2 << 14)))
+	else if (((b->posi.y >> 14) >= BORDERY) || ((b->posi.y >> 14) <= 2))
 	{
 		b->vel.y = -b->vel.y;
-		gotoxy(b->posi.x >> 14, b->posi.y >> 14);
+		gotoxy((b->posi.x) >> 14, (b->posi.y) >> 14);
 		printf("%c", 196);
 	}
 }
