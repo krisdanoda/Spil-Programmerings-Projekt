@@ -21,197 +21,106 @@
 #include <string.h>
 #include "charset.h"
 #include "lcd.h"
+
 #include "striker.h"
-//
-//#define BORDERX 150
-//#define BORDERY 80
+#define BORDERX 150
+#define BORDERY 80
+
+#include "menu.h"
+#include "block_control.h"
+
+
+#define BORDERX 150
+#define BORDERY 60
 
 
 
-//void initVector(struct vector_t *v, int32_t x, int32_t y) {
-//    v->x = x << 14;
-//    v->y = y << 14;
-//};
 
-/*
-
-struct striker_t{
-    struct vector_t posi;
-    struct vector_t vel;
-    int8_t state;
-    int32_t a;
-};
-
-
-void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t *ks){
-
- initVector(&ks->posi, ( ( ( BORDERX/2 )- ( SS/2 ) )), (BORDERY-3));
- initVector(&ks->vel, 0 << 14 , 0 << 14);
- int8_t *state =0;
-
- print_striker(SS, ks );
-
-}
-
-void print_striker(uint8_t SS, struct striker_t *ks ){
-
-//  for ( uint8_t i = 0; i < SS; i++ )
-//  {
-//    gotoxy( ( ( ( ks->posi.x ) >> 14 ) + i - SS/2 ) , ( ( ks->posi.y ) >> 14 )  );
-//    printf("%c",219);
-//
-//  }
-if (ks->state == 1){
-  gotoxy(  ( ( ks->posi.x  - (SS/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
-printf(" (^>_<^) ");
-}
- else{
-         gotoxy(  ( ( ks->posi.x  - (SS/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
-printf(" (^._.^) ");
- }
-
-}
-
-
-void update_striker(struct striker_t *ks, uint8_t SS){
-
-int32_t old_x = ks->posi.x;
-
-    if (readJoystick()== 4){
-
-    ks->vel.x = -10 << 14;
-
-//        for ( uint8_t i = 0; i < SS; i++ ){
-//
-//        gotoxy( ( ( ( ks->posi.x ) >> 14 ) + i ) , ( ( ks->posi.y ) >> 14 ) );
-//        printf("%c", 32);
-//         }
-
-    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K);
-    ks->posi.y = ks->posi.y + FIX14_MULT(ks->vel.y,K);
-
-//    for (uint16_t k = (old_x >> 14) ; k <= ((ks->posi.x) >> 14); k--){
-//      gotoxy( ( ( ( old_x ) >> 14 ) + k + 7 ) , ( ( ks->posi.y ) >> 14 ) );
-//      printf("d");
-//    }
-//
-//    int32_t dif = (old_x - (ks->posi.x)) >> 14;
-//
-//     for (int16_t k = 0; k <= dif ; k--){
-//      gotoxy( ( ( ( old_x ) >> 14 ) + k + 7 ) , ( ( ks->posi.y ) >> 14 ) );
-//      printf("d");
-//    }
-
-gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
-    printf(" ");
-
-    print_striker(SS, ks );//update position
-
-
-    }
-    else if (readJoystick()== 8){
-
-        ks->vel.x = 10 << 14;
-
-    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K);
-    ks->posi.y = ks->posi.y + FIX14_MULT(ks->vel.y,K);
-
-    gotoxy( ( ( ( old_x ) >> 14 ) ) , ( ( ks->posi.y ) >> 14 ) );
-    printf(" ");
-
-    print_striker(SS, ks );//update position
-
-
-    }
-    else if(readJoystick()== 0){
-
-        ks->vel.x = 0 << 14;
-
-    }
-
-    if (ks->a > 700){
-    ks -> state = 0;
-    print_striker(SS, ks );
-    }
-    (ks ->a)= (ks ->a)+1;
-}
-
-striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b){
-if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) {
-int32_t mini = 10000;
-int32_t g_angle;
- //  b->vel.y = -(b->vel.y);
-
-uint32_t dif = abs(b-> posi.x - ks -> posi.x)*2 / SS;
-
-
-for (uint32_t i = 0 ; i <= 128; i++ )
-    {
-int32_t it = 10000 * (uint32_t)(expand(SIN[i]) & 0xFFFF) >> 16;
-
-        if (mini > ((abs(dif - it)*10000))<<14){
-        mini = ((abs(dif - it)*10000)<<14);
-        g_angle = i;
-        }
-    }
-
-
-//rotate(&b.vel, g_angle);
-//b -> vel.y = - (b -> vel.y);
-//rotate(*b.vel, -g_angle);
-gotoxy(20,20);
-
-
-if ( (b-> posi.x - ks -> posi.x) <= 0){
-
-
-}
-else if( (b-> posi.x - ks -> posi.x) >= 0){
-
-g_angle = - g_angle;
-}
-g_angle = g_angle;
-printf("%d \n", g_angle);
-printf("%d \i",( b-> posi.x - ks -> posi.x) >> 14);
-
-
-
-int32_t x1 = b->vel.x;
- b->vel.x = FIX14_MULT(b->vel.x,Cos(g_angle))-FIX14_MULT(b->vel.y,Sin(g_angle));
-    b->vel.y = FIX14_MULT(x1,Sin(g_angle))+FIX14_MULT(b->vel.y,Cos(g_angle));
- b->vel.y =  -(b->vel.y);
-
-x1 = b->vel.x;
-    b->vel.x = FIX14_MULT(b->vel.x,Cos(-g_angle))-FIX14_MULT(b->vel.y,Sin(-g_angle));
-    b->vel.y = FIX14_MULT(x1,Sin(-g_angle))+FIX14_MULT(b->vel.y,Cos(-g_angle));
-
-     b->posi.y =  b->posi.y - (2 << 14);
-
-    ks->state =1;
-    ks->a =0;
-
-    print_striker(SS, ks );
-}
-}
-
-//( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 )
-
-
-*/
 
 int main(void)
 {
     init_usb_uart( 115200 );
       printf("%c[?25l",ESC);
-    uint8_t ss = 7;
-    uint8_t BORDERX = 150;
-    uint8_t BORDERY = 80;
+
+    //uint8_t BORDERX = 150;
+    //uint8_t BORDERY = 80;
     init_joystick();
 
     clrscr();
-    gotoxy(2,2);
+    gotoxy(1,1);
+    printf("%c[?25l",ESC);
+    counter(1,1,BORDERX,BORDERY);
+    init_joystick();
+    init_RGB();
+    init_spi_lcd();
+    init_menu();
+    init_disp_score();
+
+    // Variables in main
+    uint8_t ss = 9;
+    uint8_t in_game = 0;
+    uint8_t menu_counter = 1;       // used in menu
+    uint8_t old_read = 0;           // used in menu
+    uint8_t life_count = 3;         // to show with RGB
+    uint32_t score_counter = 0;     // to print on LCD
+    uint16_t speed_multi = 0;       // Used to adjust speed
+
+    // Init balls
+    struct ball_t b;
+
+    // Init blocks
+	struct blockpos block[27];
 
 
+  while(1){
+
+    // Display life_count on RGB
+    set_RGB(life_count);
+    // Display score_counter on LCD
+    write_score(score_counter);
+
+    // Navigate menu with joystick
+    uint8_t read = readJoystick();
+    control_menu(read, &menu_counter, &old_read, &in_game);
+
+    if ((in_game) == 1){
+            uint8_t text_line_1=BORDERY/5;
+            clear_line(text_line_1);   // Delete old text
+            clear_line(text_line_1+2);
+            clear_line(text_line_1+4);
+
+        	for (int i = 0 ; i < 9 ; i++) { // Initialize and print blocks
+                block[i].x1 = 8 + i * 15;
+                block[i].y1 = 5;
+                block[i].x2 = 21 + i * 15;
+                block[i].y2 = 10;
+                block[i].hit = 3;
+
+                block[i + 9].x1 = 8 + i * 15;
+                block[i + 9].y1 = 12;
+                block[i + 9].x2 = 21 + i * 15;
+                block[i + 9].y2 = 18;
+                block[i + 9].hit = 2;
+
+                block[i + 18].x1 = 8 + i * 15;
+                block[i + 18].y1 = 20;
+                block[i + 18].x2 = 21 + i * 15;
+                block[i + 18].y2 = 25;
+                block[i + 18].hit = 1;
+
+                print_Block(block[i]);
+                print_Block(block[i + 9]);
+                print_Block(block[i + 18]);
+
+
+	}
+        in_game++;
+
+        initVector(&b.posi, 20, 45);
+        initVector(&b.vel, 1, 1);
+    }
+
+	if (in_game == 2){
 
 init_joystick();
 //init_striker(BORDERX, BORDERY, ss, *(striker_x), (striker_y));
@@ -228,13 +137,30 @@ init_striker(BORDERX, BORDERY, ss, &strike);
   while(1)  {
 update_striker(&strike, ss);
 
-updatepos(&b);
-    striker_bounce(&strike, ss, &b);
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf("%c", 220 );
 
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf(" ");
+    striker_bounce(&strike, ss, &b);
+
+
+        // Check for bounches and hits
+        border_control(&b);
+		score_counter = block_control(&b, &block, score_counter);
+
+		updatepos(&b, speed_multi);
+
+        // Print new ball
+		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
+		printf("%c", 254);
+
+
+        // Overwrite old ball
+        gotoxy(b.posi.x >> 14, b.posi.y >> 14);
+		printf(" ");
+	}
     }
 
+
 }
+
+    }
+
+

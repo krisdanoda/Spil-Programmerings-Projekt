@@ -7,7 +7,7 @@
 #define FIX14_SHIFT 14
 #define FIX14_MULT(a, b) ( (a)*(b) >> FIX14_SHIFT )
 #define FIX14_DIV(a, b) ( ((a) << FIX14_SHIFT) / b )
-#define K 400
+
 
 struct vector_t {
     int32_t x, y;
@@ -22,7 +22,7 @@ int32_t Sin(int32_t grader);
 int32_t Cos(int32_t grader);
 //void initVector(struct vector_t *v, int32_t x, int32_t y);
 void rotate(struct vector_t *v, int32_t angle);
-void updatepos(struct ball_t *b);
+void updatepos(struct ball_t *b, uint16_t speed_multi);
 
 
 #endif /* TRIG_H_INCLUDED */

@@ -33,7 +33,7 @@ printf(" (^._.^) ");
 
 
 void update_striker(struct striker_t *ks, uint8_t SS){
-
+int32_t K = 800;
 int32_t old_x = ks->posi.x;
 
     if (readJoystick()== 4){
