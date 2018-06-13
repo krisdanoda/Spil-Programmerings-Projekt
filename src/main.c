@@ -39,7 +39,8 @@
 
 int main(void)
 {
-    init_usb_uart( 115200 );
+    //init_usb_uart( 115200 );
+    init_usb_uart( 200000 );
       printf("%c[?25l",ESC);
 
     //uint8_t BORDERX = 150;

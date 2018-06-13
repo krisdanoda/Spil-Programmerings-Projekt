@@ -88,11 +88,11 @@ gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
 
     }
 
-    if (ks->a > 700){
-    ks -> state = 0;
-    print_striker(SS, ks );
-    }
-    (ks ->a)= (ks ->a)+1;
+//    if (ks->a > 700){
+//    ks -> state = 0;
+//    print_striker(SS, ks );
+//    }
+//    (ks ->a)= (ks ->a)+1;
 }
 
 striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b){
@@ -130,9 +130,6 @@ else if( (b-> posi.x - ks -> posi.x) >= 0){
 g_angle = - g_angle;
 }
 g_angle = g_angle;
-printf("%d \n", g_angle);
-printf("%d \i",( b-> posi.x - ks -> posi.x) >> 14);
-
 
 
 int32_t x1 = b->vel.x;
