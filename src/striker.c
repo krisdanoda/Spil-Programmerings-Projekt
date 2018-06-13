@@ -1,46 +1,5 @@
-/*
-**
-**                           Main.c
-**
-**
-**********************************************************************/
-/*
-   Last committed:     $Revision: 00 $
-   Last changed by:    $Author: $
-   Last changed date:  $Date:  $
-   ID:                 $Id:  $
-
-**********************************************************************/
-#include "stm32f30x_conf.h"
-#include "30010_io.h"
-#include "ansi.h"
-#include "LUT.h"
-#include "trig.h"
-#include "controller.h"
-#include "timer.h"
-#include <string.h>
-#include "charset.h"
-#include "lcd.h"
 #include "striker.h"
-//
-//#define BORDERX 150
-//#define BORDERY 80
 
-
-
-//void initVector(struct vector_t *v, int32_t x, int32_t y) {
-//    v->x = x << 14;
-//    v->y = y << 14;
-//};
-
-/*
-
-struct striker_t{
-    struct vector_t posi;
-    struct vector_t vel;
-    int8_t state;
-    int32_t a;
-};
 
 
 void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t *ks){
@@ -192,49 +151,4 @@ x1 = b->vel.x;
 
     print_striker(SS, ks );
 }
-}
-
-//( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 )
-
-
-*/
-
-int main(void)
-{
-    init_usb_uart( 115200 );
-      printf("%c[?25l",ESC);
-    uint8_t ss = 7;
-    uint8_t BORDERX = 150;
-    uint8_t BORDERY = 80;
-    init_joystick();
-
-    clrscr();
-    gotoxy(2,2);
-
-
-
-init_joystick();
-//init_striker(BORDERX, BORDERY, ss, *(striker_x), (striker_y));
-
- struct striker_t strike;
-struct ball_t b;
-
-init_striker(BORDERX, BORDERY, ss, &strike);
- initVector(&b.posi, BORDERX/2,20);
- initVector(&b.vel, 0,1);
-
-
-
-  while(1)  {
-update_striker(&strike, ss);
-
-updatepos(&b);
-    striker_bounce(&strike, ss, &b);
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf("%c", 220 );
-
-    gotoxy(b.posi.x >> 14,b.posi.y >> 14);
-    printf(" ");
-    }
-
 }
