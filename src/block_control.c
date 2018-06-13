@@ -53,4 +53,5 @@ uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_
 			}
 		}
 	}
+	return(score_counter);
 }

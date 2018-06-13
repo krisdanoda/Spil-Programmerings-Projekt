@@ -514,7 +514,7 @@
 	"30010_io.h"
 	"LUT.h"
 
-1528878840 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1528880290 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -561,7 +561,7 @@
 
 1528809312 jal
 
-1528879633 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
+1528880297 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 	"ansi.h"
 

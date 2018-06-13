@@ -75,35 +75,33 @@ int main(void)
             clear_line(text_line_1);   // Delete old text
             clear_line(text_line_1+2);
             clear_line(text_line_1+4);
-            clear_line(text_line_1+6);
-            clear_line(text_line_1+8);
 
         	for (int i = 0 ; i < 9 ; i++) {
-		block[i].x1 = 8 + i * 15;
-		block[i].y1 = 5;
-		block[i].x2 = 21 + i * 15;
-		block[i].y2 = 10;
-		block[i].hit = 3;
+                block[i].x1 = 8 + i * 15;
+                block[i].y1 = 5;
+                block[i].x2 = 21 + i * 15;
+                block[i].y2 = 10;
+                block[i].hit = 3;
 
-		block[i + 9].x1 = 8 + i * 15;
-		block[i + 9].y1 = 12;
-		block[i + 9].x2 = 21 + i * 15;
-		block[i + 9].y2 = 18;
-		block[i + 9].hit = 2;
+                block[i + 9].x1 = 8 + i * 15;
+                block[i + 9].y1 = 12;
+                block[i + 9].x2 = 21 + i * 15;
+                block[i + 9].y2 = 18;
+                block[i + 9].hit = 2;
 
-		block[i + 18].x1 = 8 + i * 15;
-		block[i + 18].y1 = 20;
-		block[i + 18].x2 = 21 + i * 15;
-		block[i + 18].y2 = 25;
-		block[i + 18].hit = 1;
+                block[i + 18].x1 = 8 + i * 15;
+                block[i + 18].y1 = 20;
+                block[i + 18].x2 = 21 + i * 15;
+                block[i + 18].y2 = 25;
+                block[i + 18].hit = 1;
 
-		print_Block(block[i]);
-		print_Block(block[i + 9]);
-		print_Block(block[i + 18]);
+                print_Block(block[i]);
+                print_Block(block[i + 9]);
+                print_Block(block[i + 18]);
 
 
 	}
-			in_game++;
+        in_game++;
 
         initVector(&b.posi, 20, 45);
         initVector(&b.vel, 1, 1);
@@ -122,10 +120,6 @@ int main(void)
 
 		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf("%c", 254);
-
-
-		gotoxy(160,40);
-		printf("score %d",score_counter);
 
 
         gotoxy(b.posi.x >> 14, b.posi.y >> 14);
