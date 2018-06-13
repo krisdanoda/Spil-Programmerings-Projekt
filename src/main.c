@@ -57,7 +57,7 @@ int main(void)
     uint8_t life_count = 3;         // to show with RGB
     uint32_t score_counter = 0;     // to print on LCD
     uint8_t level_counter = 1;
-    uint16_t speed_multi = 8;       // Used to adjust speed
+    uint16_t speed_multi = 12;       // Used to adjust speed
 
 
     // Init balls
@@ -88,21 +88,24 @@ int main(void)
 
         in_game++;
 
-        init_blocks(&block, 1); // create blocks and input level
+        init_blocks(block, 1); // create blocks and input level
         init_striker(BORDERX, BORDERY, ss, &strike);
-
         initVector(&b.posi, 20, 45);
-        initVector(&b.vel, 1, 1);
+        initVector(&b.vel, 2, 1);
     }
 
 
-        border_control(&b);
-        score_counter = block_control(&b, &block, score_counter);
+        if (in_game==2){
+
+
         update_striker(&strike, ss);
         striker_bounce(&strike, ss, &b);
 
         gotoxy(b.posi.x >> 14, b.posi.y >> 14);
         printf(" ");
+
+        border_control(&b);
+        score_counter = block_control(&b, block, score_counter);
         // Check for bounches and hits
 
 		updatepos(&b, speed_multi);
@@ -111,7 +114,7 @@ int main(void)
 		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
 		printf("%c", 254);
 
-
+        }
         }
 
 }

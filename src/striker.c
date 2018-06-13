@@ -6,7 +6,7 @@ void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t
 
  initVector(&ks->posi, ( ( ( BORDERX/2 )- ( SS/2 ) )), (BORDERY-3));
  initVector(&ks->vel, 0 << 14 , 0 << 14);
- int8_t *state = 0;
+// int8_t *state = 0;
 
  print_striker(SS, ks );
 
