@@ -29,8 +29,8 @@ void rotate(struct vector_t *v, int32_t angle){
     v->y = FIX14_MULT(x1,Sin(angle))+FIX14_MULT(v->y,Cos(angle));
 }
 
-void updatepos(struct ball_t *b){
-    b->posi.x = b->posi.x + FIX14_MULT(b->vel.x,K);
-    b->posi.y = b->posi.y + FIX14_MULT(b->vel.y,K);
+void updatepos(struct ball_t *b, uint16_t speed_multi){
+    b->posi.x = b->posi.x + FIX14_MULT(b->vel.x,(800+speed_multi*100));
+    b->posi.y = b->posi.y + FIX14_MULT(b->vel.y,(800+speed_multi*100));
 }
 

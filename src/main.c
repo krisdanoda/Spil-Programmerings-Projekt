@@ -21,6 +21,8 @@
 #include <string.h>
 #include "charset.h"
 #include "lcd.h"
+
+#include "striker.h"
 #include "menu.h"
 #include "block_control.h"
 
@@ -31,9 +33,12 @@
 
 
 
+
 int main(void)
 {
+
     init_usb_uart( 115200 );
+
     clrscr();
     gotoxy(1, 1);
     printf("%c[?25l", ESC);
@@ -44,20 +49,24 @@ int main(void)
     init_menu();
     init_disp_score();
 
-    // Herfra starter menu
+    // Variables in main
+    uint8_t ss = 9;
     uint8_t in_game = 0;
-    uint8_t menu_counter = 1;   // bruges i menu
-    uint8_t old_read = 0;       // bruges i menu
-    uint8_t life_count = 2;     // bruges til RGB
-    uint32_t score_counter = 0;   // bruges til LCD
+
+    uint8_t menu_counter = 1;       // used in menu
+    uint8_t old_read = 0;           // used in menu
+    uint8_t life_count = 3;         // to show with RGB
+    uint32_t score_counter = 0;     // to print on LCD
     uint8_t level_counter = 1;
+    uint16_t speed_multi = 0;       // Used to adjust speed
 
+
+    // Init balls
     struct ball_t b;
+    struct striker_t strike;
 
-    // Blocks starts here
-    struct blockpos block[27];
-
-    // Here blocks end
+    // Init blocks
+	struct blockpos block[27];
 
     while (1) {
 
@@ -78,30 +87,48 @@ int main(void)
             clear_line(text_line_1 + 2);
             clear_line(text_line_1 + 4);
 
-            init_blocks(&block, 1); // create blocks and input level
+        in_game++;
 
-            in_game++;
+        init_blocks(&block, 1); // create blocks and input level
+        init_striker(BORDERX, BORDERY, ss, &strike);
+        init_joystick();
+        initVector(&b.posi, 20, 45);
+        initVector(&b.vel, 1, 1);
+    }
 
-            initVector(&b.posi, 2, 4);
-            initVector(&b.vel, 1, 1);
-        }
 
-        if (in_game == 2) {
+//init_striker(BORDERX, BORDERY, ss, *(striker_x), (striker_y));
+
+
+
+
 
             border_control(&b);
             score_counter = block_control(&b, &block, score_counter);
 
-            updatepos(&b);
+
+        update_striker(&strike, ss);
 
 
-            gotoxy(b.posi.x >> 14, b.posi.y >> 14);
-            printf("%c", 254);
+        striker_bounce(&strike, ss, &b);
 
-            for(uint16_t k = 0; k<100; k++){}
+
+        // Check for bounches and hits
+
+		updatepos(&b, speed_multi);
+
+        // Print new ball
+		gotoxy(b.posi.x >> 14, b.posi.y >> 14);
+		printf("%c", 254);
+
+            for(uint16_t k = 0; k<10000; k++){}
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);
             printf(" ");
         }
-    }
+
 }
+
+
+
 

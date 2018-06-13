@@ -90,7 +90,6 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
     uint8_t text_line_1=BORDERY/5;
 
 
-
     // Gå tilbage til menuen hvis der trykkes mod venstre
     if ((read == 4) && ((*in_game) == 0)){
         init_menu();
@@ -147,18 +146,10 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
     // Her tilgås nyt spil
     if ((*menu_counter == 1) && (read == 16) && ((*in_game) == 0)){
         (*in_game) = 1;
-        clear_line(text_line_1);        // Delete old text
-        clear_line(text_line_1+2);
-        clear_line(text_line_1+4);
-        clear_line(text_line_1+6);
-        clear_line(text_line_1+8);
-        // Noget der starter spillet her
-
         (*menu_counter) = 100;
         }
     else if ((*menu_counter == 1) && (read == 8) && ((*in_game) == 0)){
         (*in_game) = 1;
-        // Noget der starter spillet her
         (*menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 
