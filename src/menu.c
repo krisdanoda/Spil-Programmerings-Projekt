@@ -174,12 +174,6 @@ void control_menu(uint8_t read, struct variables *var_main){
         (var_main->menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 
-
-<<<<<<< HEAD
-    (*old_read) = read;
-=======
-
-
     (var_main->old_read) = read;
->>>>>>> Danjal
+
 }

@@ -93,7 +93,7 @@ gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
 }
 
 // Script For striker bounce AND MISS
-void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b, uint8_t *life_count){
+void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b, struct variables *var_main){
 if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ( ks->posi.x) >> 14 ) - SS/2 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x ) >> 14 ) + SS/2 ) ) ) {
 
 //b->vel.y = -(b->vel.y);
@@ -163,10 +163,10 @@ x1 = b->vel.x;
     print_striker(SS, ks );
 
 }
-else if( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) )
+else if( ( (ks->posi.y) + (1<< 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) )
     {
 
-    (*life_count)--;
+    (var_main->life_count)--;
 
     init_ng_ball(b, ks , SS);
 

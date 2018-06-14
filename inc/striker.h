@@ -26,6 +26,6 @@ void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, uint8_t SS, struct striker
 
 void print_striker(uint8_t SS, struct striker_t *ks );
 void update_striker(struct striker_t *ks, uint8_t SS);
-void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b, uint8_t *life_count);
+void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b, struct variables *var_main);
 
 #endif

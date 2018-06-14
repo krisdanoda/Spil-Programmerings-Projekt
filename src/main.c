@@ -86,7 +86,7 @@ int main(void)
 
 
             update_striker(&strike, ss);                        // update striker when joystick is pressed
-            striker_bounce(&strike, ss, &b);                    //FIX LIFE COUNT             // return ball in another angle
+            striker_bounce(&strike, ss, &b, &var_main);                    //FIX LIFE COUNT             // return ball in another angle
 
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position
