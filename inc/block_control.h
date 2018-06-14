@@ -8,12 +8,12 @@
 
 
 struct blockpos {
-	int x1, y1, x2, y2, hit;
+	int x1, y1, x2, y2, hit;                                                                    // initialize struct of a block
 };
 
-void print_Block(struct blockpos b_1);
-void border_control(struct ball_t *b);
-uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter,  uint8_t *level_counter, uint8_t *in_game);
-void init_blocks(struct blockpos *block, uint8_t level_count);
+void print_Block(struct blockpos b_1);                                                          // print each initialized block
+void border_control(struct ball_t *b);                                                          // check if ball is out if window and bounces it back if it is
+uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter,  uint8_t *level_counter, uint8_t *in_game);      // control of block is hit, life, score of blocks
+void init_blocks(struct blockpos *block, uint8_t level_count);                                  // initialize map layout of a given level
 #endif /* BLOCK_CONTROL_INCLUDED */
 

@@ -20,7 +20,7 @@ struct striker_t{
 void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t *ks);
 
 void print_striker(uint8_t SS, struct striker_t *ks );
-
+void update_striker(struct striker_t *ks, uint8_t SS);
 void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b);
 
 #endif

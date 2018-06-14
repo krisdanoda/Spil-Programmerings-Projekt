@@ -196,7 +196,7 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528901151 D
+1528902482 D
 	"menu.h"
 	"block_control.h"
 	<stdlib.h>
@@ -234,7 +234,7 @@
 1528714486 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1528901030 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\main.c
+1528974202 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -802,7 +802,7 @@
 	"charset.h"
 	"lcd.h"
 
-1528973875 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\block_control.h
+1528974292 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\block_control.h
 	"30010_io.h"
 	"trig.h"
 
@@ -819,7 +819,7 @@
 1528820003 source:c:\users\krist\documents\c files\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528973875 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
+1528974389 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 	"ansi.h"
 
@@ -861,7 +861,7 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528973857 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\striker.h
+1528974202 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\striker.h
 	"30010_io.h"
 	"timer.h"
 	"charset.h"
@@ -870,6 +870,17 @@
 	"controller.h"
 	"ansi.h"
 	<stdlib.h>
+
+1528902508 jal
+	"30010_io.h"
+	"timer.h"
+	"charset.h"
+	"trig.h"
+	"LUT.h"
+	"controller.h"
+	"ansi.h"
+	<stdlib.h>
+	"striker.h"
 
 1528708837 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\spl\src\stm32f30x_adc.c
 	"stm32f30x_adc.h"
@@ -1118,6 +1129,8 @@
 1528901151 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\startup_stm32f30x.s
 
 1528901151 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
+
+1528974202 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
 1528901151 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\striker.h
@@ -1130,9 +1143,6 @@
 	"LUT.h"
 	"controller.h"
 	"ansi.h"
-
-1528973857 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
-	"striker.h"
 
 1528901990 "
 
