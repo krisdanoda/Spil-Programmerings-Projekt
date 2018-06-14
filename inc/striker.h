@@ -9,6 +9,7 @@
 #include "controller.h"
 #include "ansi.h"
 #include <stdlib.h>
+#include "config_project.h"
 
 struct striker_t{
     struct vector_t posi;
