@@ -1,10 +1,8 @@
 #include "striker.h"
 
+void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, uint8_t SS, struct striker_t *ks){
 
-
-void init_striker(uint8_t BORDERX, uint8_t BORDERY, uint8_t SS, struct striker_t *ks){
-
- initVector(&ks->posi, ( ( ( BORDERX/2 )- ( SS/2 ) )), (BORDERY-3));
+ initVector(&ks->posi, ( ( ( BORDER_X/2 )- ( SS/2 ) )), (BORDER_Y-3));
  initVector(&ks->vel, 0 << 14 , 0 << 14);
 // int8_t *state = 0;
 
@@ -40,26 +38,21 @@ int32_t old_x = ks->posi.x;
 
     ks->vel.x = -10 << 14;
 
-//        for ( uint8_t i = 0; i < SS; i++ ){
-//
-//        gotoxy( ( ( ( ks->posi.x ) >> 14 ) + i ) , ( ( ks->posi.y ) >> 14 ) );
-//        printf("%c", 32);
-//         }
+                           //        for ( uint8_t i = 0; i < SS; i++ ){
+                           //
+                           //        gotoxy( ( ( ( ks->posi.x ) >> 14 ) + i ) , ( ( ks->posi.y ) >> 14 ) );
+                           //        printf("%c", 32);
+                           //         }
 
     ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K);
-    ks->posi.y = ks->posi.y + FIX14_MULT(ks->vel.y,K);
+                           // ks->posi.y = ks->posi.y + FIX14_MULT(ks->vel.y,K);
 
-//    for (uint16_t k = (old_x >> 14) ; k <= ((ks->posi.x) >> 14); k--){
-//      gotoxy( ( ( ( old_x ) >> 14 ) + k + 7 ) , ( ( ks->posi.y ) >> 14 ) );
-//      printf("d");
-//    }
-//
-//    int32_t dif = (old_x - (ks->posi.x)) >> 14;
-//
-//     for (int16_t k = 0; k <= dif ; k--){
-//      gotoxy( ( ( ( old_x ) >> 14 ) + k + 7 ) , ( ( ks->posi.y ) >> 14 ) );
-//      printf("d");
-//    }
+
+
+
+    if ( ks->posi.x < ( (2 + SS/2) << 14)){
+    ks->posi.x = ((2 + SS/2) << 14);
+    }
 
 gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
     printf(" ");
@@ -73,7 +66,11 @@ gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
         ks->vel.x = 10 << 14;
 
     ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K);
-    ks->posi.y = ks->posi.y + FIX14_MULT(ks->vel.y,K);
+                           //ks->posi.y = ks->posi.y + FIX14_MULT(ks->vel.y,K);
+
+    if ( ks->posi.x > ( (150-1-SS/2) << 14)){
+    ks->posi.x = ((150-1-SS/2) << 14);
+    }
 
     gotoxy( ( ( ( old_x ) >> 14 ) ) , ( ( ks->posi.y ) >> 14 ) );
     printf(" ");
@@ -88,15 +85,16 @@ gotoxy( ( ( ( old_x ) >> 14 ) + SS/2 ) , ( ( ks->posi.y ) >> 14 ) );
 
     }
 
-//    if (ks->a > 700){
-//    ks -> state = 0;
-//    print_striker(SS, ks );
-//    }
-//    (ks ->a)= (ks ->a)+1;
+                           //    if (ks->a > 700){
+                           //    ks -> state = 0;
+                           //    print_striker(SS, ks );
+                           //    }
+                           //    (ks ->a)= (ks ->a)+1;
 }
 
-void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b){
-if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) {
+// Script For striker bounce AND MISS
+void striker_bounce(struct striker_t *ks, uint8_t SS, struct ball_t *b, uint8_t *life_count){
+if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ( ks->posi.x) >> 14 ) - SS/2 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x ) >> 14 ) + SS/2 ) ) ) {
 
 //b->vel.y = -(b->vel.y);
 //
@@ -134,6 +132,8 @@ int32_t it = 10000 * (uint32_t)(expand(SIN[i]) & 0xFFFF) >> 16;
 
 
 //
+
+
 if ( (b-> posi.x - ks -> posi.x) <= 0){
 
 
@@ -145,39 +145,36 @@ g_angle = - g_angle;
 g_angle = g_angle / 2 ;
 
 
-
-//int32_t x1 = b->vel.x;
-// b->vel.x = FIX14_MULT(b->vel.x,Cos(g_angle))-FIX14_MULT(b->vel.y,Sin(g_angle));
-//    b->vel.y = FIX14_MULT(x1,Sin(g_angle))+FIX14_MULT(b->vel.y,Cos(g_angle));
-// b->vel.y =  -(b->vel.y);
-//
-//x1 = b->vel.x;
-//    b->vel.x = FIX14_MULT(b->vel.x,Cos(-g_angle))-FIX14_MULT(b->vel.y,Sin(-g_angle));
-//    b->vel.y = FIX14_MULT(x1,Sin(-g_angle))+FIX14_MULT(b->vel.y,Cos(-g_angle));
-//
-//     b->posi.y =  b->posint32_t x1 = b->vel.x;
-
-
 int32_t x1 = b->vel.x;
  b->vel.x = FIX14_MULT(b->vel.x,Cos(g_angle))-FIX14_MULT(b->vel.y,Sin(g_angle));
-    b->vel.y = FIX14_MULT(x1,Sin(g_angle))+FIX14_MULT(b->vel.y,Cos(g_angle));
+b->vel.y = FIX14_MULT(x1,Sin(g_angle))+FIX14_MULT(b->vel.y,Cos(g_angle));
  b->vel.y =  -(b->vel.y);
 
 x1 = b->vel.x;
-
 
     b->vel.x = FIX14_MULT(b->vel.x,Cos(-g_angle))-FIX14_MULT(b->vel.y,Sin(-g_angle));
     b->vel.y = FIX14_MULT(x1,Sin(-g_angle))+FIX14_MULT(b->vel.y,Cos(-g_angle));
 
      b->posi.y =  b->posi.y - ( 2 << 14 );
 
-
-
     ks->state = 1;
     ks->a =0;
 
     print_striker(SS, ks );
 
-
 }
+else if( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) )
+    {
+
+    (*life_count)--;
+
+    init_ng_ball(b, ks , SS);
+
+//    b->posi.x = (90 << 14);
+//    b->posi.y = ( 30 << 14);
+//    b->vel.x = ( 0 << 14 );
+//    b->vel.y = ( 3 << 14 );
+
+
+    }
 }

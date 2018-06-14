@@ -24,6 +24,7 @@
 #include "striker.h"
 #include "menu.h"
 #include "block_control.h"
+#include "ball.h"
 
 
 #define BORDERX 150                                             //define the size of the window
@@ -41,6 +42,7 @@ int main(void)
     init_RGB();                                                 // initialize RGB
     init_spi_lcd();                                             // initialize LCD display
     init_menu();                                                // initialize start menu
+
 
     uint8_t ss = 9;                                             // size of striker
     uint8_t in_game = 0;                                        // if 0 menu , 1 initialize game , 2 in game.
@@ -87,15 +89,15 @@ int main(void)
             write_score(score_counter);                             // Display score_counter on LCD
             write_level(level_counter);                             // Display score_counter on LCD
 
+
             update_striker(&strike, ss);                        // update striker when joystick is pressed
-            striker_bounce(&strike, ss, &b);                    // return ball in another angle
+            striker_bounce(&strike, ss, &b);       //FIX LIFE COUNT             // return ball in another angle
+
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position
             printf(" ");
             border_control(&b);                                 // make sure the ball bounces of the window
             score_counter = block_control(&b, block, score_counter, &level_counter, &in_game); // Check blocks and hits and return the score
-
-                                     // delete the print of old ballS
 
             updatepos(&b, speed_multi);                         // update position of ball and set the speed of the ballS
 

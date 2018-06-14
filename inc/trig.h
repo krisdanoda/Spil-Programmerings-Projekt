@@ -12,7 +12,8 @@
 struct vector_t {
     int32_t x, y;
 };
-//
+
+
 struct ball_t {
     struct vector_t posi;
     struct vector_t vel;
