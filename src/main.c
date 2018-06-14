@@ -24,6 +24,7 @@
 #include "striker.h"
 #include "menu.h"
 #include "block_control.h"
+#include "ball.h"
 
 
 #define BORDERX 150                                             //define the size of the window
@@ -35,7 +36,6 @@
 
 int main(void)
 {
-
     init_usb_uart( 115200 );                                    //set speed of microprocessor
 
     clrscr();                                                   // clear screen
@@ -49,7 +49,7 @@ int main(void)
     init_disp_score();                                          // initialize display score
 
     // Variables in main
-    uint8_t ss = 9;                                             // size of striker
+    uint8_t ss = 20;                                             // size of striker
     uint8_t in_game = 0;                                        // if 0 menu , 1 initialize game , 2 in game.
 
     uint8_t menu_counter = 1;                                   // used in menu
@@ -97,14 +97,14 @@ int main(void)
 
 
             update_striker(&strike, ss);
-            striker_bounce(&strike, ss, &b);
+            striker_bounce(&strike, ss, &b, &life_count);
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);
             printf(" ");
 
             border_control(&b);
             score_counter = block_control(&b, block, score_counter);
-            // Check for bounches and hits
+            // Check for bounces and hits
 
             updatepos(&b, speed_multi);
 

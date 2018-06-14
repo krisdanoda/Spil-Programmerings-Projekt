@@ -177,7 +177,5 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
         }
 
 
-
-
     (*old_read) = read;
 }
