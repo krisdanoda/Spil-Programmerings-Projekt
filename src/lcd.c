@@ -19,7 +19,7 @@ void write_score(uint32_t score){
 
 void write_level(uint8_t level){
 char str[8];
-sprintf(str,"%u",level);
+sprintf(str,"%d",level);
 
 uint8_t buffer[512];
 
@@ -30,18 +30,6 @@ uint8_t buffer[512];
     lcd_push_buffer(buffer);
 
 }
-
-
-
-void init_disp_score(){
-
-    uint8_t buffer[512];
-
-    memset(buffer, 0x00, 512);
-    type_tex("The score is:",  buffer, 0, 0);
-    lcd_push_buffer(buffer);
-    }
-
 
 
 
