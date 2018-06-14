@@ -8,20 +8,21 @@
 
 
 void clear_line(uint8_t y){
+    // A function to replace text with spaces
     gotoxy(3,y);
     printf("                                                                                                                                            ");
-    // her indsættes en masse mellemrum så linje "y" overskrives.
 }
 
 
 void init_menu(){
     uint8_t text_line_1=BORDERY/5;
     uint8_t text_col_1=BORDERX/2-10;
-    clear_line(text_line_1);   // Delete old text
-    clear_line(text_line_1+2);
-    clear_line(text_line_1+4);
-    clear_line(text_line_1+6);
-    clear_line(text_line_1+8);
+
+    uint8_t i;
+    for (i=0;i<6;i++){
+        clear_line(text_line_1+2*i); // Delete old text
+    }
+
     gotoxy(text_col_1,text_line_1);  // Print main menu
     printf("New Game");
     gotoxy(text_col_1,text_line_1+2);
@@ -33,11 +34,12 @@ void init_menu(){
 void init_high_score(){
     uint8_t text_line_1=BORDERY/5;
     uint8_t text_col_1=BORDERX/2-10;
-    clear_line(text_line_1);        // Delete old text
-    clear_line(text_line_1+2);
-    clear_line(text_line_1+4);
-    clear_line(text_line_1+6);
-    clear_line(text_line_1+8);
+
+    uint8_t i;
+    for (i=0;i<6;i++){
+        clear_line(text_line_1+2*i); // Delete old text
+    }
+
     gotoxy(text_col_1,text_line_1);     // Print high scores
     printf("This is a list of the highest scores. Press >left< to go back.");
     gotoxy(text_col_1,text_line_1+2);
@@ -69,12 +71,11 @@ void init_help(){
     gotoxy(text_col_1,text_line_1+6);
     printf("    Green = 3, yellow = 2 and red = 1. If you see a white light, you're dead.");
     gotoxy(text_col_1,text_line_1+8);
-    printf("Your score can be seen on the LCD.");
+    printf("Your score and level can be seen on the LCD.");
+    gotoxy(text_col_1,text_line_1+10);
+    printf("Some of the bricks are power-ups!");
 
 }
-
-
-
 
 
 void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_t *in_game){

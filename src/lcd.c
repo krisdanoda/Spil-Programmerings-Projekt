@@ -33,18 +33,6 @@ uint8_t buffer[512];
 
 
 
-void init_disp_score(){
-
-    uint8_t buffer[512];
-
-    memset(buffer, 0x00, 512);
-    type_tex("The score is:",  buffer, 0, 0);
-    lcd_push_buffer(buffer);
-    }
-
-
-
-
 
 void type_tex(char *c, uint8_t *buffer, uint8_t  *x, uint8_t  y)
 {

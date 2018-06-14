@@ -5,8 +5,6 @@
 #include "timer.h"
 #include "charset.h"
 
-void init_disp_score();
-
 void write_score(uint32_t score);
 
 void write_level(uint8_t level);

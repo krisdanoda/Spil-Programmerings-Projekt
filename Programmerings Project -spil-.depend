@@ -1059,10 +1059,10 @@
 1528878659 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\controller.h
 	"30010_io.h"
 
-1528966945 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lcd.c
+1528969172 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lcd.c
 	"lcd.h"
 
-1528901151 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\lcd.h
+1528972803 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\lcd.h
 	"30010_io.h"
 	"timer.h"
 	"charset.h"
@@ -1075,7 +1075,7 @@
 1528722402 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1528901151 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1528972330 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 	"stm32f30x_conf.h"
 	"30010_io.h"
@@ -1111,7 +1111,7 @@
 1528901151 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528968023 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1528972757 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"ansi.h"
@@ -1126,11 +1126,11 @@
 	"menu.h"
 	"block_control.h"
 
-1528967706 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\block_control.h
+1528969172 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\block_control.h
 	"30010_io.h"
 	"trig.h"
 
-1528967706 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
+1528969172 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 	"ansi.h"
 
