@@ -13,6 +13,7 @@
 **********************************************************************/
 #include "stm32f30x_conf.h"
 #include "30010_io.h"
+#include "config_project.h"
 #include "ansi.h"
 #include "LUT.h"
 #include "trig.h"
@@ -26,9 +27,9 @@
 #include "block_control.h"
 #include "ball.h"
 
-
 #define BORDERX 150                                             //define the size of the window
 #define BORDERY 60                                              //define the size of the window
+
 
 int main(void)
 {
@@ -45,61 +46,57 @@ int main(void)
 
 
     uint8_t ss = 9;                                             // size of striker
-    uint8_t in_game = 0;                                        // if 0 menu , 1 initialize game , 2 in game.
-
-    uint8_t menu_counter = 1;                                   // used in menu
-    uint8_t old_read = 0;                                       // used in menu
-    uint8_t life_count = 3;                                     // to show with RGB
-    uint32_t score_counter = 0;                                 // to print on LCD
-    uint8_t level_counter = 1;                                  // keep track of level
-    uint16_t speed_multi = 30;                                  // Used to adjust speed
 
     struct ball_t b;                                            // initialize struct of the ball
     struct striker_t strike;                                    // initialize struct of the striker
     struct blockpos block[100];                                  // initialize boxes in game
+    struct variables var_main;
 
-
+    init_var_main(&var_main);
 
     while (1) {
 
-        while (in_game == 0) {
-            // Navigate menu with joystick
-            uint8_t read = readJoystick();                          // read from joystick
-            control_menu(read, &menu_counter, &old_read, &in_game); // Navigate menu with joystick
+
+        while (var_main.in_game == 0) {
+            uint8_t read = readJoystick();                      // read from joystick
+            control_menu(read, &var_main);                      // Navigate menu with joystick
         }
 
 
-        if ((in_game) == 1) {                                   // initialize game
+        if ((var_main.in_game) == 1) {                          // initialize game
             uint8_t text_line_1 = BORDERY / 5;                  // go to text location from menu
             clear_line(text_line_1);                            // Delete old text
             clear_line(text_line_1 + 2);                        // Delete old text
             clear_line(text_line_1 + 4);                        // Delete old text
 
-            init_blocks(block, level_counter);                 // create blocks and input level
+//            init_blocks(block, level_counter);                // create blocks and input level
+            init_blocks(block, var_main.level_counter);
             init_striker(BORDERX, BORDERY, ss, &strike);        // create striker
             initVector(&b.posi, 20, 45);                        // set start position of ball
             initVector(&b.vel, 2, 1);                           // set velocity that is manipulated later
 
-            in_game++;                                          // set in_game to 2 (start game)
+            (var_main.in_game)++;                               // set in_game to 2 (start game)
         }
 
-        while (in_game == 2) {                                  // start game
+        while (var_main.in_game == 2) {                         // start game
 
-            set_RGB(life_count);                                    // Display life_count on RGB
-            write_score(score_counter);                             // Display score_counter on LCD
-            write_level(level_counter);                             // Display score_counter on LCD
+            set_RGB(var_main.life_count);                       // Display life_count on RGB
+            write_score(var_main.score_counter);                // Display score_counter on LCD
+            write_level(var_main.level_counter);                // Display score_counter on LCD
 
 
             update_striker(&strike, ss);                        // update striker when joystick is pressed
-            striker_bounce(&strike, ss, &b);       //FIX LIFE COUNT             // return ball in another angle
+            striker_bounce(&strike, ss, &b);                    //FIX LIFE COUNT             // return ball in another angle
 
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position
-            printf(" ");
+            printf(" ");                                        // delete the print of old ballS
             border_control(&b);                                 // make sure the ball bounces of the window
-            score_counter = block_control(&b, block, score_counter, &level_counter, &in_game); // Check blocks and hits and return the score
 
-            updatepos(&b, speed_multi);                         // update position of ball and set the speed of the ballS
+            block_control(&b, block, &var_main);                // Check blocks and hits and return the score
+
+            updatepos(&b, var_main.speed_multi);                // update position of ball and set the speed of the ballS
+
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to new ball location
             printf("%c", 254);                                  // Print new ball

@@ -1,9 +1,6 @@
 #include "menu.h"
-#include "stm32f30x_conf.h"
-#include "30010_io.h"
 
-#define BORDERX 150
-#define BORDERY 60
+
 
 
 
@@ -78,7 +75,7 @@ void init_help(){
 }
 
 
-void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_t *in_game){
+void control_menu(uint8_t read, struct variables *var_main){
     // a function to control the menu
     // Inputs:
     // read is the joystick value (1=up, 2=down, 4=left, 8=right, 16=center).
@@ -92,32 +89,32 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
 
 
     // Gå tilbage til menuen hvis der trykkes mod venstre
-    if ((read == 4) && ((*in_game) == 0)){
+    if(read == 4){
         init_menu();
-        (*menu_counter) = 1;
+        var_main->menu_counter = 1;
     }
 
 
     // Her ændres menu_counter så der holdes styr på cursoren
-    if ((read != *old_read) && (read ==1) && ((*in_game) == 0)){
-            (*menu_counter)--;
+    if ((read != var_main->old_read) && (read ==1)){
+            (var_main->menu_counter)--;
         }
-    else if (((read != *old_read) && (read ==2))){
-            (*menu_counter)++;
+    else if (((read != var_main->old_read) && (read ==2))){
+            (var_main->menu_counter)++;
     }
 
 
 
-    if (*menu_counter == 0){        // Counteren må ikke være lavere end 1
-            (*menu_counter)++;
+    if (var_main->menu_counter == 0){        // Counteren må ikke være lavere end 1
+            (var_main->menu_counter)++;
     }
-    else if (*menu_counter == 4) {  // Counteren må ikke være højere end 3
-            (*menu_counter)--;
+    else if (var_main->menu_counter == 4) {  // Counteren må ikke være højere end 3
+            (var_main->menu_counter)--;
     }
 
 
     // Her flyttes cursoren
-    if (*menu_counter == 1){        // Flyt cursor til "new game"
+    if (var_main->menu_counter == 1){        // Flyt cursor til "new game"
         gotoxy(text_cursor_1,text_line_1);
         printf("%c",175);
         gotoxy(text_cursor_1,text_line_1+2);
@@ -125,7 +122,7 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
         gotoxy(text_cursor_1,text_line_1+4);
         printf("  ");
     }
-    else if (*menu_counter == 2){        // Flyt cursor til "high scorres"
+    else if (var_main->menu_counter == 2){        // Flyt cursor til "high scorres"
         gotoxy(text_cursor_1,text_line_1);
         printf("  ");
         gotoxy(text_cursor_1,text_line_1+2);
@@ -133,7 +130,7 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
         gotoxy(text_cursor_1,text_line_1+4);
         printf("  ");
     }
-    else if (*menu_counter == 3){        // Flyt cursor til "help"
+    else if (var_main->menu_counter == 3){        // Flyt cursor til "help"
         gotoxy(text_cursor_1,text_line_1);
         printf("  ");
         gotoxy(text_cursor_1,text_line_1+2);
@@ -145,38 +142,44 @@ void control_menu(uint8_t read, uint8_t *menu_counter, uint8_t *old_read, uint8_
 
 
     // Her tilgås nyt spil
-    if ((*menu_counter == 1) && (read == 16) && ((*in_game) == 0)){
-        (*in_game) = 1;
-        (*menu_counter) = 100;
+    if ((var_main->menu_counter == 1) && (read == 16)){
+        (var_main->in_game) = 1;
+        (var_main->menu_counter) = 100;
         }
-    else if ((*menu_counter == 1) && (read == 8) && ((*in_game) == 0)){
-        (*in_game) = 1;
-        (*menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
+    else if ((var_main->menu_counter == 1) && (read == 8)){
+        (var_main->in_game) = 1;
+        (var_main->menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 
 
 
     // Her tilgås high score
-    if ((*menu_counter == 2) && (read == 16) && ((*in_game) == 0)){
+    if ((var_main->menu_counter == 2) && (read == 16)){
         init_high_score();
-        (*menu_counter) = 100;
+        (var_main->menu_counter) = 100;
         }
-    else if ((*menu_counter == 2) && (read == 8) && ((*in_game) == 0)){
+    else if ((var_main->menu_counter == 2) && (read == 8)){
         init_high_score();
-        (*menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
+        (var_main->menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 
 
     // Her tilgås hjælp
-    if ((*menu_counter == 3) && (read == 16) && ((*in_game) == 0)){
+    if ((var_main->menu_counter == 3) && (read == 16)){
         init_help();
-        (*menu_counter) = 100;
+        (var_main->menu_counter) = 100;
         }
-    else if ((*menu_counter == 3) && (read == 8) && ((*in_game) == 0)){
+    else if ((var_main->menu_counter == 3) && (read == 8)){
         init_help();
-        (*menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
+        (var_main->menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 
 
+<<<<<<< HEAD
     (*old_read) = read;
+=======
+
+
+    (var_main->old_read) = read;
+>>>>>>> Danjal
 }

@@ -234,9 +234,10 @@
 1528714486 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1528974202 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\main.c
+1528987688 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
+	"config_project.h"
 	"ansi.h"
 	"LUT.h"
 	"trig.h"
@@ -248,6 +249,7 @@
 	"striker.h"
 	"menu.h"
 	"block_control.h"
+	"ball.h"
 
 1528896365 trol.h"
 
@@ -256,10 +258,10 @@
 1528708632 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\system_stm32f30x.c
 	"stm32f30x.h"
 
-1528900164 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\trig.c
+1528987688 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528902177 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\trig.h
+1528987678 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\trig.h
 	"30010_io.h"
 	"LUT.h"
 
@@ -274,10 +276,10 @@
 1528881474 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\controller.h
 	"30010_io.h"
 
-1528973875 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\lcd.c
+1528979763 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\lcd.c
 	"lcd.h"
 
-1528973875 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\lcd.h
+1528979763 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\lcd.h
 	"30010_io.h"
 	"timer.h"
 	"charset.h"
@@ -802,9 +804,11 @@
 	"charset.h"
 	"lcd.h"
 
-1528974292 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\block_control.h
+1528987687 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\block_control.h
 	"30010_io.h"
 	"trig.h"
+	"ansi.h"
+	"config_project.h"
 
 1528820228 c:\users\krist\documents\c files\spil-programmerings-projekt\inc\trig.h
 
@@ -819,9 +823,8 @@
 1528820003 source:c:\users\krist\documents\c files\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528974389 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
+1528987688 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
-	"ansi.h"
 
 1528898455 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\striker.h
 	"30010_io.h"
@@ -852,16 +855,16 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528973875 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\menu.c
+1528987688 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\menu.c
 	"menu.h"
+
+1528987687 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
+	"config_project.h"
+	"ansi.h"
 
-1528902177 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\menu.h
-	"stm32f30x_conf.h"
-	"30010_io.h"
-
-1528974202 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\striker.h
+1528987732 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\striker.h
 	"30010_io.h"
 	"timer.h"
 	"charset.h"
@@ -870,6 +873,8 @@
 	"controller.h"
 	"ansi.h"
 	<stdlib.h>
+	"ball.h"
+	"config_project.h"
 
 1528902508 jal
 	"30010_io.h"
@@ -1130,7 +1135,7 @@
 
 1528901151 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
 
-1528974202 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
+1528987678 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
 1528901151 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\striker.h
@@ -1181,4 +1186,24 @@
 1528969172 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 	"ansi.h"
+
+1528987688 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\config_project.c
+	"config_project.h"
+
+1528987687 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\config_project.h
+	"30010_io.h"
+
+1528987678 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\ball.c
+	"ball.h"
+
+1528987678 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\ball.h
+	"striker.h"
+	"30010_io.h"
+	"timer.h"
+	"charset.h"
+	"trig.h"
+	"LUT.h"
+	"controller.h"
+	"ansi.h"
+	<stdlib.h>
 

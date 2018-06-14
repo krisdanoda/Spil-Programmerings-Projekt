@@ -95,6 +95,7 @@
 		<Unit filename="inc\ball.h.txt" />
 		<Unit filename="inc\block_control.h" />
 		<Unit filename="inc\charset.h" />
+		<Unit filename="inc\config_project.h" />
 		<Unit filename="inc\controller.h" />
 		<Unit filename="inc\lcd.h" />
 		<Unit filename="inc\LUT.h" />
@@ -208,6 +209,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\charset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\config_project.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\controller.c">
