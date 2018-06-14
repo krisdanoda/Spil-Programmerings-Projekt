@@ -50,7 +50,7 @@ int main(void)
     uint8_t life_count = 3;                                     // to show with RGB
     uint32_t score_counter = 0;                                 // to print on LCD
     uint8_t level_counter = 1;                                  // keep track of level
-    uint16_t speed_multi = 12;                                  // Used to adjust speed
+    uint16_t speed_multi = 30;                                  // Used to adjust speed
 
     struct ball_t b;                                            // initialize struct of the ball
     struct striker_t strike;                                    // initialize struct of the striker
@@ -90,11 +90,12 @@ int main(void)
             update_striker(&strike, ss);                        // update striker when joystick is pressed
             striker_bounce(&strike, ss, &b);                    // return ball in another angle
 
+            gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position
+            printf(" ");
             border_control(&b);                                 // make sure the ball bounces of the window
             score_counter = block_control(&b, block, score_counter, &level_counter, &in_game); // Check blocks and hits and return the score
 
-            gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position
-            printf(" ");                                        // delete the print of old ballS
+                                     // delete the print of old ballS
 
             updatepos(&b, speed_multi);                         // update position of ball and set the speed of the ballS
 
