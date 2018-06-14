@@ -19,7 +19,7 @@ void write_score(uint32_t score){
 
 void write_level(uint8_t level){
 char str[8];
-sprintf(str,"%u",level);
+sprintf(str,"%d",level);
 
 uint8_t buffer[512];
 

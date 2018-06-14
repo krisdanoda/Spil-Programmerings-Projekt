@@ -23,7 +23,10 @@ void border_control(struct ball_t *b) {
 
 
 
-uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter) {
+uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_counter, uint8_t *level_counter, uint8_t *in_game) {
+    uint8_t sum=0;                     // test if there are no more blocks
+	uint8_t i;
+
 	for (uint8_t j = 0; j < 27; j++) {
 		if ( (((b->posi.x >> 14) >= block[j].x1) && ((b->posi.x >> 14) <= block[j].x2)) &&
 		        ( ((b->posi.y >> 14) == block[j].y1) || ((b->posi.y >> 14) == block[j].y2) ) )
@@ -58,7 +61,18 @@ uint32_t block_control(struct ball_t *b, struct blockpos *block, uint32_t score_
 			}
 		}
 	}
-	return(score_counter);
+
+
+
+
+	for (i = 0 ; i < 27 ; i++){
+        sum += block[i].hit;
+	}
+	if (sum == 0){                    // If there are no more blocks, go up a level
+        (*level_counter)++;
+        (*in_game)--;
+	}
+    return(score_counter);
 }
 
 
