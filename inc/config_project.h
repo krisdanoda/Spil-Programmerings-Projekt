@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "30010_io.h"
 
+#define BORDERX 150
+#define BORDERY 60
 
 struct variables{
     uint8_t in_game, menu_counter, old_read, life_count;

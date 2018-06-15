@@ -9,7 +9,7 @@ uint8_t create_rand(x){
 
 void activate_pu(struct variables *var_main, struct striker_t *strike){
     // A function that activates power-ups
-    uint8_t y = create_rand(1);
+    uint8_t y = create_rand(2);
     if (y==2){
         (var_main->speed_multi)--;
     }

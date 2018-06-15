@@ -11,8 +11,7 @@
 #include <stdlib.h>
 #include "ball.h"
 #include "config_project.h"
-#define BORDERX 150                                             //define the size of the window
-#define BORDERY 60                                              //define the size of the window
+#include "menu.h"
 
 
 struct striker_t{

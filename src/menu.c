@@ -16,7 +16,7 @@ void init_menu(){
     uint8_t text_col_1=BORDERX/2-10;
 
     uint8_t i;
-    for (i=0;i<6;i++){
+    for (i=0;i<((BORDERY-text_line_1-1)/2);i++){
         clear_line(text_line_1+2*i); // Delete old text
     }
 
@@ -75,7 +75,8 @@ void init_help(){
 }
 
 
-void control_menu(uint8_t read, struct variables *var_main){
+void control_menu(struct variables *var_main){
+    uint8_t read = readJoystick();
     // a function to control the menu
     // Inputs:
     // read is the joystick value (1=up, 2=down, 4=left, 8=right, 16=center).
@@ -177,3 +178,35 @@ void control_menu(uint8_t read, struct variables *var_main){
     (var_main->old_read) = read;
 
 }
+
+
+void game_over(struct variables *var_main, struct striker_t *ks){
+
+
+   for(uint8_t i = 2; i < (BORDERY-1); i++ ){
+
+   clear_line(i);
+   }
+
+   gotoxy(70,20);
+printf("LOL, YOUR GAY!");
+
+   var_main->in_game = 0;
+
+   gotoxy(70,21);
+   printf( " Press >up< to continue");
+
+while(readJoystick() != 1){
+
+}
+
+ for(uint8_t i = 2; i < (BORDERY-1); i++ ){
+var_main->menu_counter = 1;
+   clear_line(i);
+   }
+init_menu();
+
+}
+
+
+

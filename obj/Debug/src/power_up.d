@@ -12,4 +12,4 @@ obj\debug\src\power_up.o: src\power_up.c inc/power_up.h inc/30010_io.h \
  SPL\inc/stm32f30x_tim.h SPL\inc/stm32f30x_usart.h \
  SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/trig.h inc/LUT.h \
  inc/striker.h inc/our_timer.h inc/ansi.h inc/controller.h inc/charset.h \
- inc/ball.h inc/config_project.h
+ inc/ball.h inc/config_project.h inc/menu.h

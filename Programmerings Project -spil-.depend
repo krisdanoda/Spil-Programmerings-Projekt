@@ -1109,7 +1109,7 @@
 1528988755 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lcd.c
 	"lcd.h"
 
-1528989569 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\lcd.h
+1529056693 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\lcd.h
 	"30010_io.h"
 	"our_timer.h"
 	"charset.h"
@@ -1122,24 +1122,25 @@
 1528722402 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1528989151 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1529065494 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 
-1528988774 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
+1529059844 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"config_project.h"
 	"ansi.h"
+	"striker.h"
 
 1528991142 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\startup_stm32f30x.s
 
-1529055489 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
+1529065280 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
 1528988631 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
-1529055388 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\striker.h
+1529060230 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\striker.h
 	"30010_io.h"
 	"our_timer.h"
 	"charset.h"
@@ -1150,6 +1151,7 @@
 	<stdlib.h>
 	"ball.h"
 	"config_project.h"
+	"menu.h"
 
 1528969172 7f509b5020d903df797a8dbe38b53ad727acd
 	"30010_io.h"
@@ -1162,7 +1164,7 @@
 
 1528901990 "
 
-1528988774 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\trig.h
+1529056693 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\trig.h
 	"30010_io.h"
 	"LUT.h"
 
@@ -1172,10 +1174,10 @@
 1528708837 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\timer.c
 	"timer.h"
 
-1528988774 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\trig.c
+1529056693 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1529055699 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
+1529060107 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"config_project.h"
@@ -1194,14 +1196,14 @@
 	<time.h>
 	<stdlib.h>
 
-1529052514 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\block_control.h
+1529056693 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\block_control.h
 	"30010_io.h"
 	"trig.h"
 	"ansi.h"
 	"config_project.h"
 	"striker.h"
 
-1529053057 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
+1529059362 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 
 1528987688 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\config_project.c
@@ -1224,10 +1226,10 @@
 	"ansi.h"
 	<stdlib.h>
 
-1529055484 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\ball.c
+1529056693 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\ball.c
 	"ball.h"
 
-1529055484 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\ball.h
+1529056693 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\ball.h
 	"striker.h"
 	"30010_io.h"
 	"our_timer.h"
@@ -1238,26 +1240,26 @@
 	"ansi.h"
 	<stdlib.h>
 
-1529056488 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\config_project.h
+1529059775 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\config_project.h
 	<time.h>
 	<stdlib.h>
 	"30010_io.h"
 
-1529053186 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\config_project.c
+1529056693 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\config_project.c
 	"config_project.h"
 
-1528989660 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\our_timer.h
+1529056693 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\our_timer.h
 	"30010_io.h"
 	"ansi.h"
 	"controller.h"
 
-1528989660 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\our_timer.c
+1529056693 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\our_timer.c
 	"our_timer.h"
 
-1529053517 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\power_up.c
+1529059696 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\power_up.c
 	"power_up.h"
 
-1529052467 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\power_up.h
+1529056693 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\power_up.h
 	"30010_io.h"
 	"trig.h"
 	"striker.h"

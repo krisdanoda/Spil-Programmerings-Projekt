@@ -53,16 +53,15 @@ int main(void)
     struct blockpos block[100];                                 // initialize boxes in game
     struct variables var_main;
 
-    strike.s_size = 9;
+    strike.s_size = 9;                                          // initialize striker size
 
-    init_var_main(&var_main);
+    init_var_main(&var_main);                                   // initialize various variables
 
     while (1) {
 
 
         while (var_main.in_game == 0) {
-            uint8_t read = readJoystick();                      // read from joystick
-            control_menu(read, &var_main);                      // Navigate menu with joystick
+            control_menu(&var_main);                            // Navigate menu with joystick
         }
 
 
@@ -89,8 +88,8 @@ int main(void)
             write_score(var_main.score_counter);                // Display score_counter on LCD
             write_level(var_main.level_counter);                // Display life_counter on LCD
 
-            update_striker(&strike);                        // update striker when joystick is pressed
-            striker_bounce(&strike, &b, &var_main);                    //FIX LIFE COUNT             // return ball in another angle
+            update_striker(&strike);                            // update striker when joystick is pressed
+            striker_bounce(&strike, &b, &var_main);             //FIX LIFE COUNT             // return ball in another angle
 
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position

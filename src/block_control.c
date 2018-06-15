@@ -46,7 +46,7 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-                if (create_rand(1)==1){
+                if (create_rand(9)==1){
                     activate_pu(var_main, strike);
                 }
             }
