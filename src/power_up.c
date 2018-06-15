@@ -23,6 +23,9 @@ void activate_pu(struct variables *var_main, struct striker_t *strike){
     }
     else if (y==0){
         (strike->s_size)=(strike->s_size)+9;
+        if ((strike->s_size) >= 30){
+            (strike->s_size)=(strike->s_size)-9;
+        }
         print_striker(strike);
     }
 

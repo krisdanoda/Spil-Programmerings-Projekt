@@ -68,9 +68,10 @@ int main(void)
 
         if ((var_main.in_game) == 1) {                          // initialize game
 
-                            for (uint8_t i=2; i< BORDERY-2;i++){
-                    clear_line(i);
+            for (uint8_t i=2; i< BORDERY-2;i++){                // Clear screen before printing new level
+                clear_line(i);
             }
+
             uint8_t text_line_1 = BORDERY / 5;                  // go to text location from menu
             clear_line(text_line_1);                            // Delete old text
             clear_line(text_line_1 + 2);                        // Delete old text
@@ -88,7 +89,6 @@ int main(void)
         }
 
         while (var_main.in_game == 2) {                         // start game
-
 
             set_RGB(var_main.life_count);                       // Display life_count on RGB
             write_score(var_main.score_counter);                // Display score_counter on LCD
