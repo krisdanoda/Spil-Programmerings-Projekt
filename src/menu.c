@@ -177,3 +177,32 @@ void control_menu(uint8_t read, struct variables *var_main){
     (var_main->old_read) = read;
 
 }
+
+
+void game_over(struct variables *var, struct striker_t *ks,uint8_t SS){
+
+
+   for(uint8_t i = 2; i < (BORDERY-1); i++ ){
+
+   clear_line(i);
+   }
+
+   gotoxy(70,20);
+printf("LOL, YOUR GAY!");
+
+   var->in_game = 0;
+
+gotoxy(70,20);
+printf("LOL, YOUR GAY!");
+
+while(readJoystick()!=1){
+//update_striker(ks,SS);
+}
+
+ for(uint8_t i = 2; i < (BORDERY-1); i++ ){
+
+   clear_line(i);
+   }
+
+
+}

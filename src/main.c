@@ -74,6 +74,7 @@ int main(void)
             init_striker(BORDERX, BORDERY, ss, &strike);        // create striker
             initVector(&b.posi, 20, 45);                        // set start position of ball
             initVector(&b.vel, 2, 1);                           // set velocity that is manipulated later
+            var_main.life_count = 3;
 
             (var_main.in_game)++;                               // set in_game to 2 (start game)
         }

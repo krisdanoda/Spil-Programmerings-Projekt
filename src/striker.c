@@ -166,14 +166,31 @@ x1 = b->vel.x;
 else if( ( (ks->posi.y) + (1<< 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - ((SS/2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + ((SS/2) << 14)) >> 14 ) ) ) ) )
     {
 
+
+        // hp goes down;
     (var_main->life_count)--;
 
+
+        //checks if hp is larger than 0
+    if (var_main->life_count > 0){
+    // New game
     init_ng_ball(b, ks , SS);
+    }
+    else if ( (var_main -> life_count) <= 0 ){
+// Game over
+    game_over(var_main,ks,SS);
+
+
+
+    }
+
+
 
 //    b->posi.x = (90 << 14);
 //    b->posi.y = ( 30 << 14);
 //    b->vel.x = ( 0 << 14 );
 //    b->vel.y = ( 3 << 14 );
+
 
 
     }

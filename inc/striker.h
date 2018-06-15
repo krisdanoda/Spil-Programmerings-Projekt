@@ -10,6 +10,7 @@
 #include "ansi.h"
 #include <stdlib.h>
 #include "ball.h"
+#include "menu.h"
 #include "config_project.h"
 #define BORDERX 150                                             //define the size of the window
 #define BORDERY 60                                              //define the size of the window
