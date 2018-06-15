@@ -10,5 +10,10 @@ void init_var_main(struct variables *var_main){
     var_main->nob               = 1;
     var_main->old_read          = 0;
     var_main->score_counter     = 0;
-    var_main->speed_multi       = 1;
+    var_main->speed_multi       = 15;
+    var_main->high_score[1]     = 0;
+    var_main->high_score[2]     = 0;
+    var_main->high_score[3]     = 0;
 }
+
+

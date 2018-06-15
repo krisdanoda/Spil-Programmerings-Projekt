@@ -1,6 +1,8 @@
 #ifndef CONFIG_PROJECT_H_INCLUDED
 #define CONFIG_PROJECT_H_INCLUDED
 
+#include <time.h>
+#include <stdlib.h>
 #include "30010_io.h"
 
 
@@ -9,8 +11,12 @@ struct variables{
     uint8_t level_counter, nob;
     uint16_t speed_multi;
     uint32_t score_counter;
+    uint32_t high_score[3];
 };
 
 void init_var_main(struct variables *var_main);
-#endif /* CONFIG_PROJECT_H_INCLUDED */
 
+
+
+
+#endif /* CONFIG_PROJECT_H_INCLUDED */

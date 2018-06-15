@@ -12,4 +12,5 @@ obj\debug\src\block_control.o: src\block_control.c inc/block_control.h \
  SPL\inc/stm32f30x_spi.h SPL\inc/stm32f30x_tim.h \
  SPL\inc/stm32f30x_usart.h SPL\inc/stm32f30x_wwdg.h \
  SPL\inc/stm32f30x_misc.h inc/trig.h inc/LUT.h inc/ansi.h \
- inc/config_project.h
+ inc/config_project.h inc/striker.h inc/our_timer.h inc/controller.h \
+ inc/charset.h inc/ball.h

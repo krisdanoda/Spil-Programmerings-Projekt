@@ -11,7 +11,7 @@ struct interrupt_t{
 volatile struct interrupt_t t;
 
 void init_timer(uint16_t priority);
-void time(struct interrupt_t *t);
+void our_time(struct interrupt_t *t);
 void TIM2_IRQHandler(void);
 void init_stopwatch();
 void stopwatch(uint8_t js, uint8_t *ss, uint8_t *push);

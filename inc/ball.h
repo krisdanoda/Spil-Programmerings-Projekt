@@ -3,7 +3,7 @@
 
 #include "striker.h"
 #include "30010_io.h"
-#include "timer.h"
+#include "our_timer.h"
 #include "charset.h"
 #include "trig.h"
 #include "LUT.h"
@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 //void init_ng_ball(struct ball_t *b, struct striker_t *cat, uint8_t striker, struct vector_t *v);
-void init_ng_ball(struct ball_t *b, struct striker_t *ks, uint8_t SS);
+void init_ng_ball(struct ball_t *b, struct striker_t *ks);
 
 
 #endif

@@ -1,6 +1,6 @@
 #include "ball.h"
 
-void init_ng_ball(struct ball_t *b, struct striker_t *ks, uint8_t SS){
+void init_ng_ball(struct ball_t *b, struct striker_t *ks){
 
 uint8_t joy_val;
 
@@ -9,7 +9,7 @@ while (joy_val!= 1){
         gotoxy( (b->posi.x) >>14, (b->posi.y) >> 14);
         printf(" ");
 
-        update_striker(ks, SS);
+        update_striker(ks);
         joy_val = readJoystick();
         b->posi.x = ks -> posi.x;
         b->posi.y = (ks -> posi.y) - (2 << 14);
