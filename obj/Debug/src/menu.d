@@ -11,4 +11,6 @@ obj\debug\src\menu.o: src\menu.c inc/menu.h inc/stm32f30x_conf.h \
  SPL\inc/stm32f30x_rcc.h SPL\inc/stm32f30x_rtc.h SPL\inc/stm32f30x_spi.h \
  SPL\inc/stm32f30x_tim.h SPL\inc/stm32f30x_usart.h \
  SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/30010_io.h \
- inc/config_project.h inc/ansi.h
+ inc/config_project.h inc/ansi.h inc/striker.h inc/our_timer.h \
+ inc/controller.h inc/charset.h inc/trig.h inc/LUT.h inc/ball.h \
+ inc/menu.h

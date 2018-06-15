@@ -2,7 +2,7 @@
 #define LCD_H_INCLUDED
 
 #include "30010_io.h"
-#include "timer.h"
+#include "our_timer.h"
 #include "charset.h"
 
 void write_score(uint32_t score);

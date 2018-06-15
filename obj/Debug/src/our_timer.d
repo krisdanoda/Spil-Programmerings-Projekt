@@ -1,4 +1,4 @@
-obj\debug\src\striker.o: src\striker.c inc/striker.h inc/30010_io.h \
+obj\debug\src\our_timer.o: src\our_timer.c inc/our_timer.h inc/30010_io.h \
  inc/stm32f30x_conf.h SPL\inc/stm32f30x_adc.h inc/stm32f30x.h \
  cmsis/core_cm4.h cmsis/core_cmInstr.h cmsis/core_cmFunc.h \
  cmsis/core_cm4_simd.h inc/system_stm32f30x.h SPL\inc/stm32f30x_can.h \
@@ -10,6 +10,5 @@ obj\debug\src\striker.o: src\striker.c inc/striker.h inc/30010_io.h \
  SPL\inc/stm32f30x_opamp.h SPL\inc/stm32f30x_pwr.h \
  SPL\inc/stm32f30x_rcc.h SPL\inc/stm32f30x_rtc.h SPL\inc/stm32f30x_spi.h \
  SPL\inc/stm32f30x_tim.h SPL\inc/stm32f30x_usart.h \
- SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/our_timer.h \
- inc/ansi.h inc/controller.h inc/config_project.h inc/charset.h \
- inc/trig.h inc/LUT.h inc/ball.h inc/striker.h inc/menu.h
+ SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/ansi.h \
+ inc/controller.h

@@ -1,4 +1,4 @@
-#include "timer.h"
+#include "our_timer.h"
 
 volatile int8_t t_flag;
 
@@ -23,7 +23,7 @@ void init_timer(uint16_t priority) {
     TIM2->CR1 |= 0x0001; // enable time
 }
 
-void time(struct interrupt_t *t){
+void our_time(struct interrupt_t *t){
     t->h = 0;
     t->m = 0;
     t->s = 0;
