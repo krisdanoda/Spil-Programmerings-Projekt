@@ -196,6 +196,7 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables *va
 
         if ((var_main->life_count) == 0)
         {
+            test_hs(var_main);
             game_over(var_main, ks);
 
         }

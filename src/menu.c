@@ -28,7 +28,7 @@ void init_menu(){
     printf("Help");
 }
 
-void init_high_score(){
+void init_high_score(struct variables *var_main){
     uint8_t text_line_1=BORDERY/5;
     uint8_t text_col_1=BORDERX/2-10;
 
@@ -39,12 +39,21 @@ void init_high_score(){
 
     gotoxy(text_col_1,text_line_1);     // Print high scores
     printf("This is a list of the highest scores. Press >left< to go back.");
+
     gotoxy(text_col_1,text_line_1+2);
     printf("    #1: ");
+    gotoxy(text_col_1+10,text_line_1+2);
+    printf("%d points",var_main->high_score[1]);
+
     gotoxy(text_col_1,text_line_1+4);
     printf("    #2: ");
+    gotoxy(text_col_1+10,text_line_1+4);
+    printf("%d points",var_main->high_score[2]);
+
     gotoxy(text_col_1,text_line_1+6);
     printf("    #3: ");
+    gotoxy(text_col_1+10,text_line_1+6);
+    printf("%d points",var_main->high_score[3]);
     }
 
 
@@ -156,11 +165,11 @@ void control_menu(struct variables *var_main){
 
     // Her tilgås high score
     if ((var_main->menu_counter == 2) && (read == 16)){
-        init_high_score();
+        init_high_score(var_main);
         (var_main->menu_counter) = 100;
         }
     else if ((var_main->menu_counter == 2) && (read == 8)){
-        init_high_score();
+        init_high_score(var_main);
         (var_main->menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
         }
 
@@ -207,6 +216,37 @@ var_main->menu_counter = 1;
 init_menu();
 
 }
+
+
+void test_hs(struct variables *var_main){
+    if ((var_main->score_counter) > (var_main->high_score[1])){ // test if score is better than first place
+
+        (var_main->high_score[3])=(var_main->high_score[2]);    // new third place is old second place moved down
+        (var_main->high_score[2])=(var_main->high_score[1]);    // new second place is old first place moved down
+        (var_main->high_score[1]) = (var_main->score_counter);  // new first place is saved
+    }
+    else if ((var_main->score_counter) > (var_main->high_score[2])){ // test if score is better than second place
+
+        (var_main->high_score[3])=(var_main->high_score[2]);    // old second place moves down
+        (var_main->high_score[2]) = (var_main->score_counter);  // new second place is saved
+    }
+    else if ((var_main->score_counter) > (var_main->high_score[3])){ // test if score is better than third place
+        (var_main->high_score[3]) = (var_main->score_counter);  // new third place is saved
+    }
+
+    (var_main->score_counter)=0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

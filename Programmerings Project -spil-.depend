@@ -1122,19 +1122,19 @@
 1528722402 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1529065494 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
+1529066830 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 
-1529059844 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
+1529065977 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"config_project.h"
 	"ansi.h"
 	"striker.h"
 
-1528991142 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\startup_stm32f30x.s
+1529066123 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\startup_stm32f30x.s
 
-1529065280 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
+1529065713 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
 1528988631 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
