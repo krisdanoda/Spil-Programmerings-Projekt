@@ -11,5 +11,5 @@ obj\debug\src\striker.o: src\striker.c inc/striker.h inc/30010_io.h \
  SPL\inc/stm32f30x_rcc.h SPL\inc/stm32f30x_rtc.h SPL\inc/stm32f30x_spi.h \
  SPL\inc/stm32f30x_tim.h SPL\inc/stm32f30x_usart.h \
  SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/timer.h inc/ansi.h \
- inc/controller.h inc/charset.h inc/trig.h inc/LUT.h inc/ball.h \
- inc/striker.h inc/config_project.h
+ inc/controller.h inc/config_project.h inc/charset.h inc/trig.h inc/LUT.h \
+ inc/ball.h inc/striker.h

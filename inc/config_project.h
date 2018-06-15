@@ -6,7 +6,7 @@
 
 struct variables{
     uint8_t in_game, menu_counter, old_read, life_count;
-    uint8_t level_counter, nob;
+    uint8_t level_counter, nob, ex_or_in_joy;
     uint16_t speed_multi;
     uint32_t score_counter;
 };

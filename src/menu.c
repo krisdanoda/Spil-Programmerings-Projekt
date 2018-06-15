@@ -78,7 +78,7 @@ void init_help(){
 void control_menu(uint8_t read, struct variables *var_main){
     // a function to control the menu
     // Inputs:
-    // read is the joystick value (1=up, 2=down, 4=left, 8=right, 16=center).
+    // read is the stick value (1=up, 2=down, 4=left, 8=right, 16=center).
     // menu_counter keeps track of which menu option is marked.
     // old_read is to ensure the cursor moves once pr joystick interaction
     // in_game is a flag set high if the game is being played and the menu should not be controlled

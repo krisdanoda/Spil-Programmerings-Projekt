@@ -40,6 +40,7 @@ int main(void)
     printf("%c[?25l", ESC);                                     // remove visible cursor
     counter(1, 1, BORDERX, BORDERY);                            // create the window with border size
     init_joystick();                                            // initialize joystick
+    init_PS2joy();
     init_RGB();                                                 // initialize RGB
     init_spi_lcd();                                             // initialize LCD display
     init_menu();                                                // initialize start menu
@@ -58,7 +59,8 @@ int main(void)
 
 
         while (var_main.in_game == 0) {
-            uint8_t read = readJoystick();                      // read from joystick
+            uint8_t read = readJoystick(&var_main); // read from joystick
+            //uint8_t read = read_PS2joy();
             control_menu(read, &var_main);                      // Navigate menu with joystick
         }
 
@@ -85,7 +87,7 @@ int main(void)
             write_level(var_main.level_counter);                // Display score_counter on LCD
 
 
-            update_striker(&strike, ss);                        // update striker when joystick is pressed
+            update_striker(&strike, ss, &var_main);                        // update striker when joystick is pressed
             striker_bounce(&strike, ss, &b, &var_main);                    //FIX LIFE COUNT             // return ball in another angle
 
 

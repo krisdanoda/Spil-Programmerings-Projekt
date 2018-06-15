@@ -2,13 +2,19 @@
 #define CONTROLLER_H_INCLUDED
 
 #include "30010_io.h"
-
+#include "config_project.h"
 
 void init_RGB();
 
 void init_joystick();
 
-uint8_t readJoystick();
+void init_PS2joy();
+
+//uint8_t read_PS2joy();
+
+uint8_t readJoystick(struct variables *var_main);
+
+
 
 void set_Led(uint8_t val);
 

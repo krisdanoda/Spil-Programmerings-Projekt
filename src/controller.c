@@ -117,7 +117,7 @@ void init_joystick() {
     RCC->AHBENR |= RCC_AHBPeriph_GPIOC; // Enable clock for GPIO Port c
     // Port A (up)
     // Enable clock for GPIO Port A
-    // Set pin PA0 to input
+    // Set pin PA4 to input
     GPIOA->MODER &= ~(0x00000003 << (4 * 2)); // Clear mode register
     GPIOA->MODER |=  (0x00000000 << (4 * 2)); // Set mode register (0x00 - Input,
     //0x01 - Output, 0x02 - Alternate Function, 0x03 - Analog in/out)
@@ -127,7 +127,7 @@ void init_joystick() {
 
 
     // Port B (down)
-       // Set pin PA0 to input
+       // Set pin PB_0 to input
     GPIOB->MODER &= ~(0x00000003 << (0 * 2)); // Clear mode register
     GPIOB->MODER |=  (0x00000000 << (0 * 2)); // Set mode register (0x00 - Input,
     //0x01 - Output, 0x02 - Alternate Function, 0x03 - Analog in/out)
@@ -136,7 +136,7 @@ void init_joystick() {
     //No pull, 0x01 - Pull-up, 0x02 - Pull-down)
 
         // Port C(right)
-    // Set pin PA0 to input
+    // Set pin PC0 to input
     GPIOC->MODER &= ~(0x00000003 << (0 * 2)); // Clear mode register
     GPIOC->MODER |=  (0x00000000 << (0 * 2)); // Set mode register (0x00 - Input,
     //0x01 - Output, 0x02 - Alternate Function, 0x03 - Analog in/out)
@@ -168,11 +168,31 @@ void init_joystick() {
 }
 
 
+void init_PS2joy(){
+    RCC->CFGR2  &= ~RCC_CFGR2_ADCPRE12;         // Clear ADC12 prescaler bits
+    RCC->CFGR2  |=  RCC_CFGR2_ADCPRE12_DIV6;    // Set ADC12 prescaler to 6
+    RCC->AHBENR |=  RCC_AHBPeriph_ADC12;        // Enable clock for ADC12
+
+    ADC1->CR    = 0x00000000;                   // Clear CR register
+    ADC1->CFGR &=  0xFDFFC007;                  // Clear ADC1 config register
+    ADC1->SQR1 &= ~ADC_SQR1_L;                  // Clear regular sequence register 1
+
+    ADC1->CR |= 0x10000000;                     // Enable internal ADC voltage regulator
+    for(int i = 0 ; i < 1000 ; i++) {}          // Wait for about 16 microseconds
+
+    ADC1->CR |= 0x80000000;                     // Start ADC1 calibration
+    while (!(ADC1->CR & 0x80000000));           // Wait for calibration to finish
+        for (int i = 0 ; i < 100 ; i++) {}      // Wait for a little while
+
+    ADC1->CR |= 0x00000001;                     // Enable ADC1 (0x01 -Enable, 0x02 -Disable)
+    while (!(ADC1->ISR& 0x00000001));           // Wait until ready
+}
 
 
-uint8_t readJoystick(){
+uint8_t readJoystick(struct variables *var_main){
 
-
+    if(var_main->ex_or_in_joy == 1)
+    {
     uint16_t valup = GPIOA->IDR & (0x001 << 4);
  //   uint16_t valup0 = (valup >> 4);
 
@@ -215,5 +235,39 @@ if(valright){
     // printf("%d\n",output);
 
     return(output);
+    }
+
+    else if(var_main->ex_or_in_joy == 2){
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_8, 1, ADC_SampleTime_1Cycles5);
+
+    ADC_StartConversion(ADC1);                  // Start ADC read
+    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); // Wait for ADC read
+
+    uint16_t x = ADC_GetConversionValue(ADC1);  // Read the ADC value
+
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_9, 1, ADC_SampleTime_1Cycles5);
+    ADC_StartConversion(ADC1);                  // Start ADC read
+    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); // Wait for ADC read
+
+    uint16_t y = ADC_GetConversionValue(ADC1);  // Read the ADC value
+
+    uint8_t output = 0;
+    if(y < 1000){
+            output = 2;
+    }
+    else if(y > 3000){
+            output = 1;
+    }
+    else if(x < 1000){
+            output = 4;
+    }
+    else if(x > 3000){
+            output = 8;
+    }
+    else output = 0;
+
+    return(output);
+
+    }
 
 }

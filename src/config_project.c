@@ -11,4 +11,5 @@ void init_var_main(struct variables *var_main){
     var_main->old_read          = 0;
     var_main->score_counter     = 0;
     var_main->speed_multi       = 1;
+    var_main->ex_or_in_joy      = 2;
 }
