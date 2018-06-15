@@ -542,7 +542,7 @@
 	"30010_io.h"
 	"LUT.h"
 
-1529054976 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\main.c
+1529057791 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"config_project.h"
@@ -841,10 +841,10 @@
 	"menu.h"
 	"config_project.h"
 
-1529053980 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\striker.c
+1529057574 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
-1529054002 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\menu.h
+1529057791 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"config_project.h"
@@ -860,7 +860,7 @@
 1528990264 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 
-1529055349 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\menu.c
+1529057791 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\menu.c
 	"menu.h"
 
 1528988327 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\menu.c

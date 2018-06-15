@@ -75,7 +75,7 @@ void init_help(){
 }
 
 
-void control_menu(uint8_t read, struct variables *var_main){
+void control_menu(struct variables *var_main){
     // a function to control the menu
     // Inputs:
     // read is the joystick value (1=up, 2=down, 4=left, 8=right, 16=center).
@@ -86,7 +86,7 @@ void control_menu(uint8_t read, struct variables *var_main){
 
     uint8_t text_cursor_1=BORDERX/2-15;
     uint8_t text_line_1=BORDERY/5;
-
+    uint8_t read = readJoystick();
 
     // Gå tilbage til menuen hvis der trykkes mod venstre
     if(read == 4){
@@ -192,17 +192,17 @@ printf("LOL, YOUR GAY!");
 
    var->in_game = 0;
 
-gotoxy(70,20);
-printf("LOL, YOUR GAY!");
+   gotoxy(70,21);
+   printf( " Press >up< to continue");
 
-while(readJoystick()!=1){
-//update_striker(ks,SS);
+while(readJoystick() != 1){
+
 }
 
  for(uint8_t i = 2; i < (BORDERY-1); i++ ){
-
+var->menu_counter = 1;
    clear_line(i);
    }
-
+init_menu();
 
 }

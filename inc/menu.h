@@ -14,7 +14,7 @@ void init_help();
 void clear_line(uint8_t y);
 void init_high_score();
 
-void control_menu(uint8_t read, struct variables *var_main);
+void control_menu(struct variables *var_main);
 void game_over(struct variables *var, struct striker_t *ks, uint8_t SS);
 
 

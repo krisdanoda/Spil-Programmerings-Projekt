@@ -58,8 +58,8 @@ int main(void)
 
 
         while (var_main.in_game == 0) {
-            uint8_t read = readJoystick();                      // read from joystick
-            control_menu(read, &var_main);                      // Navigate menu with joystick
+      //      uint8_t read = readJoystick();                      // read from joystick
+            control_menu(&var_main);                      // Navigate menu with joystick
         }
 
 
