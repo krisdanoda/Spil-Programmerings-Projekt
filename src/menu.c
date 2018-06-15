@@ -198,7 +198,7 @@ void game_over(struct variables *var_main, struct striker_t *ks){
    }
 
    gotoxy(70,20);
-printf("LOL, YOUR GAY!");
+    printf("LOL, YOU'RE A TOTAL LOSER!");
 
    var_main->in_game = 0;
 
@@ -219,19 +219,19 @@ init_menu();
 
 
 void test_hs(struct variables *var_main){
-    if ((var_main->score_counter) > (var_main->high_score[1])){ // test if score is better than first place
+    if ((var_main->score_counter) > (var_main->high_score[1])){         // test if score is better than first place
 
-        (var_main->high_score[3])=(var_main->high_score[2]);    // new third place is old second place moved down
-        (var_main->high_score[2])=(var_main->high_score[1]);    // new second place is old first place moved down
-        (var_main->high_score[1]) = (var_main->score_counter);  // new first place is saved
+        (var_main->high_score[3])=(var_main->high_score[2]);            // new third place is old second place moved down
+        (var_main->high_score[2])=(var_main->high_score[1]);            // new second place is old first place moved down
+        (var_main->high_score[1]) = (var_main->score_counter);          // new first place is saved
     }
-    else if ((var_main->score_counter) > (var_main->high_score[2])){ // test if score is better than second place
+    else if ((var_main->score_counter) > (var_main->high_score[2])){    // test if score is better than second place
 
-        (var_main->high_score[3])=(var_main->high_score[2]);    // old second place moves down
-        (var_main->high_score[2]) = (var_main->score_counter);  // new second place is saved
+        (var_main->high_score[3])=(var_main->high_score[2]);            // old second place moves down
+        (var_main->high_score[2]) = (var_main->score_counter);          // new second place is saved
     }
-    else if ((var_main->score_counter) > (var_main->high_score[3])){ // test if score is better than third place
-        (var_main->high_score[3]) = (var_main->score_counter);  // new third place is saved
+    else if ((var_main->score_counter) > (var_main->high_score[3])){    // test if score is better than third place
+        (var_main->high_score[3]) = (var_main->score_counter);          // new third place is saved
     }
 
     (var_main->score_counter)=0;

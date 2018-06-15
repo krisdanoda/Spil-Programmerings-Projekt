@@ -27,7 +27,6 @@ void border_control(struct ball_t *b) {
 void block_control(struct ball_t *b, struct blockpos *block, struct variables *var_main, struct striker_t *strike) {
     uint8_t sum = 0;                   // test if there are no more blocks
     uint8_t i;
-    uint8_t k;
 
     for (uint8_t j = 0; j < 100; j++) {                                                              // loop though every created block
         if ( (((b->posi.x >> 14) >= block[j].x1) && ((b->posi.x >> 14) <= block[j].x2)) &&          // check if ball hit the top or bottom of ...
@@ -46,7 +45,7 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-                if (create_rand(9)==1){
+                if (create_rand(1)==1){
                     activate_pu(var_main, strike);
                 }
             }
@@ -66,7 +65,7 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-                if (create_rand(9)==1){
+                if (create_rand(1)==1){
                     activate_pu(var_main, strike);
                 }
             }

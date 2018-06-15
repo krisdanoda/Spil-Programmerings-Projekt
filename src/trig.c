@@ -30,7 +30,12 @@ void rotate(struct vector_t *v, int32_t angle){
 }
 
 void updatepos(struct ball_t *b, uint16_t speed_multi){
+<<<<<<< HEAD
     b->posi.x = b->posi.x + FIX14_MULT(b->vel.x,(1000+speed_multi*500));
     b->posi.y = b->posi.y + FIX14_MULT(b->vel.y,(1000+speed_multi*500));
+=======
+    b->posi.x = b->posi.x + FIX14_MULT(b->vel.x,(2500+speed_multi*500));
+    b->posi.y = b->posi.y + FIX14_MULT(b->vel.y,(2500+speed_multi*500));
+>>>>>>> Tadea
 }
 

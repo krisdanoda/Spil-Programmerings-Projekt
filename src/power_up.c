@@ -10,15 +10,22 @@ uint8_t create_rand(x){
 void activate_pu(struct variables *var_main, struct striker_t *strike){
     // A function that activates power-ups
     uint8_t y = create_rand(2);
+
+//    gotoxy(BORDERX/2-8,BORDERY-10);
     if (y==2){
         (var_main->speed_multi)--;
+        if ((var_main->speed_multi) == 0){
+            (var_main->speed_multi)=1;
+        }
     }
     else if (y==1){
         (var_main->nob)++;
     }
     else if (y==0){
         (strike->s_size)=(strike->s_size)+9;
+        print_striker(strike);
     }
+
 }
 
 

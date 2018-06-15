@@ -201,3 +201,4 @@ void print_striker(struct striker_t *ks )
         }
     }
 
+
