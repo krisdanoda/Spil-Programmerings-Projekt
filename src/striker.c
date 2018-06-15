@@ -202,3 +202,5 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables *va
         }
     }
 }
+
+

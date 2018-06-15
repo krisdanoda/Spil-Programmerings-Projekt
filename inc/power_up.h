@@ -3,6 +3,7 @@
 #include "30010_io.h"
 #include "trig.h"
 #include "striker.h"
+#include "config_project.h"
 
 uint8_t create_rand(x);
 
