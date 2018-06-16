@@ -35,7 +35,7 @@
 
 int main(void)
 {
-    init_usb_uart( 115200 );                                    //set speed of microprocessor
+    init_usb_uart( 300000 );                                    //set speed of microprocessor
 
     srand(time(NULL));
 
@@ -54,7 +54,7 @@ int main(void)
     struct blockpos block[100];                                 // initialize boxes in game
     struct variables var_main;
 
-    strike.s_size = 9;                                          // initialize striker size
+    strike.s_size = 20;                                          // initialize striker size
 
     init_var_main(&var_main);                                   // initialize various variables
 
@@ -62,13 +62,14 @@ int main(void)
 
 
         while (var_main.in_game == 0) {
+
             control_menu(&var_main);                            // Navigate menu with joystick
         }
 
 
         if ((var_main.in_game) == 1) {                          // initialize game
 
-                            for (uint8_t i=2; i< BORDERY-2;i++){
+            for (uint8_t i=2; i< BORDERY-2;i++){
                     clear_line(i);
             }
             uint8_t text_line_1 = BORDERY / 5;                  // go to text location from menu

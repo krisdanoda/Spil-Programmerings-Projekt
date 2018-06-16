@@ -224,18 +224,6 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         ks->state = 1;
         ks->a = 0;
 
-        gotoxy( 1, 1 );
-
-        printf("   \n", i_angle);
-        printf("     ", dif);
-         printf("     ", dif);
-
-        gotoxy( 1, 1 );
-
-        printf("%d \n", i_angle);
-        printf("%d \n", dif );
-         printf("%d", mini >> 14);
-
         print_striker( ks );
     }
     else if ( ( (ks->posi.y) + (1 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
