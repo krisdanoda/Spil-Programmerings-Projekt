@@ -19,6 +19,8 @@ while (joy_val!= 1){
         gotoxy( (b->posi.x) >>14 , (b->posi.y) >>14) ;
         printf("%c", 254);
 
+
+
 }
 
 

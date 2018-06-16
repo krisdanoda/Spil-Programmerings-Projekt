@@ -20,6 +20,7 @@ struct striker_t{
     int8_t state;
     int32_t a;
     uint8_t s_size; // striker size
+    uint8_t k_speed;
 };
 
 void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, struct striker_t *ks);

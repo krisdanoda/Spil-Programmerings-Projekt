@@ -271,3 +271,14 @@ if(valright){
     }
 
 }
+
+ uint16_t  read_joystick_x (){
+
+
+ ADC_RegularChannelConfig(ADC1, ADC_Channel_8, 1, ADC_SampleTime_1Cycles5);
+
+    ADC_StartConversion(ADC1);                  // Start ADC read
+    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); // Wait for ADC read
+
+return   ADC_GetConversionValue(ADC1);  // Read the ADC value
+ }
