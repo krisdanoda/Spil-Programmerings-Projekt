@@ -37,8 +37,8 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
             block[j].hit--;                                                                         // decrease the life of the hit block
             print_Block(block[j]);                                                                  // print the color of the block life
             (var_main->score_counter)++;                                                                        // increase the score when a block is hit
-            write_score(var_main->score_counter);
-
+            write_score(var_main->score_counter);                // Display score_counter on LCD
+            write_level(var_main->level_counter);
 
             if (block[j].hit == 0) {                                                                // check if a block has zero life
                 del_block(block[j].x1, block[j].y1, block[j].x2, block[j].y2);                      // delete the block
