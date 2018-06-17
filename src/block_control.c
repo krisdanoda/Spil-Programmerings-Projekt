@@ -25,10 +25,10 @@ void border_control(struct ball_t *b) {
 
 
 void block_control(struct ball_t *b, struct blockpos *block, struct variables *var_main, struct striker_t *strike) {
-    uint8_t sum = 0;                   // test if there are no more blocks
-    uint8_t i;
+    uint8_t sum = 0;                                                                                // test if there are no more blocks
 
-    for (uint8_t j = 0; j < 100; j++) {                                                              // loop though every created block
+
+    for (uint8_t j = 0; j < 100; j++) {                                                             // loop though every created block
         if ( (((b->posi.x >> 14) >= block[j].x1) && ((b->posi.x >> 14) <= block[j].x2)) &&          // check if ball hit the top or bottom of ...
                 ( ((b->posi.y >> 14) == block[j].y1) || ((b->posi.y >> 14) == block[j].y2) ) )      // a box
 
@@ -45,8 +45,8 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-                if (create_rand(1)==1){
-                    activate_pu(var_main, strike);
+                if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
+                    activate_pu(var_main, strike);                                                  // If a block is a power-up, choose and activate a power-up.
                 }
             }
         }
@@ -65,8 +65,8 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-                if (create_rand(1)==1){
-                    activate_pu(var_main, strike);
+                if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
+                    activate_pu(var_main, strike);                                                  // If a block is a power-up, choose and activate a power-up.
                 }
             }
         }
@@ -75,13 +75,13 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
 
 
 
-    for (i = 0 ; i < 100 ; i++) {
-        sum += block[i].hit;          // check if there are no more blocks
+    for (uint8_t i = 0 ; i < 100 ; i++) {
+        sum += block[i].hit;                                                                        // check if there are no more blocks
     }
-    if (sum == 0) {                   // If there are no more blocks, go up a level
-        (var_main->level_counter)++;
-        (var_main->speed_multi)++;
-        (var_main->in_game)--;
+    if (sum == 0) {                                                                                 // If there are no more blocks, go up a level
+        (var_main->level_counter)++;                                                                // Increment level
+        (var_main->speed_multi)++;                                                                  // Increment speed of ball
+        (var_main->in_game)--;                                                                      // Go to: initialize game in main
     }
 
 
