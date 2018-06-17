@@ -126,8 +126,13 @@ uint8_t dead_zone = 50;
 
      ks->vel.x = ( (x_value-dead_zone) << 14);
 
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/20);
+    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/100);
 
+        if ( ks->posi.x > ( (150 - 2 - (ks->s_size) / 2) << 14))
+        {
+            ks->posi.x = ((150 - 2 - (ks->s_size) / 2) << 14);
+
+        }
 
     print_striker(ks );//update position
     }
@@ -135,8 +140,13 @@ uint8_t dead_zone = 50;
 
        ks->vel.x = ( (x_value+dead_zone) << 14);
 
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/20);
+        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/100);
 
+
+ if ( ks->posi.x < ( (2 + (ks->s_size) / 2) << 14))
+        {
+            ks->posi.x = ((2 + (ks->s_size) / 2) << 14);
+        }
 
     print_striker(ks );//update position
     }
@@ -229,8 +239,11 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
     else if ( ( (ks->posi.y) + (1 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
     {
 
-        (var_main->life_count)--;
+         gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball
+            printf(" ");
 
+        (var_main->life_count)--;
+        set_RGB(var_main->life_count); // Display life_count on RGB
 
         if ((var_main->life_count) >= 1)
         {

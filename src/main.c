@@ -35,7 +35,7 @@
 
 int main(void)
 {
-    init_usb_uart( 300000 );                                    //set speed of microprocessor
+    init_usb_uart( 115200 );                                    //set speed of microprocessor
 
     srand(time(NULL));
 
@@ -83,17 +83,25 @@ int main(void)
             initVector(&b.vel, 2, 1);                           // set velocity that is manipulated later
             (var_main.life_count)=3;                            // Set remaining lives to 3
 
+
+            set_RGB(var_main.life_count);                       // Display life_count on RGB
+            write_score(var_main.score_counter);                // Display score_counter on LCD
+            write_level(var_main.level_counter);
+
+                    (var_main.in_game)++;                               // set in_game to 2 (start game)
+
             init_ng_ball(&b, &strike, &var_main);                          // initialize ball and striker
 
-            (var_main.in_game)++;                               // set in_game to 2 (start game)
+
+
         }
 
         while (var_main.in_game == 2) {                         // start game
 
-
-            set_RGB(var_main.life_count);                       // Display life_count on RGB
-            write_score(var_main.score_counter);                // Display score_counter on LCD
-            write_level(var_main.level_counter);                // Display life_counter on LCD
+//
+            //set_RGB(var_main.life_count);                       // Display life_count on RGB
+            //write_score(var_main.score_counter);                // Display score_counter on LCD
+            //write_level(var_main.level_counter);                // Display life_counter on LCD
 
 
             update_striker(&strike, &var_main);                            // update striker when joystick is pressed
