@@ -201,7 +201,7 @@
 	"block_control.h"
 	<stdlib.h>
 
-1528812021 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\ansi.c
+1529261805 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\ansi.c
 	"ansi.h"
 	"LUT.h"
 
@@ -224,7 +224,7 @@
 	"LUT.h"
 	"ansi.h"
 
-1528805048 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\ansi.h
+1529261476 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\ansi.h
 	"30010_io.h"
 	<string.h>
 
@@ -234,7 +234,7 @@
 1528714486 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
-1529257013 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\main.c
+1529262117 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"config_project.h"
@@ -837,7 +837,7 @@
 1529226592 source:c:\users\krist\documents\c files\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1529257393 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
+1529261874 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 
 1528898455 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\striker.h
@@ -1154,7 +1154,7 @@
 1529245831 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
-1529256851 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
+1529261874 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
 1529245831 c:\users\tadea veng\documents\github\spil-programmerings-projekt\inc\striker.h
@@ -1223,7 +1223,7 @@
 1529245976 source:c:\users\tadea veng\documents\github\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 
-1529250894 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\config_project.c
+1529261115 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\config_project.c
 	"config_project.h"
 
 1529070236 c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\inc\config_project.h
@@ -1291,7 +1291,7 @@
 	"ansi.h"
 	"controller.h"
 
-1529067924 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\our_timer.c
+1529261874 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\our_timer.c
 	"our_timer.h"
 
 1529257269 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\power_up.c

@@ -39,11 +39,13 @@ int main(void)
 
     srand(time(NULL));
 
+
     clrscr();                                                           // clear screen
     gotoxy(1, 1);                                                       // go to the first pixel in command prompt
     printf("%c[?25l", ESC);                                             // remove visible cursor
     counter(1, 1, BORDERX, BORDERY);                                    // create the window with border size
     init_joystick();                                                    // initialize joystick
+
     init_PS2joy();
     init_RGB();                                                         // initialize RGB
     init_spi_lcd();                                                     // initialize LCD display
@@ -56,7 +58,10 @@ int main(void)
 
     strike.s_size = 20;                                                 // initialize striker size
 
-    init_var_main(&var_main);                                           // initialize various variables
+
+    init_var_main(&var_main);                                   // initialize various variables
+    init_timer(0);                                              // Initilise timer and intterupt
+
 
     while (1) {
 
@@ -104,14 +109,13 @@ int main(void)
         }
 
         while (var_main.in_game == 2) {                                 // start game
-            uint8_t sum = 0;
 
-            for (uint8_t i = 0; i < 3; i++) {
+            if (1 == get_flag()){
+                uint8_t sum = 0;
+                for (uint8_t i = 0; i < 3; i++) {
                 sum += b[i].ball_life;                                  // Test how many balls are in play
             }
-
             update_striker(&strike, &var_main);                         // update striker when joystick is pressed
-
 
             for (uint8_t k = 0; k < 3; k++) {                           // run thrugh number of balls;
 
@@ -129,8 +133,10 @@ int main(void)
                     printf("%c", 254);                                  // Print new ball
                 }
             }
+            set_flag(0);
         }
     }
+}
 }
 
 
