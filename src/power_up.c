@@ -20,6 +20,9 @@ void activate_pu(struct variables *var_main, struct striker_t *strike){
     }
     else if (y==1){
         (var_main->nob)++;                          // Add an extra ball
+        if (var_main->nob>3){                       // Check if there are too many balls
+        (var_main->nob)=3;                          // Maximum number of balls is 3
+        }
     }
     else if (y==0){
         (strike->s_size)=(strike->s_size)+9;        // Increases striker size
