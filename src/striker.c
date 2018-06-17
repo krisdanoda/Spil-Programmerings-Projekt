@@ -13,7 +13,7 @@ void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, struct striker_t *ks)
 }
 
 
-void print_striker(struct striker_t *ks )
+void print_striker(struct striker_t *ks )               // print striker
 {
     //This function is self explanatory. It prints the a striker using the x and y coordinates of the striker
 
@@ -162,7 +162,7 @@ uint8_t dead_zone = 50;
 
 
 // Script For striker bounce AND MISS
-void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * var_main)
+void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * var_main, uint8_t sum)
 {
     if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ( ks->posi.x) >> 14 ) - (ks->s_size) / 2 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x ) >> 14 ) + (ks->s_size) / 2 ) ) ) //Check if the ball is within the bounds of the striker
     {
@@ -242,21 +242,31 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
          gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball
             printf(" ");
 
-        (var_main->life_count)--;
-        set_RGB(var_main->life_count); // Display life_count on RGB
+        if (sum == 1){
 
-        if ((var_main->life_count) >= 1)
-        {
+            (var_main->life_count)--;
+            set_RGB(var_main->life_count); // Display life_count on RGB
 
-            init_ng_ball(b, ks, var_main);
+            if ((var_main->life_count) >= 1)
+            {
 
+                init_ng_ball(b, ks, var_main);
+
+            }
+
+            if ((var_main->life_count) == 0)
+            {
+                test_hs(var_main);
+                game_over(var_main, ks);
+
+            }
         }
-
-        if ((var_main->life_count) == 0)
-        {
-            test_hs(var_main);
-            game_over(var_main, ks);
-
+        else {
+                b->ball_life=0;
+                b->posi.x=BORDERX+5;
+                b->posi.y=5;
+                b->vel.x=0;
+                b->vel.y=0;
         }
     }
 }
