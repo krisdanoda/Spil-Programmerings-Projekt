@@ -41,7 +41,7 @@ int main(void)
 
     clrscr();                                                   // clear screen
     gotoxy(1, 1);                                               // go to the first pixel in command prompt
-    printf("%c[?25l", ESC);                                      // remove visible cursor
+    printf("%c[?25l", ESC);                                     // remove visible cursor
     counter(1, 1, BORDERX, BORDERY);                            // create the window with border size
     init_joystick();                                            // initialize joystick
     init_PS2joy();
@@ -57,7 +57,6 @@ int main(void)
     strike.s_size = 20;                                          // initialize striker size
 
     init_var_main(&var_main);                                   // initialize various variables
-    init_timer(0);                                              // Initilise timer and intterupt
 
     while (1) {
 
@@ -101,7 +100,7 @@ int main(void)
 
         while (var_main.in_game == 2) {                         // start game
 
-            if (1 == get_flag()){
+
             update_striker(&strike, &var_main);                 // update striker when joystick is pressed
             striker_bounce(&strike, &b, &var_main);             // return ball in another angle
 
@@ -117,8 +116,6 @@ int main(void)
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to new ball location
             printf("%c", 254);                                  // Print new ball
-            set_flag(0);
-        }
         }
     }
 }

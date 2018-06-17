@@ -116,7 +116,7 @@ void update_striker(struct striker_t *ks, struct variables * var_main)
     int32_t old_x = ks->posi.x;
 
     int16_t x_value = read_joystick_x()-2000;
-    uint8_t dead_zone = 50;
+uint8_t dead_zone = 50;
 
     if (abs(x_value)<50){
     //nothing
@@ -186,7 +186,7 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
 
 
 
-        for (uint32_t i = 0 ; i <= 128; i++ )// this loops through all decimal values of lute file and looks through values to find the appropriate sin(theta) in lute file and looks for
+        for (uint32_t i = 0 ; i <= 128; i++ )// this loops through all decimal values of loot file and looks through values to find the appropriate sin(theta) in lute file and looks for
         {
             int32_t it =  (uint32_t)(expand(SIN[i]) & 0xFFFF) >> 2; //finds the decimal value in the lute file
 
