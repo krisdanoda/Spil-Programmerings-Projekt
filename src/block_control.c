@@ -48,7 +48,7 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].y2 = 100;                                                                  // -||-
 
                 if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
-                    activate_pu(var_main, strike);                                                  // If a block is a power-up, choose and activate a power-up.
+                    activate_pu(var_main, strike, block[j].x1, block[j].y1, b);                                                  // If a block is a power-up, choose and activate a power-up.
                 }
             }
         }
@@ -70,7 +70,7 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].y2 = 100;                                                                  // -||-
 
                 if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
-                    activate_pu(var_main, strike);                                                  // If a block is a power-up, choose and activate a power-up.
+                    activate_pu(var_main, strike, block[j].x1, block[j].y1, b);                                                  // If a block is a power-up, choose and activate a power-up.
                 }
             }
         }

@@ -28,6 +28,6 @@ void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, struct striker_t *ks);
 
 void print_striker(struct striker_t *ks );
 void update_striker(struct striker_t *ks, struct variables *var_main);
-void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables *var_main);
+void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables *var_main, uint8_t sum);
 
 #endif

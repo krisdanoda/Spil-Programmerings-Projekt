@@ -43,17 +43,17 @@ void init_high_score(struct variables *var_main){
     gotoxy(text_col_1,text_line_1+2);
     printf("    #1: ");
     gotoxy(text_col_1+10,text_line_1+2);
-    printf("%d points",var_main->high_score[1]);
+    printf("%d points",var_main->high_score[0]);
 
     gotoxy(text_col_1,text_line_1+4);
     printf("    #2: ");
     gotoxy(text_col_1+10,text_line_1+4);
-    printf("%d points",var_main->high_score[2]);
+    printf("%d points",var_main->high_score[1]);
 
     gotoxy(text_col_1,text_line_1+6);
     printf("    #3: ");
     gotoxy(text_col_1+10,text_line_1+6);
-    printf("%d points",var_main->high_score[3]);
+    printf("%d points",var_main->high_score[2]);
     }
 
 
@@ -219,19 +219,19 @@ init_menu();
 
 
 void test_hs(struct variables *var_main){
-    if ((var_main->score_counter) > (var_main->high_score[1])){         // test if score is better than first place
+    if ((var_main->score_counter) > (var_main->high_score[0])){         // test if score is better than first place
 
-        (var_main->high_score[3])=(var_main->high_score[2]);            // new third place is old second place moved down
-        (var_main->high_score[2])=(var_main->high_score[1]);            // new second place is old first place moved down
-        (var_main->high_score[1]) = (var_main->score_counter);          // new first place is saved
+        (var_main->high_score[2])=(var_main->high_score[1]);            // new third place is old second place moved down
+        (var_main->high_score[1])=(var_main->high_score[0]);            // new second place is old first place moved down
+        (var_main->high_score[0]) = (var_main->score_counter);          // new first place is saved
     }
-    else if ((var_main->score_counter) > (var_main->high_score[2])){    // test if score is better than second place
+    else if ((var_main->score_counter) > (var_main->high_score[1])){    // test if score is better than second place
 
-        (var_main->high_score[3])=(var_main->high_score[2]);            // old second place moves down
-        (var_main->high_score[2]) = (var_main->score_counter);          // new second place is saved
+        (var_main->high_score[2])=(var_main->high_score[1]);            // old second place moves down
+        (var_main->high_score[1]) = (var_main->score_counter);          // new second place is saved
     }
-    else if ((var_main->score_counter) > (var_main->high_score[3])){    // test if score is better than third place
-        (var_main->high_score[3]) = (var_main->score_counter);          // new third place is saved
+    else if ((var_main->score_counter) > (var_main->high_score[2])){    // test if score is better than third place
+        (var_main->high_score[2]) = (var_main->score_counter);          // new third place is saved
     }
 
     (var_main->score_counter)=0;
