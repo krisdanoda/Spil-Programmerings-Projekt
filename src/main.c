@@ -69,9 +69,11 @@ int main(void)
 
         if ((var_main.in_game) == 1) {                          // initialize game
 
-            for (uint8_t i=2; i< BORDERY-2;i++){
-                    clear_line(i);
+
+            for (uint8_t i=2; i< BORDERY-2;i++){                // Clear screen before printing new level
+                clear_line(i);
             }
+
             uint8_t text_line_1 = BORDERY / 5;                  // go to text location from menu
             clear_line(text_line_1);                            // Delete old text
             clear_line(text_line_1 + 2);                        // Delete old text
@@ -88,9 +90,9 @@ int main(void)
             write_score(var_main.score_counter);                // Display score_counter on LCD
             write_level(var_main.level_counter);
 
-                    (var_main.in_game)++;                               // set in_game to 2 (start game)
+            (var_main.in_game)++;                               // set in_game to 2 (start game)
 
-            init_ng_ball(&b, &strike, &var_main);                          // initialize ball and striker
+            init_ng_ball(&b, &strike, &var_main);               // initialize ball and striker
 
 
 
@@ -98,21 +100,16 @@ int main(void)
 
         while (var_main.in_game == 2) {                         // start game
 
-//
-            //set_RGB(var_main.life_count);                       // Display life_count on RGB
-            //write_score(var_main.score_counter);                // Display score_counter on LCD
-            //write_level(var_main.level_counter);                // Display life_counter on LCD
 
-
-            update_striker(&strike, &var_main);                            // update striker when joystick is pressed
-            striker_bounce(&strike, &b, &var_main);             //FIX LIFE COUNT             // return ball in another angle
+            update_striker(&strike, &var_main);                 // update striker when joystick is pressed
+            striker_bounce(&strike, &b, &var_main);             // return ball in another angle
 
 
             gotoxy(b.posi.x >> 14, b.posi.y >> 14);             // go to old ball position
             printf(" ");                                        // delete the print of old ballS
             border_control(&b);                                 // make sure the ball bounces of the window
 
-            block_control(&b, block, &var_main, &strike);                // Check blocks and hits and return the score
+            block_control(&b, block, &var_main, &strike);       // Check blocks and hits and return the score
 
             updatepos(&b, var_main.speed_multi);                // update position of ball and set the speed of the ballS
 

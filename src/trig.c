@@ -33,6 +33,5 @@ void updatepos(struct ball_t *b, uint16_t speed_multi){
 
     b->posi.x = b->posi.x + FIX14_MULT(b->vel.x,(450+speed_multi*150));
     b->posi.y = b->posi.y + FIX14_MULT(b->vel.y,(450+speed_multi*150));
-
 }
 
