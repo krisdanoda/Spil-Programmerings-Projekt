@@ -49,23 +49,22 @@ gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 
 void update_striker(struct striker_t *ks, struct variables * var_main)
 // This function moves the striker using a joystick.
 {
-    int8_t K = ks->k_speed;
-    int32_t old_x = ks->posi.x;
+    int8_t K = ks->k_speed; // a speed constant
 
-    int16_t x_value = read_joystick_x()-2000;
-    uint8_t dead_zone = 50;
+    int16_t x_value = read_joystick_x()-2000; //read the joystick value and normalize it around 0
+    uint8_t dead_zone = 50; //A deadzone value, so that the analog joystick is only triggered when the pressure exceeds this value
 
-    if (abs(x_value)<50){
+    if (abs(x_value)<50){ // Not to do anything when within dead zone
     //nothing
 
     }
-    else if( x_value >= dead_zone){
+    else if( x_value >= dead_zone){ // if press left, move left
 
-     ks->vel.x = ( (x_value-dead_zone) << 14);
+     ks->vel.x = ( (x_value-dead_zone) << 14);  //gives the velocity a value dependent on the analog, making it pressure sensative
 
-    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/100);
+    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/100); // velocity is multiplied by the speed constants and then added to the position
 
-        if ( ks->posi.x > ( (150 - 2 - (ks->s_size) / 2) << 14))
+        if ( ks->posi.x > ( (150 - 2 - (ks->s_size) / 2) << 14)) //striker cannot move outside the boundaries
         {
             ks->posi.x = ((150 - 2 - (ks->s_size) / 2) << 14);
 
@@ -73,11 +72,11 @@ void update_striker(struct striker_t *ks, struct variables * var_main)
 
     print_striker(ks );//update position
     }
- else if(  x_value <=dead_zone ){
+ else if(  x_value <= - dead_zone ){ //if press right, move right
 
-       ks->vel.x = ( (x_value+dead_zone) << 14);
+       ks->vel.x = ( (x_value+dead_zone) << 14);    ////gives the velocity a value dependent on the analog, making it pressure sensitive
 
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/100);
+        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/100);     // velocity is multiplied by the speed constants and then added to the position
 
 
  if ( ks->posi.x < ( (2 + (ks->s_size) / 2) << 14))
@@ -139,9 +138,12 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         {
   i_angle = - i_angle;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> kris-17/06
 
-        //This rotates the part r
+        //To bounce the angle against a surface with a incidence angle of i_angle, we rotate the coordinate system with an angle i_angle, mirror the angle in the y-axis, then rotate it back
 
         int32_t x1 = b->vel.x;
         b->vel.x = FIX14_MULT(b->vel.x, Cos(i_angle)) - FIX14_MULT(b->vel.y, Sin(i_angle));
