@@ -47,8 +47,13 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
+<<<<<<< HEAD
                 if (create_rand(4)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
                     activate_pu(var_main, strike, b);                                                  // If a block is a power-up, choose and activate a power-up.
+=======
+                if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
+                    activate_pu(var_main, strike, block[j].x1, block[j].y1, b);                                                  // If a block is a power-up, choose and activate a power-up.
+>>>>>>> Halløjsa
                 }
             }
         }
@@ -69,8 +74,13 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
+<<<<<<< HEAD
                 if (create_rand(4)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
                     activate_pu(var_main, strike, b);                                                  // If a block is a power-up, choose and activate a power-up.
+=======
+                if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
+                    activate_pu(var_main, strike, block[j].x1, block[j].y1, b);                                                  // If a block is a power-up, choose and activate a power-up.
+>>>>>>> Halløjsa
                 }
             }
         }

@@ -13,31 +13,37 @@ void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, struct striker_t *ks)
 }
 
 
+<<<<<<< HEAD
 void print_striker(struct striker_t *ks )               // print striker
 {
     //This function is self explanatory. It prints the a striker using the x and y coordinates of the striker
+=======
+void print_striker(struct striker_t *ks ){
+>>>>>>> Halløjsa
 
-//    //// This part of the striker uses a for loop to print a block for a striker, with a size of (striker size -2) with a space at each end.
-//    gotoxy( ( ( ( ks->posi.x ) >> 14 )  - (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 )  );
-//    printf(" ");
-//
-//    for ( uint8_t i = 1; i < ((ks->s_size) - 1); i++ )
-//    {
-//        gotoxy( ( ( ( ks->posi.x ) >> 14 ) + i - (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 )  ); //Loops throw all of the positions of the striker and prints a block in the next line;
-//        printf("%c", 219);
-//
-//    }
-//    gotoxy( ( ( ( ks->posi.x ) >> 14 ) +  (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 )  );
-//    printf(" ");
+gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
 
-    // This part of the script prints a cat for a striker. State is to check if the striker has been hit or not.
     if (ks->state == 1){
-    gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
-    printf(" (^>_<^) ");
+            if (ks->s_size == 9){
+                printf(" (^>_<^) ");
+            }
+            else if (ks->s_size == 18){
+                printf(" (-(-_(-_-)_-)-) ");
+            }
+            else if (ks->s_size == 27){
+                printf(" (^>_<^) (^>_<^) (^>_<^)  ");
+            }
     }
      else{
-             gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
-    printf(" (^._.^) ");
+            if (ks->s_size == 9){
+                printf(" (^._.^) ");
+            }
+            else if (ks->s_size == 18){
+                printf(" (.(._(._.)_.).) ");
+            }
+            else if (ks->s_size == 27){
+                printf(" (^._.^) (^._.^) (^._.^)  ");
+            }
      }
 
 }
@@ -226,8 +232,9 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
     else if ( ( (ks->posi.y) + (1 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
     {
 
-         gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball
-            printf(" ");
+      //   gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball
+        //    printf(" ");
+            clear_line(BORDERY-1);
 
         if (sum == 1){
 
@@ -240,6 +247,7 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
                 init_ng_ball(b, ks, var_main);
 
             }
+<<<<<<< HEAD
 
             if ((var_main->life_count) == 0)
             {
@@ -254,6 +262,18 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
                 b->posi.y=5;
                 b->vel.x=0;
                 b->vel.y=0;
+=======
+
+            if ((var_main->life_count) == 0)
+            {
+                test_hs(var_main);
+                game_over(var_main, ks);
+
+            }
+        }
+        else {
+            b->b_life=0;
+>>>>>>> Halløjsa
         }
     }
 }

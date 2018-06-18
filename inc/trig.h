@@ -17,7 +17,11 @@ struct vector_t {
 struct ball_t {
     struct vector_t posi;
     struct vector_t vel;
+<<<<<<< HEAD
     uint8_t ball_life;
+=======
+    uint8_t b_life;
+>>>>>>> Halløjsa
 };
 
 int32_t Sin(int32_t grader);
