@@ -26,11 +26,11 @@ void activate_pu(struct variables *var_main, struct striker_t *strike, struct ba
         }
         else {
             for(uint8_t k = 0; k<3; k++){
-                if((b[k].ball_life) == 0){
-                    (b[k].ball_life) = 1;
+                if((b[k].ball_life) == 0){                          // find a ball not in play
+                    (b[k].ball_life) = 1;                           // set ball life to 1
                     initVector(&b[k].posi, BORDERX/2, BORDERY-5);   // set start position of ball
                     initVector(&b[k].vel, 2, -1);                   // set velocity that is manipulated later
-                    break;
+                    break;                                          // the above should only be done once pr power up
                 }
             }
         }
