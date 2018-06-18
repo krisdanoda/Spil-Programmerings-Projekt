@@ -169,16 +169,16 @@ void counter(int x1, int y1, int x2, int y2) {
   }
 
   gotoxy(x1, y1);
-  printf("%c", 218); // Laver hjørne øverst til venstre
+  printf("%c", 218);                                            // print top left corner
 
   gotoxy(x2, y1);
-  printf("%c", 191); // Laver hjørne øverst til højre
+  printf("%c", 191);                                            // print top right corner
 
   gotoxy(x1, y2);
-  printf("%c", 192); // Laver hjørne nederst til venstre
+  printf("%c", 192);                                            // print bottom left corner
 
   gotoxy(x2, y2);
-  printf("%c", 217); // Laver hjørne nederst til højre
+  printf("%c", 217);                                            // print bottom right corner
 }
 
 void block(int x1, int y1, int x2, int y2, int hit) {           // print block on screen
@@ -207,7 +207,7 @@ void block(int x1, int y1, int x2, int y2, int hit) {           // print block o
     gotoxy(i, y1);                                              // update cursor position
     printf("%c", 220);                                          // print -
   }
-  gotoxy(x1, y2);                                               // bottom horizontal line                                               // nederste vandrette linje
+  gotoxy(x1, y2);                                               // bottom horizontal line
   for (i = x1; i <= x2; ++i) {
     gotoxy(i, y2);                                              // update cursor position
     printf("%c", 223);                                          // print -
