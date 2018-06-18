@@ -22,7 +22,7 @@ gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 
                 printf(" (^>_<^) ");
             }
             else if (ks->s_size == 18){
-                printf(" (.(._(._.)_.).) ");
+                printf(" (-(-_(-_-)_-)-) ");
             }
             else if (ks->s_size == 27){
                 printf(" (^>_<^) (^>_<^) (^>_<^)  ");
