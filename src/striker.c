@@ -13,13 +13,9 @@ void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, struct striker_t *ks)
 }
 
 
-<<<<<<< HEAD
 void print_striker(struct striker_t *ks )               // print striker
 {
     //This function is self explanatory. It prints the a striker using the x and y coordinates of the striker
-=======
-void print_striker(struct striker_t *ks ){
->>>>>>> Halløjsa
 
 gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
 
@@ -48,72 +44,7 @@ gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 
 
 }
 
-/*
 
-void update_striker(struct striker_t *ks, struct variables * var_main)
-// This function moves the striker using a joystick.
-{
-    int8_t K = ks->k_speed;
-    int32_t old_x = ks->posi.x;
-
-
-    //Left on joystick
-    if (readJoystick(var_main) == 4)
-
-    {
-
-        ks->vel.x = -10 << 14;  //velocity set to left
-
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K*10);
-
-        if ( ks->posi.x < ( (2 + (ks->s_size) / 2) << 14))
-        {
-            ks->posi.x = ((2 + (ks->s_size) / 2) << 14);
-        }
-
-        gotoxy( ( ( ( old_x ) >> 14 ) + (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 ) );
-        printf(" ");
-
-        print_striker(ks );//update position
-
-
-    }
-
-    else if (readJoystick(var_main) == 8)//Right movement
-    {
-
-
-        ks->vel.x = 10 << 14; //velocity set to right
-
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K*10);
-
-
-        if ( ks->posi.x > ( (150 - 1 - (ks->s_size) / 2) << 14))
-        {
-            ks->posi.x = ((150 - 1 - (ks->s_size) / 2) << 14);
-
-            gotoxy( ( ( ( old_x ) >> 14 ) ) , ( ( ks->posi.y ) >> 14 ) );
-            printf(" ");
-        }
-        print_striker(ks );//update position
-
-
-
-
-    }
-    else if (readJoystick(var_main) == 0) // doesnt move for when there is no movement
-    {
-        ks->vel.x = 0 << 14;
-    }
-
-    //    if (ks->a > 700){
-    //    ks -> state = 0;
-    //    print_striker(SS, ks );
-    //    }
-    //    (ks ->a)= (ks ->a)+1;
-}
-
-*/
 
 void update_striker(struct striker_t *ks, struct variables * var_main)
 // This function moves the striker using a joystick.
@@ -243,17 +174,13 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
 
             if ((var_main->life_count) >= 1)
             {
-
                 init_ng_ball(b, ks, var_main);
 
             }
-<<<<<<< HEAD
-
             if ((var_main->life_count) == 0)
             {
                 test_hs(var_main);
                 game_over(var_main, ks);
-
             }
         }
         else {
@@ -262,18 +189,6 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
                 b->posi.y=5;
                 b->vel.x=0;
                 b->vel.y=0;
-=======
-
-            if ((var_main->life_count) == 0)
-            {
-                test_hs(var_main);
-                game_over(var_main, ks);
-
-            }
-        }
-        else {
-            b->b_life=0;
->>>>>>> Halløjsa
         }
     }
 }

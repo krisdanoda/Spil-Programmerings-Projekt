@@ -36,24 +36,21 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
             b->vel.y = -b->vel.y;                                                                   // bounce the ball back when block is hit
             block[j].hit--;                                                                         // decrease the life of the hit block
             print_Block(block[j]);                                                                  // print the color of the block life
-            (var_main->score_counter)++;                                                                        // increase the score when a block is hit
-            write_score(var_main->score_counter);                // Display score_counter on LCD
-            write_level(var_main->level_counter);
+            (var_main->score_counter)++;                                                            // increase the score when a block is hit
+            write_score(var_main->score_counter);                                                   // Display score on LCD
+            write_level(var_main->level_counter);                                                   // Display level on LCD
 
             if (block[j].hit == 0) {                                                                // check if a block has zero life
+
                 del_block(block[j].x1, block[j].y1, block[j].x2, block[j].y2);                      // delete the block
                 block[j].x1 = 100;                                                                  // move the invisible block out of the map
                 block[j].y1 = 100;                                                                  // -||-
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-<<<<<<< HEAD
-                if (create_rand(4)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
-                    activate_pu(var_main, strike, b);                                                  // If a block is a power-up, choose and activate a power-up.
-=======
-                if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
-                    activate_pu(var_main, strike, block[j].x1, block[j].y1, b);                                                  // If a block is a power-up, choose and activate a power-up.
->>>>>>> Halløjsa
+                if (create_rand(7)==1){                                                             // One in 8 blocks are randomly made power-ups when they "die"
+                    activate_pu(var_main, strike, b);                                               // If a block is a power-up, choose and activate a power-up.
+
                 }
             }
         }
@@ -63,9 +60,9 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
             b->vel.x = -b->vel.x;                                                                   // bounce the ball when block is hit
             block[j].hit--;                                                                         // decrease the life of the hit block
             print_Block(block[j]);                                                                  // print the color of the block life
-            (var_main->score_counter)++;                                                                        // increase the score when a block is hit
-            write_score(var_main->score_counter);                // Display score_counter on LCD
-            write_level(var_main->level_counter);
+            (var_main->score_counter)++;                                                            // increase the score when a block is hit
+            write_score(var_main->score_counter);                                                   // Display score on LCD
+            write_level(var_main->level_counter);                                                   // Display level on LCD
 
             if (block[j].hit == 0) {                                                                // check if a block has zero life
                 del_block(block[j].x1, block[j].y1, block[j].x2, block[j].y2);                      // delete the block
@@ -74,19 +71,12 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
                 block[j].x2 = 100;                                                                  // -||-
                 block[j].y2 = 100;                                                                  // -||-
 
-<<<<<<< HEAD
-                if (create_rand(4)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
-                    activate_pu(var_main, strike, b);                                                  // If a block is a power-up, choose and activate a power-up.
-=======
-                if (create_rand(9)==1){                                                             // One in 10 blocks are randomly made power-ups when they "die"
-                    activate_pu(var_main, strike, block[j].x1, block[j].y1, b);                                                  // If a block is a power-up, choose and activate a power-up.
->>>>>>> Halløjsa
+            if (create_rand(7)==1){                                                                 // One in 8 blocks are randomly made power-ups when they "die"
+                activate_pu(var_main, strike, b);                                                   // If a block is a power-up, choose and activate a power-up.
                 }
             }
         }
     }
-
-
 
 
     for (uint8_t i = 0 ; i < 100 ; i++) {
@@ -99,7 +89,6 @@ void block_control(struct ball_t *b, struct blockpos *block, struct variables *v
         write_score(var_main->score_counter);                                                       // Display score_counter on LCD
         write_level(var_main->level_counter);                                                       // Display level_counter on LCD
     }
-
 
 }
 
