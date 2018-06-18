@@ -13,6 +13,8 @@ void init_help();
 void clear_line(uint8_t y);
 void init_high_score(struct variables *var_main);
 
+void init_new_game(struct variables *var_main);
+
 void game_over(struct variables *var, struct striker_t *ks);
 
 void control_menu(struct variables *var_main);

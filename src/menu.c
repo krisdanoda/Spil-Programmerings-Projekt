@@ -155,10 +155,12 @@ void control_menu(struct variables *var_main){
     if ((var_main->menu_counter == 1) && (read == 16)){
         (var_main->in_game) = 1;
         (var_main->menu_counter) = 100;
+        init_new_game(var_main);
         }
     else if ((var_main->menu_counter == 1) && (read == 8)){
         (var_main->in_game) = 1;
         (var_main->menu_counter) = 100;      // menu_counter sættes højt så der ikke printes cursor
+        init_new_game(var_main);
         }
 
 
@@ -189,6 +191,20 @@ void control_menu(struct variables *var_main){
 }
 
 
+
+void init_new_game(struct variables *var_main){
+    var_main->level_counter     = 1;        // set start level
+    var_main->life_count        = 3;        // life count updates after missed ball
+    var_main->nob               = 1;        // Number of ball in the game.
+    var_main->old_read          = 0;        // When in the menu, the joystick is only moves the cursor one step pr push. This variable keeps track of joystick changes.
+    var_main->score_counter     = 0;        // score counter increase when a block is hit
+    var_main->ex_or_in_joy      = 2;        // If 1 the game is controlled by provided joystick. If 2 game is controlled by analog joystick.
+    var_main->speed_multi       = 1;        // Adjusts ball speed.
+
+}
+
+
+
 void game_over(struct variables *var_main, struct striker_t *ks){
 
 
@@ -197,13 +213,74 @@ void game_over(struct variables *var_main, struct striker_t *ks){
    clear_line(i);
    }
 
+    var_main->in_game = 0;      // Go to menu when >up< is pressed
+
    gotoxy(70,20);
-    printf("LOL, YOU'RE A TOTAL LOSER!");
-
-   var_main->in_game = 0;
-
+   printf("LOL, YOU'RE A TOTAL LOSER!");
    gotoxy(70,21);
    printf( " Press >up< to continue");
+
+uint16_t x = 20; uint16_t y = 25;
+gotoxy(x,y);
+printf("                                  |%c`:.",92);
+gotoxy(x,y); y++;
+printf("                                  | %c `:.",92);
+gotoxy(x,y); y++;
+printf("                                  |  %c__(:.",92);
+gotoxy(x,y); y++;
+printf("                                  |     %c `:.                __",92);
+gotoxy(x,y); y++;
+printf("         __________               |      %c__(:.            <`__')",92);
+gotoxy(x,y); y++;
+printf("        /          %c____          |         %c `:._         :9)9%c%c",92,92,92,92);
+gotoxy(x,y); y++;
+printf("       |   Right?   ,-'           |          %c__(L).        %co_/`",92,92);
+gotoxy(x,y); y++;
+printf("        %c__________/              |              %c%c)) _    /\ `.",92,34,92);
+gotoxy(x,y); y++;
+printf("                                  |                %c.`:`-.//,'  )",92);
+gotoxy(x,y); y++;
+printf("                                  |                 `. `--+' ,'//");
+gotoxy(x,y); y++;
+printf("                                  |                   `;;---'.//");
+gotoxy(x,y); y++;
+printf("                                  |        .     _,--;;'   `-//");
+gotoxy(x,y); y++;
+printf("                                  |        %c`..-'_.-' _,=._,_/",92);
+gotoxy(x,y); y++;
+printf("                                  |         %c_%c`'._,-','_,'`._________",92,92);
+gotoxy(x,y); y++;
+printf("                                  |     _,-'___%c,'___'_,'____`._______",92);
+gotoxy(x,y); y++;
+printf("                                  |    [______________________________");
+gotoxy(x,y); y++;
+printf("                                  |         |  |     |  |");
+gotoxy(x,y); y++;
+printf("                                  |         |  |     |  |");
+gotoxy(x,y); y++;
+printf("  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~~|  |~~~~~|  |~~~~~~~~~~ool");
+gotoxy(x,y); y++;
+printf("               (  (  o_ )  )   ( ( ) )      |  |     `--'");
+gotoxy(x,y); y++;
+printf("  compliment         | `-._____,-'          `--'            compliment");
+gotoxy(x,y); y++;
+printf("                     |             compliment");
+gotoxy(x,y); y++;
+printf("                     |                          compliment");
+gotoxy(x,y); y++;
+printf("      compliment     J      compliment");
+gotoxy(x,y); y++;
+printf(" ");
+gotoxy(x,y); y++;
+printf("                                      compliment");
+gotoxy(x,y); y++;
+printf("                       compliment                       compliment");
+gotoxy(x,y); y++;
+printf("         compliment");
+
+
+
+
 
 while(readJoystick(var_main) != 1){
 
@@ -214,6 +291,8 @@ var_main->menu_counter = 1;
    clear_line(i);
    }
 init_menu();
+
+
 
 }
 

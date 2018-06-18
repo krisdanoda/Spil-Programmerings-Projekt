@@ -93,14 +93,14 @@ int main(void)
             initVector(&b[2].vel, 0, 0);                                // set velocity that is manipulated later
             b[2].ball_life = 0;                                         // Ball #3 is not initially in play
 
-            init_ng_ball(&b[0], &strike, &var_main);                    // initialize ball and striker
-
             var_main.nob = 1;                                           // Set power-up variable to default
             strike.s_size = 9;                                          // Set power-up variable to default
             var_main.speed_multi = var_main.level_counter + 1;          // Set speed according to level
 
             write_level(var_main.level_counter);                        // Print level on LCD
             set_RGB(var_main.life_count);                               // Print life on RGB
+
+            init_ng_ball(&b[0], &strike, &var_main);                    // initialize ball and striker
 
             (var_main.in_game)++;                                       // set in_game to 2 (start game)
 
@@ -110,33 +110,34 @@ int main(void)
 
         while (var_main.in_game == 2) {                                 // start game
 
-            if (1 == get_flag()){
+            if (1 == get_flag()){                                           // This is a time flag, the game is triggered for every time the interrupts is run for a more smooth experience
                 uint8_t sum = 0;
                 for (uint8_t i = 0; i < 3; i++) {
-                sum += b[i].ball_life;                                  // Test how many balls are in play
-            }
-            update_striker(&strike, &var_main);                         // update striker when joystick is pressed
-
-            for (uint8_t k = 0; k < 3; k++) {                           // run thrugh number of balls;
-
-                if (b[k].ball_life == 1) {
-                    striker_bounce(&strike, &b[k], &var_main, sum);     // return ball in another angle
-
-                    gotoxy(b[k].posi.x >> 14, b[k].posi.y >> 14);       // go to old ball position
-                    printf(" ");                                        // delete the print of old ballS
-                    border_control(&b[k]);                              // make sure the ball bounces of the window
-
-                    block_control(&(b[k]), block, &var_main, &strike);  // Check blocks and hits and return the score
-
-                    updatepos(&b[k], var_main.speed_multi);             // update position of ball and set the speed of the ballS
-                    gotoxy(b[k].posi.x >> 14, b[k].posi.y >> 14);       // go to new ball location
-                    printf("%c", 254);                                  // Print new ball
+                    sum += b[i].ball_life;                                  // Test how many balls are in play
                 }
+                update_striker(&strike, &var_main);                         // update striker when joystick is pressed
+
+                for (uint8_t k = 0; k < 3; k++) {                           // run thrugh number of balls;
+
+                    if (b[k].ball_life == 1) {
+
+
+                        gotoxy(b[k].posi.x >> 14, b[k].posi.y >> 14);       // go to old ball position
+                        printf(" ");                                        // delete the print of old ballS
+                        border_control(&b[k]);                              // make sure the ball bounces of the window
+
+                        block_control(&(b[k]), block, &var_main, &strike);  // Check blocks and hits and return the score
+
+                        updatepos(&b[k], var_main.speed_multi);             // update position of ball and set the speed of the ballS
+                        gotoxy(b[k].posi.x >> 14, b[k].posi.y >> 14);       // go to new ball location
+                        printf("%c", 254);                                  // Print new ball
+                        striker_bounce(&strike, &b[k], &var_main, sum);     // return ball in another angle
+                    }
+                }
+                set_flag(0);
             }
-            set_flag(0);
         }
     }
-}
 }
 
 

@@ -167,18 +167,11 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
     if  ( ( (ks->posi.y) >> 14 ==  (b->posi.y) >> 14 ) && ( (  b->posi.x >> 14 ) >= ( ( ( ks->posi.x) >> 14 ) - (ks->s_size) / 2 ) ) && ( ( ( b->posi.x >> 14 )  ) <= ( ( ( ks->posi.x ) >> 14 ) + (ks->s_size) / 2 ) ) ) //Check if the ball is within the bounds of the striker
     {
 
-        //b->vel.y = -(b->vel.y);
-        //
-        //int8_t divis = 5;
-        //int32_t divs = (ss << 14)/divis;
-        //
-        //int32_t x = ( b->posi.x - ks->posi.x);
-        //int32_t v_k = power( ( ( power( (b->vel.y) >> 14, 2) << 14 ) + power( (b->vel.y) >> 14, 2) ) );
 
-        int32_t i_angle; //angle of incidence on the half circle surface
+             int32_t i_angle; //angle of incidence on the half circle surface
 
 
-        //This part of the scripts finds the angle, theta, for a given sin(theta). So it basically finds the inverse sin of a x,
+        //This part of the function finds the angle, theta, for a given sin(theta). So it basically finds the inverse sin of a x, angle is then used to rotate the appropriately for the bounce
         int32_t mini = 100000 <<14 ;
 
 
@@ -209,13 +202,7 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         {
   i_angle = - i_angle;
         }
-//
-//  if ( (mini) > (abs(dif - 100000) * 10000))     //if the
-//            {
-//                mini = ((abs(dif ) * 10000));
-//                i_angle = 0; // we use then use the position of the given
-//            }
-//
+
 
         //This rotates the part r
 

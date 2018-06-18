@@ -181,7 +181,7 @@ void counter(int x1, int y1, int x2, int y2) {
   printf("%c", 217); // Laver hjørne nederst til højre
 }
 
-void block(int x1, int y1, int x2, int y2, int hit) {
+void block(int x1, int y1, int x2, int y2, int hit) {           // print block on screen
 
   int i;
 
@@ -215,29 +215,29 @@ void block(int x1, int y1, int x2, int y2, int hit) {
   printf("%c[37m", ESC);                                        // set color back to normal
 }
 
-void del_block(int x1, int y1, int x2, int y2) {
+void del_block(int x1, int y1, int x2, int y2) {                // delete block on screen
 
   int i;
 
-  gotoxy(x1, y1);             // Højre lodrette linje
+  gotoxy(x1, y1);                                               // left vertical line
   for (i = y1 + 1; i <= y2; ++i) {
-    gotoxy(x1, i);
-    printf("%c", 32);
+    gotoxy(x1, i);                                              // update cursor position
+    printf("%c", 32);                                           // print space
   }
-  gotoxy(x2, y1);             // Højre lodrette linje
+  gotoxy(x2, y1);                                               // right vertical line
   for (i = y1 + 1; i <= y2; ++i) {
-    gotoxy(x2, i);
-    printf("%c", 32);
+    gotoxy(x2, i);                                              // update cursor position
+    printf("%c", 32);                                           // print space
   }
-  gotoxy(x1, y1);  // Øverste vandrette linje
+  gotoxy(x1, y1);                                               // top horizontal line
   for (i = x1; i <= x2; ++i) {
-    gotoxy(i, y1);
-    printf("%c", 32);
+    gotoxy(i, y1);                                              // update cursor position
+    printf("%c", 32);                                           // print space
   }
-  gotoxy(x1, y2);             // nederste vandrette linje
+  gotoxy(x1, y2);                                               // bottom horizontal line
   for (i = x1; i <= x2; ++i) {
-    gotoxy(i, y2);
-    printf("%c", 32);
+    gotoxy(i, y2);                                              // update cursor position
+    printf("%c", 32);                                           // print space
   }
 }
 
