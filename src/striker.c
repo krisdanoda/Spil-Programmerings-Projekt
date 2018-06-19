@@ -138,10 +138,6 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         {
   i_angle = - i_angle;
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> kris-17/06
 
         //To bounce the angle against a surface with a incidence angle of i_angle, we rotate the coordinate system with an angle i_angle, mirror the angle in the y-axis, then rotate it back
 
@@ -169,9 +165,9 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         //    printf(" ");
             clear_line(BORDERY-1);
 
-        if (sum == 1){
+        if (sum == 1){                      // sum is the number of balls in play
 
-            (var_main->life_count)--;
+            (var_main->life_count)--;       // reduce remaining life
             set_RGB(var_main->life_count); // Display life_count on RGB
 
             if ((var_main->life_count) >= 1)
@@ -181,16 +177,16 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
             }
             if ((var_main->life_count) == 0)
             {
-                test_hs(var_main);
+                test_hs(var_main);          // test if the score is higher than a high score
                 game_over(var_main, ks);
             }
         }
         else {
-                b->ball_life=0;
-                b->posi.x=BORDERX+5;
-                b->posi.y=5;
-                b->vel.x=0;
-                b->vel.y=0;
+                b->ball_life=0;             // remove ball from game
+                b->posi.x=BORDERX+5;        // move ball outside window
+                b->posi.y=5;                // move ball outside window
+                b->vel.x=0;                 // set ball velocity to 0
+                b->vel.y=0;                 // set ball velocity to 0
         }
     }
 }

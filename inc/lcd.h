@@ -11,7 +11,4 @@ void write_level(uint8_t level);
 
 void type_tex(char *c, uint8_t *buffer, uint8_t  *x, uint8_t  y);
 
-void type_tex_scroll(char *c, uint8_t *buffer, uint8_t *x, uint8_t  y);
-
-void lcd_update( uint8_t *buffer, uint8_t  *x, uint8_t  y);
 #endif

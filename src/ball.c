@@ -3,7 +3,7 @@
 void init_ng_ball(struct ball_t *b, struct striker_t *ks, struct variables *var_main){
 // This function lets you decide when and where you place the ball. The ball is placed above the striker and is activated by pressing up on the keyboard,
 
-uint8_t joy_val;
+uint8_t joy_val=0;
 
 
 while (joy_val!= 1){ //until up is pressed
@@ -26,4 +26,15 @@ while (joy_val!= 1){ //until up is pressed
    b->vel.y = ( -3 << 14 ); //Gives the ball with a initial velocity 3 upwards in Y-direction.
    b->vel.x = ( 0 << 14 );
 
+}
+
+void initVector(struct vector_t *v, int32_t x, int32_t y) {
+    v->x = x << 14;
+    v->y = y << 14;
+}
+
+void updatepos(struct ball_t *b, uint16_t speed_multi){
+
+    b->posi.x = b->posi.x + FIX14_MULT(b->vel.x,(450+speed_multi*150));
+    b->posi.y = b->posi.y + FIX14_MULT(b->vel.y,(450+speed_multi*150));
 }

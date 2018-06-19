@@ -14,10 +14,9 @@ void init_var_main(struct variables *var_main){
     var_main->score_counter     = 0;        // score counter increase when a block is hit
     var_main->ex_or_in_joy      = 2;        // If 1 the game is controlled by provided joystick. If 2 game is controlled by analog joystick.
     var_main->speed_multi       = 1;        // Adjusts ball speed.
-    var_main->high_score[0]     = 0;        // initialize high score
-    var_main->high_score[1]     = 0;        // initialize high score
-    var_main->high_score[2]     = 0;        // initialize high score
-
+    var_main->high_score[0]     = 0;        // initialize high score #1
+    var_main->high_score[1]     = 0;        // initialize high score #2
+    var_main->high_score[2]     = 0;        // initialize high score #3
 
 }
 

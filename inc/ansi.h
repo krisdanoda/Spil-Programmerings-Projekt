@@ -12,17 +12,8 @@
 //
 //
 ///* Exported functions ------------------------------------------------------- */
-void fgcolor(int foreground);                                   // set foreground color
-void bgcolor(int background);                                   // set background color
-void color(int foreground, int background);                     // set color
-void resetbgcolor();                                            // reset background color
 void clrscr();                                                  // clear screen
-void clreol();                                                  // clear line
 void gotoxy(uint8_t x, int8_t y);                               // go to a given position
-void underline(uint8_t on);                                     // underline what is printed
-void blink(uint8_t on);                                         // make it blink
-void inverse(uint8_t on);                                       // inverse the color
-void window(int x1, int y1, int x2, int y2,char s[]);           // print a window and a string in top
 void counter(int x1, int y1, int x2, int y2);                   // create a plain window
 void block(int x1, int y1, int x2, int y2, int hit);            // print a block with a color depending on life
 void del_block(int x1, int y1, int x2, int y2);                 // delete a block when it is hit

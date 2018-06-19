@@ -43,17 +43,17 @@ void init_high_score(struct variables *var_main){
     gotoxy(text_col_1,text_line_1+2);
     printf("    #1: ");
     gotoxy(text_col_1+10,text_line_1+2);
-    printf("%d points",var_main->high_score[0]);
+    printf("%lu points",var_main->high_score[0]);
 
     gotoxy(text_col_1,text_line_1+4);
     printf("    #2: ");
     gotoxy(text_col_1+10,text_line_1+4);
-    printf("%d points",var_main->high_score[1]);
+    printf("%lu points",var_main->high_score[1]);
 
     gotoxy(text_col_1,text_line_1+6);
     printf("    #3: ");
     gotoxy(text_col_1+10,text_line_1+6);
-    printf("%d points",var_main->high_score[2]);
+    printf("%lu points",var_main->high_score[2]);
     }
 
 
@@ -236,7 +236,7 @@ printf("        /          %c____          |         %c `:._         :9)9%c%c",9
 gotoxy(x,y); y++;
 printf("       |   Right?   ,-'           |          %c__(L).        %co_/`",92,92);
 gotoxy(x,y); y++;
-printf("        %c__________/              |              %c%c)) _    /\ `.",92,34,92);
+printf("        %c__________/              |              %c%c)) _    /%c `.",92,34,92,92);
 gotoxy(x,y); y++;
 printf("                                  |                %c.`:`-.//,'  )",92);
 gotoxy(x,y); y++;

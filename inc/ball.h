@@ -14,8 +14,8 @@
 
 //void init_ng_ball(struct ball_t *b, struct striker_t *cat, uint8_t striker, struct vector_t *v);
 void init_ng_ball(struct ball_t *b, struct striker_t *ks, struct variables *var_main);
-
-
+void initVector(struct vector_t *v, int32_t x, int32_t y);
+void updatepos(struct ball_t *b, uint16_t speed_multi);
 
 #endif
 
