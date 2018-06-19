@@ -23,11 +23,11 @@ gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 
             if (ks->s_size == 9){
                 printf(" (^>_<^) ");
             }
-            else if (ks->s_size == 18){
+            else if (ks->s_size == 17){
                 printf(" (-(-_(-_-)_-)-) ");
             }
-            else if (ks->s_size == 27){
-                printf(" (^>_<^) (^>_<^) (^>_<^)  ");
+            else if (ks->s_size == 25){
+                printf(" (^>_<^)~(^>_<^)~(^>_<^) ");
             }
     }
      else{
@@ -35,10 +35,10 @@ gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 
                 printf(" (^._.^) ");
             }
             else if (ks->s_size == 18){
-                printf(" (.(._(._.)_.).) ");
+                printf(" (.(._(.__.)_.).) ");
             }
             else if (ks->s_size == 27){
-                printf(" (^._.^) (^._.^) (^._.^)  ");
+                printf(" (^._.^)~~(^._.^)~~(^._.^) ");
             }
      }
 
@@ -62,11 +62,11 @@ void update_striker(struct striker_t *ks, struct variables * var_main)
 
      ks->vel.x = ( (x_value-dead_zone) << 14);  //gives the velocity a value dependent on the analog, making it pressure sensative
 
-    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/100); // velocity is multiplied by the speed constants and then added to the position
+    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/20); // velocity is multiplied by the speed constants and then added to the position
 
-        if ( ks->posi.x > ( (150 - 2 - (ks->s_size) / 2) << 14)) //striker cannot move outside the boundaries
+        if ( ks->posi.x > ( (150 - 1 - (ks->s_size) / 2) << 14)) //striker cannot move outside the boundaries
         {
-            ks->posi.x = ((150 - 2 - (ks->s_size) / 2) << 14);
+            ks->posi.x = ((150 - 1 - (ks->s_size) / 2) << 14);
 
         }
 
@@ -76,7 +76,7 @@ void update_striker(struct striker_t *ks, struct variables * var_main)
 
        ks->vel.x = ( (x_value+dead_zone) << 14);    ////gives the velocity a value dependent on the analog, making it pressure sensitive
 
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/100);     // velocity is multiplied by the speed constants and then added to the position
+        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/20);     // velocity is multiplied by the speed constants and then added to the position
 
 
  if ( ks->posi.x < ( (2 + (ks->s_size) / 2) << 14))
@@ -158,7 +158,8 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
 
         print_striker( ks );
     }
-    else if ( ( (ks->posi.y) + (1 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
+    else if ( ( (ks->posi.y) + (2 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) )
+                                                    || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
     {
 
       //   gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball

@@ -13,10 +13,7 @@ void activate_pu(struct variables *var_main, struct striker_t *strike, struct ba
     uint8_t y = create_rand(2);                                     // Randomly choose which power-up to implement
 
     if (y==2){
-        (var_main->speed_multi)--;                                  // Reduces speed
-        if ((var_main->speed_multi) == 0){                          // Control if speed is too low
-            (var_main->speed_multi)=1;                              // Set speed multiplier to 1 if speed is to low
-        }
+        (var_main->speed_multi)++;                                  // Increase speed
     }
     else if (y==1){
         (var_main->nob)++;                                          // Add an extra ball
@@ -29,16 +26,16 @@ void activate_pu(struct variables *var_main, struct striker_t *strike, struct ba
                 if((b[k].ball_life) == 0){                          // find a ball not in play
                     (b[k].ball_life) = 1;                           // set ball life to 1
                     initVector(&b[k].posi, BORDERX/2, BORDERY-5);   // set start position of ball
-                    initVector(&b[k].vel, 2, -1);                   // set velocity that is manipulated later
+                    initVector(&b[k].vel, 2, -2);                   // set velocity that is manipulated later
                     break;                                          // the above should only be done once pr power up
                 }
             }
         }
     }
     else if (y==0){
-        (strike->s_size)=(strike->s_size)+9;                        // Increases striker size
+        (strike->s_size)=(strike->s_size)+8;                        // Increases striker size
         if ((strike->s_size) >= 30){                                // Check if striker is to big
-            (strike->s_size)=(strike->s_size)-9;                    // Reduce striker size if it is above 30.
+            (strike->s_size)=(strike->s_size)-8;                    // Reduce striker size if it is above 30.
         }
         print_striker(strike);                                      // Print striker with new size
     }
