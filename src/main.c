@@ -44,7 +44,7 @@ int main(void)
     clrscr();                                                               // clear screen
     gotoxy(1, 1);                                                           // go to the first pixel in command prompt
     printf("%c[?25l", ESC);                                                 // remove visible cursor
-    counter(1, 1, BORDERX, BORDERY);                                        // create the window with border size
+    border_window(1, 1, BORDERX, BORDERY);                                        // create the window with border size
     init_joystick();                                                        // initialize joystick
 
     init_PS2joy();

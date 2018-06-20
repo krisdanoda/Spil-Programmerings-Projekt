@@ -14,7 +14,7 @@
 ///* Exported functions ------------------------------------------------------- */
 void clrscr();                                                  // clear screen
 void gotoxy(uint8_t x, int8_t y);                               // go to a given position
-void counter(int x1, int y1, int x2, int y2);                   // create a plain window
+void border_window(int x1, int y1, int x2, int y2);             // create a plain window
 void block(int x1, int y1, int x2, int y2, int hit);            // print a block with a color depending on life
 void del_block(int x1, int y1, int x2, int y2);                 // delete a block when it is hit
 

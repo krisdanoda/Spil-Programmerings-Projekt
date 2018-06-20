@@ -14,7 +14,7 @@ void gotoxy(uint8_t x, int8_t y) {
 }
 
 
-void counter(int x1, int y1, int x2, int y2) {
+void border_window(int x1, int y1, int x2, int y2) {
 
   int i;
   gotoxy(x1, y1);  // Øverste vandrette linje
