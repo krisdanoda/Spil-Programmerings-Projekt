@@ -130,9 +130,12 @@ int main(void)
                         gotoxy(b[k].posi.x >> 14, b[k].posi.y >> 14);       // go to new ball location
                         printf("%c", 254);                                  // Print new ball
                         striker_bounce(&strike, &b[k], &var_main, sum);     // return ball in another angle
+
                     }
                 }
                 set_flag(0);
+                gotoxy(10,90);
+                printf("velocity y: %lu", b[0]->vel.y >> 14);
             }
         }
     }

@@ -151,10 +151,17 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         b->vel.x = FIX14_MULT(b->vel.x, Cos(-i_angle)) - FIX14_MULT(b->vel.y, Sin(-i_angle));
         b->vel.y = FIX14_MULT(x1, Sin(-i_angle)) + FIX14_MULT(b->vel.y, Cos(-i_angle));
 
+        if (b->vel.y < 1 && b->vel.y > 0)
+            b->vel.y = 1;
+            else if (b->vel.y < 0 && b->vel.y > -1)
+                b->vel.y = -1;
+
         b->posi.y =  b->posi.y - ( 2 << 14 );
 
         ks->state = 1;
         ks->a = 0;
+
+
 
         print_striker( ks );
     }
@@ -190,6 +197,7 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
                 b->vel.y=0;                 // set ball velocity to 0
         }
     }
+
 }
 
 
