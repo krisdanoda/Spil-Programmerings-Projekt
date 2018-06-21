@@ -198,7 +198,6 @@ void init_new_game(struct variables *var_main){
     var_main->nob               = 1;        // Number of ball in the game.
     var_main->old_read          = 0;        // When in the menu, the joystick is only moves the cursor one step pr push. This variable keeps track of joystick changes.
     var_main->score_counter     = 0;        // score counter increase when a block is hit
-    var_main->ex_or_in_joy      = 2;        // If 1 the game is controlled by provided joystick. If 2 game is controlled by analog joystick.
     var_main->speed_multi       = 1;        // Adjusts ball speed.
 
 }
@@ -215,12 +214,12 @@ void game_over(struct variables *var_main, struct striker_t *ks){
 
     var_main->in_game = 0;      // Go to menu when >up< is pressed
 
-   gotoxy(70,20);
-   printf("LOL, YOU'RE A TOTAL LOSER!");
-   gotoxy(70,21);
-   printf( " Press >up< to continue");
+   gotoxy(50,10);
+   printf("Game over!!! But you had a blast of a good time!");
+   gotoxy(50,50);
+   printf( "Press >up< to continue");
 
-uint16_t x = 20; uint16_t y = 25;
+uint16_t x = 40; uint16_t y = 15;
 gotoxy(x,y);
 printf("                                  |%c`:.",92);
 gotoxy(x,y); y++;

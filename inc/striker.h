@@ -15,19 +15,18 @@
 
 
 struct striker_t{
-    struct vector_t posi;
-    struct vector_t vel;
-    int8_t state;
-    int32_t a;
-    uint8_t s_size; // striker size
-    uint8_t k_speed;
+    struct vector_t posi;   //position vector
+    struct vector_t vel;    //velocity vector
+    int8_t state;           //  Flag for ball collision
+    uint8_t s_size;         // striker size
+    uint16_t k_speed;       // speed of ball
 };
 
 void init_striker(uint8_t BORDER_X, uint8_t BORDER_Y, struct striker_t *ks);
 
 
 void print_striker(struct striker_t *ks );
-void update_striker(struct striker_t *ks);
+void update_striker(struct striker_t *ks,  struct variables *var_main);
 void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables *var_main, uint8_t sum);
 
 #endif

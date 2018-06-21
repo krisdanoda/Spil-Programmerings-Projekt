@@ -7,10 +7,11 @@ uint8_t joy_val=0;
 
 
 while (joy_val!= 1){ //until up is pressed
+        if( get_flag()==1){
         gotoxy( (b->posi.x) >>14, (b->posi.y) >> 14); //balls position
         printf(" ");                                  //remove the printed ball
 
-        update_striker(ks);                 //lets you move the striker
+        update_striker(ks,var_main);                 //lets you move the striker
         joy_val = readJoystick(var_main);             //read the joystick value
 
         b->posi.x = ks -> posi.x;                     //places the ball at the striker's position, x axis
@@ -18,9 +19,8 @@ while (joy_val!= 1){ //until up is pressed
 
         gotoxy( (b->posi.x) >>14 , (b->posi.y) >>14) ;  //prints the ball
         printf("%c", 254);
-
-
-
+set_flag(0); //set time flag back to zero
+}
 }
 
    b->vel.y = ( -3 << 14 ); //Gives the ball with a initial velocity 3 upwards in Y-direction.

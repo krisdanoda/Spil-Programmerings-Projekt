@@ -113,7 +113,7 @@ int main(void)
                 for (uint8_t i = 0; i < 3; i++) {
                     sum += b[i].ball_life;                                  // Test how many balls are in play
                 }
-                update_striker(&strike);                         // update striker when joystick is pressed
+                update_striker(&strike,&var_main);                                    // update striker when joystick is pressed
 
                 for (uint8_t k = 0; k < 3; k++) {                           // run through number of balls;
 
