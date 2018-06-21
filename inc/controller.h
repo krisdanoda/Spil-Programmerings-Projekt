@@ -14,9 +14,7 @@ void init_PS2joy();
 
 uint8_t readJoystick(struct variables *var_main);
 
-uint16_t  read_joystick_x();
-
-void set_Led(uint8_t val);
+uint16_t read_joystick_x();
 
 void set_RGB(uint8_t val);
 

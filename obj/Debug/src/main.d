@@ -15,4 +15,4 @@ obj\debug\src\main.o: src\main.c inc/stm32f30x_conf.h \
  inc/LUT.h inc/controller.h inc/config_project.h inc/our_timer.h \
  inc/ansi.h inc/controller.h inc/charset.h inc/lcd.h inc/our_timer.h \
  inc/charset.h inc/striker.h inc/trig.h inc/ball.h inc/striker.h \
- inc/menu.h inc/menu.h inc/block_control.h inc/ball.h
+ inc/menu.h inc/menu.h inc/block_control.h inc/ball.h inc/power_up.h

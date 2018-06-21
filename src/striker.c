@@ -17,130 +17,66 @@ void print_striker(struct striker_t *ks )               // print striker
 {
     //This function is self explanatory. It prints the a striker using the x and y coordinates of the striker
 
-//    //// This part of the striker uses a for loop to print a block for a striker, with a size of (striker size -2) with a space at each end.
-//    gotoxy( ( ( ( ks->posi.x ) >> 14 )  - (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 )  );
-//    printf(" ");
-//
-//    for ( uint8_t i = 1; i < ((ks->s_size) - 1); i++ )
-//    {
-//        gotoxy( ( ( ( ks->posi.x ) >> 14 ) + i - (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 )  ); //Loops throw all of the positions of the striker and prints a block in the next line;
-//        printf("%c", 219);
-//
-//    }
-//    gotoxy( ( ( ( ks->posi.x ) >> 14 ) +  (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 )  );
-//    printf(" ");
+gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
 
-    // This part of the script prints a cat for a striker. State is to check if the striker has been hit or not.
     if (ks->state == 1){
-    gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
-    printf(" (^>_<^) ");
+            if (ks->s_size == 9){
+                printf(" (^>_<^) ");
+            }
+            else if (ks->s_size == 17){
+                printf(" (-(-_(-_-)_-)-) ");
+            }
+            else if (ks->s_size == 25){
+                printf(" (^>_<^)~(^>_<^)~(^>_<^) ");
+            }
     }
      else{
-             gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 14 )  );
-    printf(" (^._.^) ");
+            if (ks->s_size == 9){
+                printf(" (^._.^) ");
+            }
+            else if (ks->s_size == 18){
+                printf(" (.(._(.__.)_.).) ");
+            }
+            else if (ks->s_size == 27){
+                printf(" (^._.^)~~(^._.^)~~(^._.^) ");
+            }
      }
 
 }
 
-/*
+
 
 void update_striker(struct striker_t *ks, struct variables * var_main)
 // This function moves the striker using a joystick.
 {
-    int8_t K = ks->k_speed;
-    int32_t old_x = ks->posi.x;
+    int8_t K = ks->k_speed; // a speed constant
 
+    int16_t x_value = read_joystick_x()-2000; //read the joystick value and normalize it around 0
+    uint8_t dead_zone = 50; //A deadzone value, so that the analog joystick is only triggered when the pressure exceeds this value
 
-    //Left on joystick
-    if (readJoystick(var_main) == 4)
-
-    {
-
-        ks->vel.x = -10 << 14;  //velocity set to left
-
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K*10);
-
-        if ( ks->posi.x < ( (2 + (ks->s_size) / 2) << 14))
-        {
-            ks->posi.x = ((2 + (ks->s_size) / 2) << 14);
-        }
-
-        gotoxy( ( ( ( old_x ) >> 14 ) + (ks->s_size) / 2 ) , ( ( ks->posi.y ) >> 14 ) );
-        printf(" ");
-
-        print_striker(ks );//update position
-
-
-    }
-
-    else if (readJoystick(var_main) == 8)//Right movement
-    {
-
-
-        ks->vel.x = 10 << 14; //velocity set to right
-
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K*10);
-
-
-        if ( ks->posi.x > ( (150 - 1 - (ks->s_size) / 2) << 14))
-        {
-            ks->posi.x = ((150 - 1 - (ks->s_size) / 2) << 14);
-
-            gotoxy( ( ( ( old_x ) >> 14 ) ) , ( ( ks->posi.y ) >> 14 ) );
-            printf(" ");
-        }
-        print_striker(ks );//update position
-
-
-
-
-    }
-    else if (readJoystick(var_main) == 0) // doesnt move for when there is no movement
-    {
-        ks->vel.x = 0 << 14;
-    }
-
-    //    if (ks->a > 700){
-    //    ks -> state = 0;
-    //    print_striker(SS, ks );
-    //    }
-    //    (ks ->a)= (ks ->a)+1;
-}
-
-*/
-
-void update_striker(struct striker_t *ks, struct variables * var_main)
-// This function moves the striker using a joystick.
-{
-    int8_t K = ks->k_speed;
-    int32_t old_x = ks->posi.x;
-
-    int16_t x_value = read_joystick_x()-2000;
-    uint8_t dead_zone = 50;
-
-    if (abs(x_value)<50){
+    if (abs(x_value)<50){ // Not to do anything when within dead zone
     //nothing
 
     }
-    else if( x_value >= dead_zone){
+    else if( x_value >= dead_zone){ // if press left, move left
 
-     ks->vel.x = ( (x_value-dead_zone) << 14);
+     ks->vel.x = ( (x_value-dead_zone) << 14);  //gives the velocity a value dependent on the analog, making it pressure sensative
 
-    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/100);
+    ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x,K/20); // velocity is multiplied by the speed constants and then added to the position
 
-        if ( ks->posi.x > ( (150 - 2 - (ks->s_size) / 2) << 14))
+        if ( ks->posi.x > ( (150 - 1 - (ks->s_size) / 2) << 14)) //striker cannot move outside the boundaries
         {
-            ks->posi.x = ((150 - 2 - (ks->s_size) / 2) << 14);
+            ks->posi.x = ((150 - 1 - (ks->s_size) / 2) << 14);
 
         }
 
     print_striker(ks );//update position
     }
- else if(  x_value <=dead_zone ){
+ else if(  x_value <= - dead_zone ){ //if press right, move right
 
-       ks->vel.x = ( (x_value+dead_zone) << 14);
+       ks->vel.x = ( (x_value+dead_zone) << 14);    ////gives the velocity a value dependent on the analog, making it pressure sensitive
 
-        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/100);
+        ks->posi.x = ks->posi.x + FIX14_MULT(ks->vel.x, K/20);     // velocity is multiplied by the speed constants and then added to the position
 
 
  if ( ks->posi.x < ( (2 + (ks->s_size) / 2) << 14))
@@ -203,8 +139,7 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
   i_angle = - i_angle;
         }
 
-
-        //This rotates the part r
+        //To bounce the angle against a surface with a incidence angle of i_angle, we rotate the coordinate system with an angle i_angle, mirror the angle in the y-axis, then rotate it back
 
         int32_t x1 = b->vel.x;
         b->vel.x = FIX14_MULT(b->vel.x, Cos(i_angle)) - FIX14_MULT(b->vel.y, Sin(i_angle));
@@ -216,46 +151,53 @@ void striker_bounce(struct striker_t *ks, struct ball_t *b, struct variables * v
         b->vel.x = FIX14_MULT(b->vel.x, Cos(-i_angle)) - FIX14_MULT(b->vel.y, Sin(-i_angle));
         b->vel.y = FIX14_MULT(x1, Sin(-i_angle)) + FIX14_MULT(b->vel.y, Cos(-i_angle));
 
+        if (b->vel.y < 1 && b->vel.y > 0)
+            b->vel.y = 1;
+            else if (b->vel.y < 0 && b->vel.y > -1)
+                b->vel.y = -1;
+
         b->posi.y =  b->posi.y - ( 2 << 14 );
 
         ks->state = 1;
         ks->a = 0;
 
+
+
         print_striker( ks );
     }
-    else if ( ( (ks->posi.y) + (1 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) ) || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
+    else if ( ( (ks->posi.y) + (2 << 14) <=  (b->posi.y)  ) && ( ( (  b->posi.x >> 14 ) < ( ( ks->posi.x - (((ks->s_size) / 2) << 14)) >> 14 ) )
+                                                    || ( ( ( b->posi.x >> 14 )  ) > ( ( ( ks->posi.x + (((ks->s_size) / 2) << 14)) >> 14 ) ) ) ) )
     {
 
-         gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball
-            printf(" ");
+      //   gotoxy( (b->posi.x >> 14 ) , ( b-> posi.y >>14) ); // Remove the previous ball
+        //    printf(" ");
+            clear_line(BORDERY-1);
 
-        if (sum == 1){
+        if (sum == 1){                      // sum is the number of balls in play
 
-            (var_main->life_count)--;
+            (var_main->life_count)--;       // reduce remaining life
             set_RGB(var_main->life_count); // Display life_count on RGB
 
             if ((var_main->life_count) >= 1)
             {
-
                 init_ng_ball(b, ks, var_main);
 
             }
-
             if ((var_main->life_count) == 0)
             {
-                test_hs(var_main);
+                test_hs(var_main);          // test if the score is higher than a high score
                 game_over(var_main, ks);
-
             }
         }
         else {
-                b->ball_life=0;
-                b->posi.x=BORDERX+5;
-                b->posi.y=5;
-                b->vel.x=0;
-                b->vel.y=0;
+                b->ball_life=0;             // remove ball from game
+                b->posi.x=BORDERX+5;        // move ball outside window
+                b->posi.y=5;                // move ball outside window
+                b->vel.x=0;                 // set ball velocity to 0
+                b->vel.y=0;                 // set ball velocity to 0
         }
     }
+
 }
 
 

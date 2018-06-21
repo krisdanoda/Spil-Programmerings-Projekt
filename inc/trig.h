@@ -18,13 +18,13 @@ struct ball_t {
     struct vector_t posi;
     struct vector_t vel;
     uint8_t ball_life;
+
 };
 
 int32_t Sin(int32_t grader);
 int32_t Cos(int32_t grader);
-void initVector(struct vector_t *v, int32_t x, int32_t y);
 void rotate(struct vector_t *v, int32_t angle);
-void updatepos(struct ball_t *b, uint16_t speed_multi);
+
 
 
 #endif /* TRIG_H_INCLUDED */
