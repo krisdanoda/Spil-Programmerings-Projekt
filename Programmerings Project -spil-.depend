@@ -493,15 +493,15 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528891593 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\ansi.c
+1529570134 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\ansi.c
 	"ansi.h"
 	"LUT.h"
 
-1528891593 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\ansi.h
+1529570133 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\ansi.h
 	"30010_io.h"
 	<string.h>
 
-1528886359 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\lut.h
+1529416416 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\lut.h
 	"30010_io.h"
 
 1528886359 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\charset.c
@@ -509,18 +509,19 @@
 
 1528886359 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\charset.h
 
-1528898456 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\controller.c
+1529570134 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\controller.c
 	"controller.h"
 
-1528891593 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\controller.h
+1529570133 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\controller.h
 	"30010_io.h"
+	"config_project.h"
 
-1528898301 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\lcd.c
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\lcd.c
 	"lcd.h"
 
-1528898300 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\lcd.h
+1529416416 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\lcd.h
 	"30010_io.h"
-	"timer.h"
+	"our_timer.h"
 	"charset.h"
 
 1528466151 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\timer.h
@@ -528,7 +529,7 @@
 	"ansi.h"
 	"controller.h"
 
-1528886359 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\lut.c
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\lut.c
 	"LUT.h"
 
 1528898456 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\startup_stm32f30x.s
@@ -539,10 +540,10 @@
 1528466151 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\timer.c
 	"timer.h"
 
-1528898456 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\trig.c
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\trig.c
 	"trig.h"
 
-1528898724 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\trig.h
+1529416416 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\trig.h
 	"30010_io.h"
 	"LUT.h"
 
@@ -841,34 +842,41 @@
 1529416065 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\block_control.c
 	"block_control.h"
 
-1528898455 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\striker.h
+1529570678 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\striker.h
 	"30010_io.h"
-	"timer.h"
+	"our_timer.h"
 	"charset.h"
 	"trig.h"
 	"LUT.h"
 	"controller.h"
 	"ansi.h"
+	<stdlib.h>
+	"ball.h"
+	"config_project.h"
+	"menu.h"
 
-1528898456 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\striker.c
+1529570678 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\striker.c
 	"striker.h"
 
-1528886431 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\menu.h
+1529325212 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\menu.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
+	"config_project.h"
+	"ansi.h"
+	"striker.h"
 
-1528898300 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\block_control.h
+1529072121 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\block_control.h
 	"30010_io.h"
 	"trig.h"
-
-1528898301 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\block_control.c
-	"block_control.h"
 	"ansi.h"
+	"config_project.h"
+	"striker.h"
 
-1528898456 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\menu.c
+1529325419 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\block_control.c
+	"block_control.h"
+
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\menu.c
 	"menu.h"
-	"stm32f30x_conf.h"
-	"30010_io.h"
 
 1529404749 source:c:\users\danjal\documents\mega\skrivebord_dtu\dtu_6_semester\programmeringsproject\git\spil-programmerings-projekt\src\menu.c
 	"menu.h"
@@ -1380,4 +1388,44 @@
 
 1529232075 source:c:\users\krist\documents\c files\spil-programmerings-projekt\src\striker.c
 	"striker.h"
+
+1529570687 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\ball.c
+	"ball.h"
+
+1529416416 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\ball.h
+	"striker.h"
+	"30010_io.h"
+	"our_timer.h"
+	"charset.h"
+	"trig.h"
+	"LUT.h"
+	"controller.h"
+	"ansi.h"
+	<stdlib.h>
+	"config_project.h"
+
+1529416416 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\our_timer.h
+	"30010_io.h"
+	"ansi.h"
+	"controller.h"
+
+1529072121 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\config_project.h
+	<time.h>
+	<stdlib.h>
+	"30010_io.h"
+
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\config_project.c
+	"config_project.h"
+
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\our_timer.c
+	"our_timer.h"
+
+1529416416 source:c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\src\power_up.c
+	"power_up.h"
+
+1529325212 c:\users\kris\documents\dtu\semester 6\programming project\spil-programmerings-projekt\inc\power_up.h
+	"30010_io.h"
+	"trig.h"
+	"striker.h"
+	"config_project.h"
 

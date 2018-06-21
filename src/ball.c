@@ -10,7 +10,7 @@ while (joy_val!= 1){ //until up is pressed
         gotoxy( (b->posi.x) >>14, (b->posi.y) >> 14); //balls position
         printf(" ");                                  //remove the printed ball
 
-        update_striker(ks, var_main);                 //lets you move the striker
+        update_striker(ks);                 //lets you move the striker
         joy_val = readJoystick(var_main);             //read the joystick value
 
         b->posi.x = ks -> posi.x;                     //places the ball at the striker's position, x axis

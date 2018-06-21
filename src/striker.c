@@ -46,8 +46,8 @@ gotoxy(  ( ( ks->posi.x  - (ks->s_size/2 << 14) )>> 14  ) , ( ( ks->posi.y ) >> 
 
 
 
-void update_striker(struct striker_t *ks, struct variables * var_main)
-// This function moves the striker using a joystick.
+void update_striker(struct striker_t *ks)
+// This function moves the striker using a joystick the external joystick
 {
     int8_t K = ks->k_speed; // a speed constant
 
@@ -86,13 +86,6 @@ void update_striker(struct striker_t *ks, struct variables * var_main)
 
     print_striker(ks );//update position
     }
-
-
-    //    if (ks->a > 700){
-    //    ks -> state = 0;
-    //    print_striker(SS, ks );
-    //    }
-    //    (ks ->a)= (ks ->a)+1;
 }
 
 
