@@ -82,7 +82,7 @@ void block(int x1, int y1, int x2, int y2, int hit) {           // print block o
     gotoxy(i, y1);                                              // update cursor position
     printf("%c", 220);                                          // print -
   }
-  gotoxy(x1, y2);                                               // bottom horizontal line
+  gotoxy(x1, y2);                                               // bottom horizontal line                                               // nederste vandrette linje
   for (i = x1; i <= x2; ++i) {
     gotoxy(i, y2);                                              // update cursor position
     printf("%c", 223);                                          // print -

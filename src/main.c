@@ -134,8 +134,8 @@ int main(void)
                     }
                 }
                 set_flag(0);
-                //gotoxy(10,90);
-                //printf("velocity y: %lu", b[0].vel.y >> 14);
+                gotoxy(10,90);
+                printf("velocity y: %lu", b[0]->vel.y >> 14);
             }
         }
     }
