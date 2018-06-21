@@ -135,7 +135,6 @@ int main(void)
                 }
                 set_flag(0);
 
-
             }
         }
     }
